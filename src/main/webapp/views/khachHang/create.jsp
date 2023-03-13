@@ -14,6 +14,7 @@
 <body>
 
 <div class="col-8 offset-2">
+    <h1>Thêm mới Khách hàng</h1>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/khach-hang/store">
         <div class="row mt-3">

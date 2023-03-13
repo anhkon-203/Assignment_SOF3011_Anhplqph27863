@@ -23,8 +23,8 @@
     </thead>
     <tbody>
     <tr>
-        <th scope="row">${ma}</th>
-        <td>${ten}</td>
+        <th scope="row">${qlsp.ma}</th>
+        <td>${qlsp.ten}</td>
     </tr>
     </tbody>
 </table>

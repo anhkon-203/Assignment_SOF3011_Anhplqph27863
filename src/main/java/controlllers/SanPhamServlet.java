@@ -3,9 +3,10 @@ package controlllers;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.apache.commons.beanutils.BeanUtils;
+import view_model.QLSP;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet({
         "/san-pham/index",    // GET
@@ -43,10 +44,13 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        String ma  = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        request.setAttribute("ma", "SP1");
-        request.setAttribute("ten", "Áo thun");
+        try {
+            QLSP qlsp = new QLSP();
+            BeanUtils.populate(qlsp, request.getParameterMap());
+                request.setAttribute("qlsp", qlsp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         request.getRequestDispatcher("/views/sanPham/index.jsp").forward(request, response);
     }
 }

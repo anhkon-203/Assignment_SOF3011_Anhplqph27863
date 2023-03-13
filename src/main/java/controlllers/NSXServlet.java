@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
+import view_model.QLNSX;
 
 import java.io.IOException;
 
@@ -44,10 +46,13 @@ public class NSXServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        String ma  = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        request.setAttribute("ma", "NSX1");
-        request.setAttribute("ten", "Nhà sản xuất 1");
+        try {
+            QLNSX qlnsx = new QLNSX();
+            BeanUtils.populate(qlnsx, request.getParameterMap());
+            request.setAttribute("qlnsx", qlnsx);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         request.getRequestDispatcher("/views/nSX/index.jsp").forward(request, response);
     }
 }
