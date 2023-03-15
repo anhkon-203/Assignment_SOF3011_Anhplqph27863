@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="/Assignment_Sof3011_war_exploded/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Thông tin Cửa Hàng</h1>
-<a href="/Assignment_Sof3011_war_exploded/cua-hang/create" class="btn btn-success mt-3">Add</a>
+<h1>Thông tin Chi tiết sản phẩm</h1>
+<a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/create" class="btn btn-success mt-3">Add</a>
 <c:if test="${ f:length(list) == 0 }">
     <h4 class="text-center">Không có dữ liệu</h4>
 </c:if>
@@ -26,24 +26,32 @@
         <thead>
         <tr>
             <th>STT</th>
-            <th>Mã</th>
-            <th>Tên</th>
-            <th>Địa chỉ</th>
-            <th>Thành phố</th>
-            <th>Quốc gia</th>
+            <th>Năm bảo hành</th>
+            <th>Mô tả</th>
+            <th>Số lượng tồn</th>
+            <th>Giá nhập</th>
+            <th>Giá bán</th>
+            <th>Sản phẩm</th>
+            <th>NSX</th>
+            <th>Màu sắc</th>
+            <th>Dòng Sản phẩm</th>
                 <%--            <th class="col-2 text-center">Action</th>--%>
         </tr>
         </thead>
         <tbody>
 
-        <c:forEach var="cuaHang" items="${ list }" varStatus="status">
+        <c:forEach var="ctsp" items="${ list }" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
-                <td>${ cuaHang.ma }</td>
-                <td>${ cuaHang.ten }</td>
-                <td>${ cuaHang.diaChi }</td>
-                <td>${ cuaHang.thanhPho }</td>
-                <td>${ cuaHang.quocGia }</td>
+                <td>${ ctsp.namBaoHanh }</td>
+                <td>${ ctsp.moTa }</td>
+                <td>${ ctsp.soLuongTon }</td>
+                <td>${ ctsp.giaNhap }</td>
+                <td>${ ctsp.giaBan }</td>
+                <td>${ ctsp.tenSp }</td>
+                <td>${ ctsp.tenNSX }</td>
+                <td>${ ctsp.tenMauSac }</td>
+                <td>${ ctsp.tenDongSp }</td>
 
                     <%--                <td class="text-center">--%>
                     <%--                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/edit?ma=${ nsx.ma }"--%>

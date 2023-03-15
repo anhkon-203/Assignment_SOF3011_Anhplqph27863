@@ -8,6 +8,7 @@ import entitis.DongSp;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
+import viewModel.DongSanPhamViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -20,7 +21,7 @@ public class DongSpRepository {
 
     public List<DongSp> getList() {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery(" select d from DongSp d ORDER BY d.ma ASC ");
+        Query query = session.createQuery("from DongSp");
         List<DongSp> lst = query.getResultList();
         return lst;
 

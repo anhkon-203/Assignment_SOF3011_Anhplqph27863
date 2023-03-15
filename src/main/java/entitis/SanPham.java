@@ -4,6 +4,7 @@
  */
 package entitis;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,13 +23,14 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class SanPham implements Serializable {
 
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     @Column(name = "idSp", columnDefinition = "uniqueidentifier")
-    private String idSanPham;
+    private String id;
 
     @Column(name = "ma", unique = true)
     private String ma;

@@ -9,52 +9,62 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="done 5 bảng">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/ChiTietSp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/ChucVu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/CuaHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/DongSp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/GioHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/GioHangChiTiet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/HoaDon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/HoaDonChiTiet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/KhachHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/MauSac.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/NSX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/NhanVien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/SanPham.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/DongSpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/KhachHangService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/MauSacService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/NhaSanXuatService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/SanPhamService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/DongSpServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/KhachHangServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/MauSacServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/NhaSanXuatServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/SanPhamServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="connect Database">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/ChiTietSanPhamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/ChiTietSanPhamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/CuaHangService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/ChiTietSanPhamServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/CuaHangServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/chiTietSanPham/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/chiTietSanPham/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/dongSp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/dongSp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/ChiTietSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/ChiTietSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/ChucVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/ChucVu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/CuaHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/CuaHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/DongSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/DongSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/GioHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/GioHangChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/GioHangChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/HoaDonChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/MauSac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/MauSac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/NSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/NSX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/NhanVien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entitis/SanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/DongSpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/DongSpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/KhachHangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/MauSacService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MauSacService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/NhaSanXuatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/NhaSanXuatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SanPhamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/DongSpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/DongSpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/KhachHangServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/KhachHangServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/MauSacServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/MauSacServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/NhaSanXuatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/NhaSanXuatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/SanPhamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/SanPhamServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view_model/QLCH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/CuaHangViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view_model/QLDSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/DongSanPhamViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view_model/QLKH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/KhachHangViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view_model/QLMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/MauSacViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view_model/QLNSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/NSXViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view_model/QLSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/SanPhamViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/khachHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/khachHang/create.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/khachHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/khachHang/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/mauSac/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/mauSac/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/nSX/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/nSX/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/sanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/sanPham/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,35 +104,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/java/repositories&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/views/chiTietSanPham",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\chiTietSanPham" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\repositories" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\services\impl" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\services" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\entitis" />
-      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\cuaHang" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="repositories" />
-      <recent name="utilities" />
-      <recent name="view_model" />
+      <recent name="services.impl" />
+      <recent name="services" />
+      <recent name="viewModel" />
       <recent name="controlllers" />
     </key>
   </component>
@@ -286,7 +302,8 @@
       <workItem from="1678722750346" duration="778000" />
       <workItem from="1678770036388" duration="3245000" />
       <workItem from="1678866227397" duration="7172000" />
-      <workItem from="1678873482639" duration="4399000" />
+      <workItem from="1678873482639" duration="5038000" />
+      <workItem from="1678894569685" duration="12440000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -302,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678723345455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="connect Database">
+      <created>1678881849335</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678881849335</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +347,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="done 5 bảng" />
-    <option name="LAST_COMMIT_MESSAGE" value="done 5 bảng" />
+    <MESSAGE value="connect Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect Database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

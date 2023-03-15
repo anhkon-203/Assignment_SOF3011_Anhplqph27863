@@ -9,6 +9,7 @@ import entitis.SanPham;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
+import viewModel.SanPhamViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -21,7 +22,7 @@ public class SanPhamRepository {
 
     public List<SanPham> getList() {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery(" select s from SanPham s ORDER BY s.ma ASC ");
+        Query query = session.createQuery("from SanPham");
         List<SanPham> lstSp = query.getResultList();
         return lstSp;
 
@@ -78,10 +79,4 @@ public class SanPhamRepository {
         return results;
     }
 
-    public static void main(String[] args) {
-        List<SanPham> list = new SanPhamRepository().getList();
-        for (SanPham x : list) {
-            System.out.println(x.toString());
-        }
-    }
 }

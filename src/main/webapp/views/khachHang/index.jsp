@@ -33,7 +33,6 @@
                 <th>Thành phố</th>
                 <th>Quốc gia</th>
                 <th>Số điện thoại</th>
-                <th>Email</th>
             </tr>
             <c:forEach var="khachHang" items="${listKhachHang}" varStatus="status">
                 <tr>
@@ -45,7 +44,6 @@
                     <td>${khachHang.thanhPho}</td>
                     <td>${khachHang.quocGia}</td>
                     <td>${khachHang.sdt}</td>
-                    <td>${khachHang.email}</td>
                 </tr>
             </c:forEach>
         </table>

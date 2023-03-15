@@ -4,6 +4,7 @@
  */
 package entitis;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,13 +23,14 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class NSX implements Serializable{
     
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "idNSX", columnDefinition = "uniqueidentifier")
-    private String idNhaSX;
+    @Column(name = "id", columnDefinition = "uniqueidentifier")
+    private String id;
 
     @Column(name = "ma", unique = true)
     private String ma;

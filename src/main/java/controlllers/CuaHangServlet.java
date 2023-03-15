@@ -1,14 +1,18 @@
 package controlllers;
 
+import entitis.CuaHang;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import view_model.QLCH;
+import services.CuaHangService;
+import services.impl.CuaHangServiceImpl;
+import viewModel.CuaHangViewModel;
 
 import java.io.IOException;
+import java.util.List;
 
 
 @WebServlet({
@@ -21,13 +25,22 @@ import java.io.IOException;
 })
 
 public class CuaHangServlet extends HttpServlet {
-
+    private CuaHangService cuahangService = new CuaHangServiceImpl();
     @Override
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        this.create(request, response);
+        String url = request.getRequestURI();
+        if (url.contains("create")) {
+            create(request, response);
+        } else if (url.contains("edit")) {
+//            edit(request, response);
+        } else if (url.contains("delete")) {
+//            delete(request, response);
+        } else {
+            this.index(request, response);
+        }
     }
 
     @Override
@@ -43,14 +56,13 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            QLCH qlch = new QLCH();
-            BeanUtils.populate(qlch, request.getParameterMap());
-            request.setAttribute("qlch", qlch);
+            CuaHang cuaHang = new CuaHang();
+            BeanUtils.populate(cuaHang, request.getParameterMap());
+            cuahangService.them(cuaHang);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("/views/cuaHang/index.jsp")
-                .forward(request, response);
+       response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
 
     }
 
@@ -59,6 +71,15 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         request.getRequestDispatcher("/views/cuaHang/create.jsp")
+                .forward(request, response);
+    }
+    protected void index(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        List<CuaHang> list = cuahangService.getList();
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/views/cuaHang/index.jsp")
                 .forward(request, response);
     }
 }

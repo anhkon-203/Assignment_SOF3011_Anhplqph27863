@@ -1,6 +1,7 @@
 package services;
 
 import entitis.KhachHang;
+import viewModel.KhachHangViewModel;
 
 import java.util.List;
 

@@ -1,6 +1,7 @@
 package services;
 
 import entitis.NSX;
+import viewModel.NSXViewModel;
 
 import java.util.List;
 

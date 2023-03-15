@@ -72,10 +72,10 @@
                     <option value="new_york">New York</option>
                 </select>
             </div>
-            <div class=" mt-3 col-8 offset-2 text-center">
-                <label >Email</label>
-                <input type="email" name="email" class="form-control"/>
-            </div>
+<%--            <div class=" mt-3 col-8 offset-2 text-center">--%>
+<%--                <label >Email</label>--%>
+<%--                <input type="email" name="email" class="form-control"/>--%>
+<%--            </div>--%>
         </div>
         <div class="row mt-3">
             <div class="col-6">

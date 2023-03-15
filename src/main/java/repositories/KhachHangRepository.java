@@ -4,6 +4,7 @@ import entitis.KhachHang;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
+import viewModel.KhachHangViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 public class KhachHangRepository {
     public List<KhachHang> getList() {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery(" select k from KhachHang k ORDER BY k.ma ASC ");
+        Query query = session.createQuery("from KhachHang");
         List<KhachHang> lst = query.getResultList();
         return lst;
     }

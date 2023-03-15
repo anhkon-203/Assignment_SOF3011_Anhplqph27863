@@ -8,71 +8,73 @@ import entitis.MauSac;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
+import viewModel.MauSacViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
 
 /**
- *
  * @author anhkon
  */
 public class MauSacRepository {
 
     public List<MauSac> getList() {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery(" select m from MauSac m ORDER BY m.ma ASC ");
+        Query query = session.createQuery(
+                "from MauSac");
         List<MauSac> lst = query.getResultList();
         return lst;
 
     }
-    
+
     public boolean them(MauSac mauSac) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-           session.save(mauSac);
-           transaction.commit();
-           return true;
+        try (Session session = ConnectDB.getFACTORY().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(mauSac);
+            transaction.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-    
-    public boolean sua(String ma,MauSac mauSac) {
+
+    public boolean sua(String ma, MauSac mauSac) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
+        try (Session session = ConnectDB.getFACTORY().openSession()) {
+            transaction = session.beginTransaction();
             Query query = session.createQuery("update MauSac set  ten =:ten where ma = :ma");
-            query.setParameter("ten",mauSac.getTen());
-            query.setParameter("ma",ma);
+            query.setParameter("ten", mauSac.getTen());
+            query.setParameter("ma", ma);
             query.executeUpdate();
-           transaction.commit();
-           return true;
+            transaction.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-    
+
     public boolean xoa(MauSac mauSac) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
+        try (Session session = ConnectDB.getFACTORY().openSession()) {
+            transaction = session.beginTransaction();
             Query query = session.createQuery("delete from MauSac  where  ma = :ma");
-            query.setParameter("ma",mauSac.getMa());
+            query.setParameter("ma", mauSac.getMa());
             query.executeUpdate();
-           transaction.commit();
-           return true;
+            transaction.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
+
     public List<String> check(String ma) {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select ma from  MauSac  where ma=:ma");
-        query.setParameter("ma",ma);
+        query.setParameter("ma", ma);
         List<String> results = query.getResultList();
         return results;
     }

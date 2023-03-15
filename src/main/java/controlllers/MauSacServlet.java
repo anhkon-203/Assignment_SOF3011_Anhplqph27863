@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import services.MauSacService;
 import services.impl.MauSacServiceImpl;
-import view_model.QLMS;
+import viewModel.MauSacViewModel;
 
 import java.io.IOException;
 import java.util.List;

@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import services.NhaSanXuatService;
 import services.impl.NhaSanXuatServiceImpl;
-import view_model.QLNSX;
+import viewModel.NSXViewModel;
 
 import java.io.IOException;
 import java.util.List;

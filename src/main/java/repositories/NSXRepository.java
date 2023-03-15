@@ -8,6 +8,7 @@ import entitis.NSX;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
+import viewModel.NSXViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -20,7 +21,7 @@ public class NSXRepository {
 
     public List<NSX> getList() {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery(" select n from NSX n ORDER BY n.ma ASC ");
+        Query query = session.createQuery("from NSX");
         List<NSX> lst = query.getResultList();
         return lst;
 

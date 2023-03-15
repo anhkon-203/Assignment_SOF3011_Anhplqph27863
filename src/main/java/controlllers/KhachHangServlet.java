@@ -12,10 +12,9 @@ import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
 import services.KhachHangService;
 import services.impl.KhachHangServiceImpl;
-import view_model.QLKH;
+import viewModel.KhachHangViewModel;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

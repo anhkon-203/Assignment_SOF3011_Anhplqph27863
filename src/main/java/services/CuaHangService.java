@@ -4,7 +4,9 @@
  */
 package services;
 
+import entitis.CuaHang;
 import entitis.SanPham;
+import viewModel.CuaHangViewModel;
 import viewModel.SanPhamViewModel;
 
 import java.util.List;
@@ -13,15 +15,9 @@ import java.util.List;
  *
  * @author anhkon
  */
-public interface SanPhamService {
+public interface CuaHangService {
 
-    public boolean them(SanPham sanPham);
+    public boolean them(CuaHang cuaHang);
 
-    public boolean sua(String ma, SanPham sanPham);
-
-    public boolean xoa(SanPham sanPham);
-
-    public List<String> check(String ma);
-
-    public List<SanPham> getList();
+    public List<CuaHang> getList();
 }

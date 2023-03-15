@@ -27,18 +27,18 @@
             </div>
             <div class="mt-3">
                 <label>Địa chỉ</label>
-                <input type="text" name="dia_chi" class="form-control"/>
+                <input type="text" name="diaChi" class="form-control"/>
             </div>
             <div class="mt-3">
                 <label>Quốc gia</label>
-                <select name="quoc_gia" class="form-select">
+                <select name="quocGia" class="form-select">
                     <option value="vi">Việt Nam</option>
                     <option value="us">Mỹ</option>
                 </select>
             </div>
             <div class="mt-3">
                 <label>Thành phố</label>
-                <select name="thanh_pho" class="form-select">
+                <select name="thanhPho" class="form-select">
                     <option value="ha_noi">Hà Nội</option>
                     <option value="new_york">New York</option>
                 </select>
