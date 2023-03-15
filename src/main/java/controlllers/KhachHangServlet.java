@@ -1,5 +1,6 @@
 package controlllers;
 
+import entitis.KhachHang;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,11 +10,14 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
+import services.KhachHangService;
+import services.impl.KhachHangServiceImpl;
 import view_model.QLKH;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @WebServlet({
@@ -26,13 +30,24 @@ import java.util.Date;
 })
 
 public class KhachHangServlet extends HttpServlet {
+    private KhachHangService khachHangService = new KhachHangServiceImpl();
 
     @Override
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        this.create(request, response);
+
+        String url = request.getRequestURI();
+        if (url.contains("create")) {
+            create(request, response);
+        } else if (url.contains("edit")) {
+//            edit(request, response);
+        } else if (url.contains("delete")) {
+//            delete(request, response);
+        } else {
+            this.index(request, response);
+        }
     }
 
     @Override
@@ -51,14 +66,13 @@ public class KhachHangServlet extends HttpServlet {
             DateTimeConverter dtc = new DateConverter(new Date());
             dtc.setPattern("yyyy-MM-dd");
             ConvertUtils.register(dtc, Date.class);
-            QLKH qlkh = new QLKH();
-            BeanUtils.populate(qlkh, request.getParameterMap());
-            request.setAttribute("qlkh", qlkh);
+            KhachHang khachHang = new KhachHang();
+            BeanUtils.populate(khachHang, request.getParameterMap());
+            khachHangService.them(khachHang);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("/views/khachHang/index.jsp")
-                .forward(request, response);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
 
     }
 
@@ -67,6 +81,16 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         request.getRequestDispatcher("/views/khachHang/create.jsp")
+                .forward(request, response);
+    }
+
+    protected void index(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        List<KhachHang> listKhachHang = khachHangService.getList();
+        request.setAttribute("listKhachHang", listKhachHang);
+        request.getRequestDispatcher("/views/khachHang/index.jsp")
                 .forward(request, response);
     }
 }

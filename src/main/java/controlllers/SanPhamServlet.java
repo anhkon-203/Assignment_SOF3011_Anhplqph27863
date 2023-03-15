@@ -1,12 +1,18 @@
 package controlllers;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import entitis.SanPham;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import view_model.QLSP;
+import services.SanPhamService;
+import services.impl.SanPhamServiceImpl;
+
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet({
         "/san-pham/index",    // GET
@@ -17,20 +23,45 @@ import java.io.IOException;
         "/san-pham/update",   // POST
 })
 public class SanPhamServlet extends HttpServlet {
+    private SanPhamService sanPhamService = new SanPhamServiceImpl();
+
     @Override
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        this.create(request, response);
+        String url = request.getRequestURI();
+        if (url.contains("create")) {
+            create(request, response);
+        } else if (url.contains("edit")) {
+//            edit(request, response);
+        } else if (url.contains("delete")) {
+//            delete(request, response);
+        } else {
+            this.index(request, response);
+        }
     }
-
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.store(request, response);
+    }
+
+    protected void store(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        try {
+            SanPham sp = new SanPham();
+            BeanUtils.populate(sp, request.getParameterMap());
+            sanPhamService.them(sp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
     protected void create(
             HttpServletRequest request,
@@ -39,18 +70,13 @@ public class SanPhamServlet extends HttpServlet {
             ServletException, IOException {
         request.getRequestDispatcher("/views/sanPham/create.jsp").forward(request, response);
     }
-    protected void store(
+    protected void index(
             HttpServletRequest request,
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        try {
-            QLSP qlsp = new QLSP();
-            BeanUtils.populate(qlsp, request.getParameterMap());
-                request.setAttribute("qlsp", qlsp);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        List<SanPham> list = sanPhamService.getList();
+        request.setAttribute("list", list);
         request.getRequestDispatcher("/views/sanPham/index.jsp").forward(request, response);
     }
 }

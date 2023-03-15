@@ -9,16 +9,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view_model/QLCH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/index.jsp" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="done 5 bảng">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/ChiTietSp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/ChucVu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/CuaHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/DongSp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/GioHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/GioHangChiTiet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/HoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/HoaDonChiTiet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/KhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/MauSac.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/NSX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/NhanVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entitis/SanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/DongSpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/KhachHangService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/MauSacService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/NhaSanXuatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/SanPhamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/DongSpServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/KhachHangServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/MauSacServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/NhaSanXuatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/impl/SanPhamServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/dongSp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/dongSp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/khachHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/khachHang/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/khachHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/khachHang/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/mauSac/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/mauSac/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/nSX/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/nSX/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/sanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/sanPham/index.jsp" afterDir="false" />
     </list>
@@ -30,13 +64,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -63,7 +101,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/SP23B2_SOF3011_IT17313&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/java/repositories&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
@@ -72,21 +110,36 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\repositories" />
+      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\services\impl" />
+      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\services" />
+      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\java\entitis" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\cuaHang" />
-      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views" />
-      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\dongSp" />
-      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\mauSac" />
-      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\nSX" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="repositories" />
+      <recent name="utilities" />
       <recent name="view_model" />
       <recent name="controlllers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.6">
+    <configuration name="ConnectDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utilities.ConnectDB" />
+      <module name="Assignment_Sof3011" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 10.1.6" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.6" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -208,6 +261,11 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ConnectDB" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -225,7 +283,10 @@
       <workItem from="1678692618946" duration="2541000" />
       <workItem from="1678721413944" duration="318000" />
       <workItem from="1678722060918" duration="253000" />
-      <workItem from="1678722750346" duration="449000" />
+      <workItem from="1678722750346" duration="778000" />
+      <workItem from="1678770036388" duration="3245000" />
+      <workItem from="1678866227397" duration="7172000" />
+      <workItem from="1678873482639" duration="4399000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -234,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678563603843</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="done 5 bảng">
+      <created>1678723345455</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678723345455</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +322,18 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="done 5 bảng" />
+    <option name="LAST_COMMIT_MESSAGE" value="done 5 bảng" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,14 +1,17 @@
 package controlllers;
 
+import entitis.DongSp;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import view_model.QLDSP;
+import services.DongSpService;
+import services.impl.DongSpServiceImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet({
         "/dong-san-pham/index",    // GET
@@ -19,15 +22,26 @@ import java.io.IOException;
         "/dong-san-pham/update",   // POST
 })
 public class DongSanPhamServlet extends HttpServlet {
+    private DongSpService dongSpService = new DongSpServiceImpl();
+
     @Override
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        this.create(request, response);
-    }
 
+        String url = request.getRequestURI();
+        if (url.contains("create")) {
+            create(request, response);
+        } else if (url.contains("edit")) {
+//            edit(request, response);
+        } else if (url.contains("delete")) {
+//            delete(request, response);
+        } else {
+            this.index(request, response);
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,12 +62,22 @@ public class DongSanPhamServlet extends HttpServlet {
             throws
             ServletException, IOException {
         try {
-            QLDSP qldsp = new QLDSP();
-            BeanUtils.populate(qldsp, request.getParameterMap());
-            request.setAttribute("qldsp", qldsp);
+            DongSp dongSp = new DongSp();
+            BeanUtils.populate(dongSp, request.getParameterMap());
+            dongSpService.them(dongSp);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/dong-san-pham/index");
+    }
+
+    protected void index(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        List<DongSp> list = dongSpService.getList();
+        request.setAttribute("list", list);
         request.getRequestDispatcher("/views/dongSp/index.jsp").forward(request, response);
     }
 }
