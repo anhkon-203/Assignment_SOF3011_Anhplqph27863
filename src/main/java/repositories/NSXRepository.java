@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class NSXRepository {
 
-    public List<NSX> getList() {
+    public List<NSX> getAll() {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("from NSX");
         List<NSX> lst = query.getResultList();
@@ -27,7 +27,7 @@ public class NSXRepository {
 
     }
     
-    public boolean them(NSX nsx) {
+    public boolean insert(NSX nsx) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -40,7 +40,7 @@ public class NSXRepository {
         }
     }
     
-    public boolean sua(String ma,NSX nsx) {
+    public boolean update(String ma,NSX nsx) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -56,7 +56,7 @@ public class NSXRepository {
         }
     }
     
-    public boolean xoa(NSX nsx) {
+    public boolean delete(NSX nsx) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -70,12 +70,11 @@ public class NSXRepository {
             return false;
         }
     }
-    public List<String> check(String ma) {
+    public NSX findByMa(String ma) {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("select ma from  NSX  where ma=:ma");
+        Query query = session.createQuery("select n from  NSX n where ma=:ma");
         query.setParameter("ma",ma);
-        List<String> results = query.getResultList();
-        return results;
+        NSX nsx = (NSX) query.getSingleResult();
+        return nsx;
     }
-
 }

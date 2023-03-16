@@ -7,9 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import services.DongSpService;
-import services.impl.DongSpServiceImpl;
-import viewModel.DongSanPhamViewModel;
+import repositories.DongSpRepository;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +22,7 @@ import java.util.List;
         "/dong-san-pham/update",   // POST
 })
 public class DongSanPhamServlet extends HttpServlet {
-    private DongSpService dongSpService = new DongSpServiceImpl();
+    private DongSpRepository dongSpRepository = new DongSpRepository();
 
     @Override
     protected void doGet(
@@ -36,9 +35,9 @@ public class DongSanPhamServlet extends HttpServlet {
         if (url.contains("create")) {
             create(request, response);
         } else if (url.contains("edit")) {
-//            edit(request, response);
+            edit(request, response);
         } else if (url.contains("delete")) {
-//            delete(request, response);
+            delete(request, response);
         } else {
             this.index(request, response);
         }
@@ -65,7 +64,7 @@ public class DongSanPhamServlet extends HttpServlet {
         try {
             DongSp dongSp = new DongSp();
             BeanUtils.populate(dongSp, request.getParameterMap());
-            dongSpService.them(dongSp);
+            dongSpRepository.insert(dongSp);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,8 +76,28 @@ public class DongSanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        List<DongSp> list = dongSpService.getList();
+        List<DongSp> list = dongSpRepository.getAll();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/views/dongSp/index.jsp").forward(request, response);
+    }
+    protected void delete(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+            String ma = request.getParameter("ma");
+            DongSp dongSp = this.dongSpRepository.findByMa(ma);
+            dongSpRepository.delete(dongSp);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/dong-san-pham/index");
+    }
+    protected void edit(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        String ma = request.getParameter("ma");
+        DongSp dongSp = this.dongSpRepository.findByMa(ma);
+        request.setAttribute("dongSp",dongSp);
+        request.getRequestDispatcher("/views/dongSp/edit.jsp").forward(request, response);
     }
 }

@@ -27,7 +27,6 @@
         <tr>
             <th>STT</th>
             <th>Năm bảo hành</th>
-            <th>Mô tả</th>
             <th>Số lượng tồn</th>
             <th>Giá nhập</th>
             <th>Giá bán</th>
@@ -35,7 +34,8 @@
             <th>NSX</th>
             <th>Màu sắc</th>
             <th>Dòng Sản phẩm</th>
-                <%--            <th class="col-2 text-center">Action</th>--%>
+            <th>Mô tả </th>
+                            <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -44,7 +44,6 @@
             <tr>
                 <td>${status.index + 1}</td>
                 <td>${ ctsp.namBaoHanh }</td>
-                <td>${ ctsp.moTa }</td>
                 <td>${ ctsp.soLuongTon }</td>
                 <td>${ ctsp.giaNhap }</td>
                 <td>${ ctsp.giaBan }</td>
@@ -52,14 +51,16 @@
                 <td>${ ctsp.tenNSX }</td>
                 <td>${ ctsp.tenMauSac }</td>
                 <td>${ ctsp.tenDongSp }</td>
+                <td>${ ctsp.moTa }</td>
 
-                    <%--                <td class="text-center">--%>
-                    <%--                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/edit?ma=${ nsx.ma }"--%>
-                    <%--                       class="btn btn-primary">Update</a>--%>
-                    <%--                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/delete?ma=${ nsx.ma }"--%>
-                    <%--                       class="btn btn-danger">Delete</a>--%>
-                    <%--                </td>--%>
+                <td class="text-center">
+                    <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"
+                       class="btn btn-primary">Update</a>
+                    <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/delete?id=${ ctsp.id }"
+                       class="btn btn-danger">Delete</a>
+                </td>
             </tr>
+
         </c:forEach>
         </tbody>
     </table>

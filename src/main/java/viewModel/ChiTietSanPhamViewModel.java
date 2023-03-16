@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 @Setter
 @AllArgsConstructor
 public class ChiTietSanPhamViewModel {
+    private String id;
+    
     private int namBaoHanh;
 
     private String moTa;

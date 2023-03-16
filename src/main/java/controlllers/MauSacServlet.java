@@ -7,9 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import services.MauSacService;
-import services.impl.MauSacServiceImpl;
-import viewModel.MauSacViewModel;
+import repositories.MauSacRepository;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +22,7 @@ import java.util.List;
         "/mau-sac/update",   // POST
 })
 public class MauSacServlet extends HttpServlet {
-    private MauSacService mauSacService = new MauSacServiceImpl();
+    private MauSacRepository mauSacRepository = new MauSacRepository();
 
     @Override
     protected void doGet(
@@ -36,9 +35,9 @@ public class MauSacServlet extends HttpServlet {
         if (url.contains("create")) {
             create(request, response);
         } else if (url.contains("edit")) {
-//            edit(request, response);
+            edit(request, response);
         } else if (url.contains("delete")) {
-//            delete(request, response);
+            delete(request, response);
         } else {
             this.index(request, response);
         }
@@ -66,7 +65,7 @@ public class MauSacServlet extends HttpServlet {
         try {
             MauSac mauSac = new MauSac();
             BeanUtils.populate(mauSac, request.getParameterMap());
-            mauSacService.them(mauSac);
+            mauSacRepository.insert(mauSac);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,8 +77,29 @@ public class MauSacServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        List<MauSac> list = mauSacService.getList();
+        List<MauSac> list = mauSacRepository.getAll();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/views/mauSac/index.jsp").forward(request, response);
+    }
+
+    protected void delete(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        String ma = request.getParameter("ma");
+        MauSac mauSac = mauSacRepository.findByMa(ma);
+        mauSacRepository.delete(mauSac);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
+    }
+    protected void edit(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        String ma = request.getParameter("ma");
+        MauSac mauSac = mauSacRepository.findByMa(ma);
+        request.setAttribute("mauSac", mauSac);
+        request.getRequestDispatcher("/views/mauSac/edit.jsp").forward(request, response);
     }
 }

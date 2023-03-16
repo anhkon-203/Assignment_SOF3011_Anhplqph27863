@@ -7,9 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import services.NhaSanXuatService;
-import services.impl.NhaSanXuatServiceImpl;
-import viewModel.NSXViewModel;
+import repositories.NSXRepository;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -24,7 +23,7 @@ import java.util.List;
 })
 public class NSXServlet extends HttpServlet {
 
-    private NhaSanXuatService nhaSanXuatService = new NhaSanXuatServiceImpl();
+    private NSXRepository nsxRepository = new NSXRepository();
 
     @Override
     protected void doGet(
@@ -36,9 +35,9 @@ public class NSXServlet extends HttpServlet {
         if (url.contains("create")) {
             create(request, response);
         } else if (url.contains("edit")) {
-//            edit(request, response);
+            edit(request, response);
         } else if (url.contains("delete")) {
-//            delete(request, response);
+            delete(request, response);
         } else {
             this.index(request, response);
         }
@@ -66,7 +65,7 @@ public class NSXServlet extends HttpServlet {
         try {
             NSX nsx = new NSX();
             BeanUtils.populate(nsx, request.getParameterMap());
-            nhaSanXuatService.insert(nsx);
+            nsxRepository.insert(nsx);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,8 +77,29 @@ public class NSXServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        List<NSX> list = nhaSanXuatService.getList();
+        List<NSX> list = nsxRepository.getAll();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/views/nSX/index.jsp").forward(request, response);
+    }
+
+    protected void delete(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        String ma = request.getParameter("ma");
+        NSX nsx = nsxRepository.findByMa(ma);
+        nsxRepository.delete(nsx);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
+    }
+    protected void edit(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+       String ma = request.getParameter("ma");
+        NSX nsx = nsxRepository.findByMa(ma);
+        request.setAttribute("nsx", nsx);
+        request.getRequestDispatcher("/views/nSX/edit.jsp").forward(request, response);
     }
 }

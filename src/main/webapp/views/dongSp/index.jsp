@@ -28,7 +28,7 @@
             <th>STT</th>
             <th>Mã</th>
             <th>Tên</th>
-                <%--            <th class="col-2 text-center">Action</th>--%>
+            <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -39,12 +39,12 @@
                 <td>${ mauSac.ma }</td>
                 <td>${ mauSac.ten }</td>
 
-                    <%--                <td class="text-center">--%>
-                    <%--                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/edit?ma=${ nsx.ma }"--%>
-                    <%--                       class="btn btn-primary">Update</a>--%>
-                    <%--                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/delete?ma=${ nsx.ma }"--%>
-                    <%--                       class="btn btn-danger">Delete</a>--%>
-                    <%--                </td>--%>
+                <td class="text-center">
+                    <a href="/Assignment_Sof3011_war_exploded/dong-san-pham/edit?ma=${ mauSac.ma }"
+                       class="btn btn-primary">Update</a>
+                    <a href="/Assignment_Sof3011_war_exploded/dong-san-pham/delete?ma=${ mauSac.ma }"
+                       class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

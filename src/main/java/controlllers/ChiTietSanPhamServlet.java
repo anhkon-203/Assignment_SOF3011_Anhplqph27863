@@ -7,8 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import services.*;
-import services.impl.*;
+import repositories.*;
 import viewModel.*;
 
 import java.io.IOException;
@@ -25,11 +24,11 @@ import java.util.List;
 })
 
 public class ChiTietSanPhamServlet extends HttpServlet {
-    private SanPhamService sanPhamService = new SanPhamServiceImpl();
-    private NhaSanXuatService nsxService = new NhaSanXuatServiceImpl();
-    private MauSacService mausacService = new MauSacServiceImpl();
-    private DongSpService dongSanPhamService = new DongSpServiceImpl();
-    private ChiTietSanPhamService chiTietSanPhamService = new ChiTietSanPhamServiceImpl();
+    private ChiTietSanPhamRepository chiTietSanPhamRepository = new ChiTietSanPhamRepository();
+    private DongSpRepository dongSpRepository = new DongSpRepository();
+    private SanPhamRepository sanPhamRepository = new SanPhamRepository();
+    private MauSacRepository mauSacRepository = new MauSacRepository();
+    private NSXRepository nsxRepository = new NSXRepository();
     @Override
     protected void doGet(
             HttpServletRequest request,
@@ -39,9 +38,9 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         if (url.contains("create")) {
             create(request, response);
         } else if (url.contains("edit")) {
-//            edit(request, response);
+            edit(request, response);
         } else if (url.contains("delete")) {
-//            delete(request, response);
+            delete(request, response);
         } else {
             this.index(request, response);
         }
@@ -81,8 +80,9 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             chiTietSp.setMauSac(mauSac);
             chiTietSp.setNsx(nsx);
             chiTietSp.setDongSp(dongSp);
+            // Thêm vào database
             BeanUtils.populate(chiTietSp, request.getParameterMap());
-            chiTietSanPhamService.them(chiTietSp);
+            chiTietSanPhamRepository.insert(chiTietSp);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,13 +94,15 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        List<NSX> listNSX = nsxService.getList();
+        // Lấy danh sách các đối tượng
+        List<NSX> listNSX = nsxRepository.getAll();
         request.setAttribute("listNSX", listNSX);
-        List<DongSp> listDongSp = dongSanPhamService.getList();
+        List<DongSp> listDongSp = dongSpRepository.getAll();
         request.setAttribute("listDongSp", listDongSp);
-        List<MauSac> listMauSac = mausacService.getList();
+        List<MauSac> listMauSac = mauSacRepository.getAll();
         request.setAttribute("listMauSac", listMauSac);
-        List<SanPham> listSanPham = sanPhamService.getList();
+        List<SanPham> listSanPham = sanPhamRepository.getAll();
+        // Gửi danh sách các đối tượng qua view
         request.setAttribute("listSanPham", listSanPham);
         request.getRequestDispatcher("/views/chiTietSanPham/create.jsp")
                 .forward(request, response);
@@ -109,9 +111,49 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        List<ChiTietSanPhamViewModel> list = chiTietSanPhamService.getList();
+        List<ChiTietSanPhamViewModel> list = chiTietSanPhamRepository.getList();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/views/chiTietSanPham/index.jsp")
                 .forward(request, response);
+    }
+    protected void edit(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+// Lấy danh sách các đối tượng
+        List<NSX> listNSX = nsxRepository.getAll();
+        request.setAttribute("listNSX", listNSX);
+        List<DongSp> listDongSp = dongSpRepository.getAll();
+        request.setAttribute("listDongSp", listDongSp);
+        List<MauSac> listMauSac = mauSacRepository.getAll();
+        request.setAttribute("listMauSac", listMauSac);
+        List<SanPham> listSanPham = sanPhamRepository.getAll();
+        request.setAttribute("listSanPham", listSanPham);
+        // Lấy id từ url
+        String idCtsp = request.getParameter("id");
+        ChiTietSp chiTietSp = new ChiTietSp();
+        request.setAttribute("idDongsp", chiTietSanPhamRepository.getIdDongSp(idCtsp));
+        request.setAttribute("idMauSac", chiTietSanPhamRepository.getIdMauSac(idCtsp));
+        request.setAttribute("idNSX", chiTietSanPhamRepository.getIdNhaSanXuat(idCtsp));
+        request.setAttribute("idSp", chiTietSanPhamRepository.getIdSanPham(idCtsp));
+        ChiTietSp chiTietSpRepo = chiTietSanPhamRepository.getById(idCtsp);
+        request.setAttribute("chiTietSp", chiTietSpRepo);
+        request.getRequestDispatcher("/views/chiTietSanPham/edit.jsp")
+                .forward(request, response);
+    }
+    protected void delete(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        try {
+            String id = request.getParameter("id");
+            ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(id);
+            chiTietSanPhamRepository.delete(chiTietSp);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
+
     }
 }

@@ -33,6 +33,7 @@
                 <th>Thành phố</th>
                 <th>Quốc gia</th>
                 <th>Số điện thoại</th>
+                <th>Action</th>
             </tr>
             <c:forEach var="khachHang" items="${listKhachHang}" varStatus="status">
                 <tr>
@@ -44,6 +45,9 @@
                     <td>${khachHang.thanhPho}</td>
                     <td>${khachHang.quocGia}</td>
                     <td>${khachHang.sdt}</td>
+                    <td>
+                        <a href="/Assignment_Sof3011_war_exploded/khach-hang/edit?ma=${khachHang.ma}" class="btn btn-primary">Edit</a>
+                        <a href="/Assignment_Sof3011_war_exploded/khach-hang/delete?ma=${khachHang.ma}" class="btn btn-danger">Delete</a>
                 </tr>
             </c:forEach>
         </table>

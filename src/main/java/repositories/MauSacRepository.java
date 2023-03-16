@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class MauSacRepository {
 
-    public List<MauSac> getList() {
+    public List<MauSac> getAll() {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery(
                 "from MauSac");
@@ -27,7 +27,7 @@ public class MauSacRepository {
 
     }
 
-    public boolean them(MauSac mauSac) {
+    public boolean insert(MauSac mauSac) {
         Transaction transaction = null;
         try (Session session = ConnectDB.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
@@ -40,7 +40,7 @@ public class MauSacRepository {
         }
     }
 
-    public boolean sua(String ma, MauSac mauSac) {
+    public boolean update(String ma, MauSac mauSac) {
         Transaction transaction = null;
         try (Session session = ConnectDB.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
@@ -56,7 +56,7 @@ public class MauSacRepository {
         }
     }
 
-    public boolean xoa(MauSac mauSac) {
+    public boolean delete(MauSac mauSac) {
         Transaction transaction = null;
         try (Session session = ConnectDB.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
@@ -71,12 +71,12 @@ public class MauSacRepository {
         }
     }
 
-    public List<String> check(String ma) {
+    public MauSac findByMa(String ma) {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("select ma from  MauSac  where ma=:ma");
+        Query query = session.createQuery("select m from  MauSac m  where ma=:ma");
         query.setParameter("ma", ma);
-        List<String> results = query.getResultList();
-        return results;
+        MauSac mauSac = (MauSac) query.getSingleResult();
+        return mauSac;
     }
 
 }

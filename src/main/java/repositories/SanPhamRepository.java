@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class SanPhamRepository {
 
-    public List<SanPham> getList() {
+    public List<SanPham> getAll() {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("from SanPham");
         List<SanPham> lstSp = query.getResultList();
@@ -28,7 +28,7 @@ public class SanPhamRepository {
 
     }
    
-    public boolean them(SanPham sanPham) {
+    public boolean insert(SanPham sanPham) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -41,7 +41,7 @@ public class SanPhamRepository {
         }
     }
     
-    public boolean sua(String ma,SanPham sanPham) {
+    public boolean update(String ma,SanPham sanPham) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -57,7 +57,7 @@ public class SanPhamRepository {
         }
     }
     
-    public boolean xoa(SanPham sanPham) {
+    public boolean delete(SanPham sanPham) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -71,12 +71,12 @@ public class SanPhamRepository {
             return false;
         }
     }
-    public List<String> check(String ma) {
+    public SanPham findByMa(String ma) {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("select ma from  SanPham  where ma=:ma");
+        Query query = session.createQuery("from SanPham where ma = :ma");
         query.setParameter("ma",ma);
-        List<String> results = query.getResultList();
-        return results;
+        SanPham sanPham = (SanPham) query.getSingleResult();
+        return sanPham;
     }
 
 }

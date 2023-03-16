@@ -10,9 +10,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
-import services.KhachHangService;
-import services.impl.KhachHangServiceImpl;
-import viewModel.KhachHangViewModel;
+import repositories.KhachHangRepository;
 
 import java.io.IOException;
 import java.util.Date;
@@ -29,7 +27,7 @@ import java.util.List;
 })
 
 public class KhachHangServlet extends HttpServlet {
-    private KhachHangService khachHangService = new KhachHangServiceImpl();
+    private KhachHangRepository khachHangRepository = new KhachHangRepository();
 
     @Override
     protected void doGet(
@@ -41,9 +39,9 @@ public class KhachHangServlet extends HttpServlet {
         if (url.contains("create")) {
             create(request, response);
         } else if (url.contains("edit")) {
-//            edit(request, response);
+            edit(request, response);
         } else if (url.contains("delete")) {
-//            delete(request, response);
+            delete(request, response);
         } else {
             this.index(request, response);
         }
@@ -67,7 +65,7 @@ public class KhachHangServlet extends HttpServlet {
             ConvertUtils.register(dtc, Date.class);
             KhachHang khachHang = new KhachHang();
             BeanUtils.populate(khachHang, request.getParameterMap());
-            khachHangService.them(khachHang);
+            khachHangRepository.insert(khachHang);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,9 +85,30 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        List<KhachHang> listKhachHang = khachHangService.getList();
+        List<KhachHang> listKhachHang = khachHangRepository.getAll();
         request.setAttribute("listKhachHang", listKhachHang);
         request.getRequestDispatcher("/views/khachHang/index.jsp")
+                .forward(request, response);
+    }
+
+    protected void delete(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        String ma = request.getParameter("ma");
+        KhachHang khachHang = khachHangRepository.findByMa(ma);
+        khachHangRepository.delete(khachHang);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
+
+    }
+    protected void edit(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        String ma = request.getParameter("ma");
+        KhachHang khachHang = khachHangRepository.findByMa(ma);
+        request.setAttribute("khachHang", khachHang);
+        request.getRequestDispatcher("/views/khachHang/edit.jsp")
                 .forward(request, response);
     }
 }

@@ -8,7 +8,6 @@ import entitis.DongSp;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
-import viewModel.DongSanPhamViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.List;
  */
 public class DongSpRepository {
 
-    public List<DongSp> getList() {
+    public List<DongSp> getAll() {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("from DongSp");
         List<DongSp> lst = query.getResultList();
@@ -27,7 +26,7 @@ public class DongSpRepository {
 
     }
     
-    public boolean them(DongSp dongSp) {
+    public boolean insert(DongSp dongSp) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -40,7 +39,7 @@ public class DongSpRepository {
         }
     }
     
-    public boolean sua(String ma,DongSp dongSp) {
+    public boolean update(String ma,DongSp dongSp) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -56,7 +55,7 @@ public class DongSpRepository {
         }
     }
     
-    public boolean xoa(DongSp dongSp) {
+    public boolean delete(DongSp dongSp) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
@@ -70,12 +69,11 @@ public class DongSpRepository {
             return false;
         }
     }
-    public List<String> check(String ma) {
+    public DongSp findByMa(String ma) {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("select ma from  MauSac  where ma=:ma");
+        Query query = session.createQuery("select d from  DongSp d  where ma=:ma");
         query.setParameter("ma",ma);
-        List<String> results = query.getResultList();
-        return results;
+        DongSp dongSp = (DongSp) query.getSingleResult();
+        return dongSp;
     }
-
 }

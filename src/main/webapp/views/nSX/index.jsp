@@ -40,9 +40,9 @@
                 <td>${ nsx.ten }</td>
 
                 <td class="text-center">
-                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/edit?ma=${ nsx.ma }"
+                    <a href="/Assignment_Sof3011_war_exploded/nsx/edit?ma=${ nsx.ma }"
                        class="btn btn-primary">Update</a>
-                    <a href="/Assignment_Sof3011_war_exploded/admin/nsx/delete?ma=${ nsx.ma }"
+                    <a href="/Assignment_Sof3011_war_exploded/nsx/delete?ma=${ nsx.ma }"
                        class="btn btn-danger">Delete</a>
                 </td>
             </tr>
