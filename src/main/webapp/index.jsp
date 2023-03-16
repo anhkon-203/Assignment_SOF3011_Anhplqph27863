@@ -40,6 +40,14 @@
             <label for="product-detail-link">Chi tiết Sản phẩm:</label>
             <a href="chi-tiet-san-pham/store" class="form-control" id="product-detail-link">Chi tiết Sản phẩm</a>
         </div>
+        <div class="form-group">
+            <label for="order-link">Chức vụ :</label>
+            <a href="chuc-vu/store" class="form-control" id="order-link">Chức vụ</a>
+        </div>
+        <div class="form-group">
+            <label for="order-detail-link">Nhân Viên:</label>
+            <a href="nhan-vien/store" class="form-control" id="order-detail-link">Nhân Viên</a>
+        </div>
     </form>
 </div>
 

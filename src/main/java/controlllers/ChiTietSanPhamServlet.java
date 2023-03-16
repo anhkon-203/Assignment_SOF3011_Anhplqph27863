@@ -145,14 +145,9 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        try {
             String id = request.getParameter("id");
             ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(id);
             chiTietSanPhamRepository.delete(chiTietSp);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
 
     }
