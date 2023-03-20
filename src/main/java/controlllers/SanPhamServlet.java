@@ -61,9 +61,21 @@ public class SanPhamServlet extends HttpServlet {
             throws
             ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
             SanPham sp = new SanPham();
             BeanUtils.populate(sp, request.getParameterMap());
-            sanPhamRepository.insert(sp);
+            if (sanPhamRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
+                //request.getContextPath() trả về đường dẫn của ứng dụng web hiện tại (ví dụ: /Assignment_Sof3011_war_exploded)
+                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+                return;
+            }
+            if (sanPhamRepository.insert(sp)) {
+                request.getSession().setAttribute("message", "Thêm mới thành công");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

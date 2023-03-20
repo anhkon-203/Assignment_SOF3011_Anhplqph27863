@@ -11,6 +11,12 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="/Assignment_Sof3011_war_exploded/css/bootstrap.min.css">
+    <!-- Notie CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notie@4.3.1/dist/notie.min.css">
+
+    <!-- Notie JS -->
+    <script src="https://cdn.jsdelivr.net/npm/notie@4.3.1/dist/notie.min.js"></script>
+
 </head>
 <body>
 

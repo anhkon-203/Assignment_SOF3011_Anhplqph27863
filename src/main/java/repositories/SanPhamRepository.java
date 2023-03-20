@@ -73,9 +73,14 @@ public class SanPhamRepository {
     public SanPham findByMa(String ma) {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("from SanPham where ma = :ma");
-        query.setParameter("ma",ma);
-        SanPham sanPham = (SanPham) query.getSingleResult();
-        return sanPham;
+        query.setParameter("ma", ma);
+        List<SanPham> sanPhams = query.getResultList();
+        if (sanPhams.isEmpty()) {
+            return null;
+        } else {
+            return sanPhams.get(0);
+        }
     }
+
 
 }
