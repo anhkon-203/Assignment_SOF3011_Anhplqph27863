@@ -17,7 +17,7 @@
 <div class="col-8 offset-2">
     <h1>Thêm mới Cửa hàng</h1>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/store">
+          action="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/update?id=${chiTietSp.id}">
         <div class="row">
             <div class=" col-md-4 ">
                 <label  class="form-label">Năm bảo hành</label>
@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="giaNhap" class="form-label">Giá nhập</label>
+                <label class="form-label">Giá nhập</label>
                 <input type="number" class="form-control"   name="giaNhap"  value="${chiTietSp.giaNhap}"  required>
             </div>
             <div class="col-md-4 mb-3">

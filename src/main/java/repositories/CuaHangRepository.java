@@ -5,13 +5,10 @@
 package repositories;
 
 
-import entitis.CuaHang;
-import entitis.SanPham;
+import entities.CuaHang;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
-import viewModel.CuaHangViewModel;
-import viewModel.SanPhamViewModel;
 
 import javax.persistence.Query;
 import java.util.List;

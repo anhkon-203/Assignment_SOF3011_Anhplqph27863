@@ -1,6 +1,6 @@
 package controlllers;
 
-import entitis.MauSac;
+import entities.MauSac;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

@@ -9,22 +9,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="crd 7 bảng">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/ChucVuServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/NhanVienServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewModel/NhanVienViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/chucVu/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/chucVu/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/chucVu/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/nhanVien/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/nhanVien/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/nhanVien/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="crd 9 bảng">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/ChiTietSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/ChiTietSanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/ChucVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/ChucVuServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/NhanVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/ChiTietSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/ChucVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/CuaHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/CuaHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/DongSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DongSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/GioHangChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/MauSac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/MauSac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/NSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NSX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/chiTietSanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/chiTietSanPham/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/khachHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/khachHang/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/sanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/sanPham/edit.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,22 +86,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/views/nhanVien",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/views/nhanVien&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -266,6 +288,15 @@
       <workItem from="1678894569685" duration="13152000" />
       <workItem from="1678942750640" duration="4634000" />
       <workItem from="1678952820012" duration="24590000" />
+      <workItem from="1678985269051" duration="110000" />
+      <workItem from="1679031497279" duration="862000" />
+      <workItem from="1679044674394" duration="610000" />
+      <workItem from="1679141877242" duration="34000" />
+      <workItem from="1679254784354" duration="42000" />
+      <workItem from="1679255138814" duration="233000" />
+      <workItem from="1679311721392" duration="4228000" />
+      <workItem from="1679324474545" duration="1837000" />
+      <workItem from="1679326324690" duration="906000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -302,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678964546386</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="crd 9 bảng">
+      <created>1678985328916</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678985328916</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +364,8 @@
     <MESSAGE value="connect Database" />
     <MESSAGE value="thêm,load data chi tiết sp" />
     <MESSAGE value="crd 7 bảng" />
-    <option name="LAST_COMMIT_MESSAGE" value="crd 7 bảng" />
+    <MESSAGE value="crd 9 bảng" />
+    <option name="LAST_COMMIT_MESSAGE" value="crd 9 bảng" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -335,6 +374,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java</url>
           <line>52</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

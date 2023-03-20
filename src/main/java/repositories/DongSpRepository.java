@@ -4,7 +4,7 @@
  */
 package repositories;
 
-import entitis.DongSp;
+import entities.DongSp;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;

@@ -4,11 +4,10 @@
  */
 package repositories;
 
-import entitis.NSX;
+import entities.NSX;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
-import viewModel.NSXViewModel;
 
 import javax.persistence.Query;
 import java.util.List;

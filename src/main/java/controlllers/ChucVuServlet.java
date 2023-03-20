@@ -1,7 +1,6 @@
 package controlllers;
 
-import entitis.ChucVu;
-import entitis.MauSac;
+import entities.ChucVu;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import repositories.ChucVuRepository;
-import repositories.MauSacRepository;
 
 import java.io.IOException;
 import java.util.List;

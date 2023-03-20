@@ -1,6 +1,6 @@
 package controlllers;
 
-import entitis.KhachHang;
+import entities.KhachHang;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -35,12 +35,12 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
 
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -52,7 +52,12 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        this.store(request, response);
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            this.store(request, response);
+        } else if (uri.contains("update")) {
+            this.update(request, response);
+        }
     }
 
     protected void store(
@@ -66,6 +71,23 @@ public class KhachHangServlet extends HttpServlet {
             KhachHang khachHang = new KhachHang();
             BeanUtils.populate(khachHang, request.getParameterMap());
             khachHangRepository.insert(khachHang);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
+
+    }    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        try {
+            String maKH = request.getParameter("ma");
+            DateTimeConverter dtc = new DateConverter(new Date());
+            dtc.setPattern("yyyy-MM-dd");
+            ConvertUtils.register(dtc, Date.class);
+            KhachHang khachHang = new KhachHang();
+            BeanUtils.populate(khachHang, request.getParameterMap());
+            khachHangRepository.update(maKH,khachHang);
         } catch (Exception e) {
             e.printStackTrace();
         }

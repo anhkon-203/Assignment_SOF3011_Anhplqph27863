@@ -1,6 +1,6 @@
 package controlllers;
 
-import entitis.DongSp;
+import entities.DongSp;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

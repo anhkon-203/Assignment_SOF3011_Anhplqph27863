@@ -1,4 +1,4 @@
-package entitis;
+package entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,17 +9,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "HoaDonChiTiet")
+@Table(name = "GioHangChiTiet")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HoaDonChiTiet implements Serializable {
+public class GioHangChiTiet implements Serializable {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "idHoaDon")
-    private HoaDon hoaDon;
+    @JoinColumn(name = "idGioHang")
+    private GioHang gioHang;
 
     @Id
     @ManyToOne
@@ -31,6 +31,9 @@ public class HoaDonChiTiet implements Serializable {
 
     @Column(name = "DonGia", columnDefinition = "Decimal(20,0)")
     private Float donGia;
+
+    @Column(name = "DonGiaKhiGiam", columnDefinition = "Decimal(20,0)")
+    private Float donGiaKhiGiam;
 
 
 }

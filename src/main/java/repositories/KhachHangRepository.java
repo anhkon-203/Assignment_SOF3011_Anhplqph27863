@@ -1,6 +1,6 @@
 package repositories;
 
-import entitis.KhachHang;
+import entities.KhachHang;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;

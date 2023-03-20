@@ -4,8 +4,7 @@
  */
 package repositories;
 
-import entitis.ChucVu;
-import entitis.NSX;
+import entities.ChucVu;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;

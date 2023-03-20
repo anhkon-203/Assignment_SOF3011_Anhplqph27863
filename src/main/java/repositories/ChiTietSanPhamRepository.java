@@ -5,9 +5,7 @@
 package repositories;
 
 
-import entitis.ChiTietSp;
-import entitis.CuaHang;
-import entitis.DongSp;
+import entities.ChiTietSp;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
@@ -43,22 +41,30 @@ public class ChiTietSanPhamRepository {
             return false;
         }
     }
-    
-//    public boolean sua(String ma,SanPham sanPham) {
-//        Transaction transaction = null;
-//        try(Session session = ConnectDB.getFACTORY().openSession()) {
-//           transaction = session.beginTransaction();
-//            Query query = session.createQuery("update SanPham set  ten =:ten where ma = :ma");
-//            query.setParameter("ten",sanPham.getTen());
-//            query.setParameter("ma",ma);
-//            query.executeUpdate();
-//           transaction.commit();
-//           return true;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+
+    public boolean update(String id,ChiTietSp chiTietSp) {
+        Transaction transaction = null;
+        try(Session session = ConnectDB.getFACTORY().openSession()) {
+           transaction = session.beginTransaction();
+            Query query = session.createQuery("update ChiTietSp set namBaoHanh = :namBaoHanh, moTa = :moTa, soLuongTon = :soLuongTon, giaNhap = :giaNhap, giaBan = :giaBan, sanPham.id = :idSP, nsx.id = :idNSX, mauSac.id = :idMS, dongSp.id = :idDSP where id = :id");
+            query.setParameter("namBaoHanh",chiTietSp.getNamBaoHanh());
+            query.setParameter("moTa",chiTietSp.getMoTa());
+            query.setParameter("soLuongTon",chiTietSp.getSoLuongTon());
+            query.setParameter("giaNhap",chiTietSp.getGiaNhap());
+            query.setParameter("giaBan",chiTietSp.getGiaBan());
+            query.setParameter("idSP",chiTietSp.getSanPham().getId());
+            query.setParameter("idNSX",chiTietSp.getNsx().getId());
+            query.setParameter("idMS",chiTietSp.getMauSac().getId());
+            query.setParameter("idDSP",chiTietSp.getDongSp().getId());
+            query.setParameter("id",id);
+            query.executeUpdate();
+           transaction.commit();
+           return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 //
     public boolean delete(ChiTietSp chiTietSp) {
         Transaction transaction = null;

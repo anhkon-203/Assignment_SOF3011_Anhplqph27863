@@ -4,11 +4,10 @@
  */
 package repositories;
 
-import entitis.MauSac;
+import entities.MauSac;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
-import viewModel.MauSacViewModel;
 
 import javax.persistence.Query;
 import java.util.List;

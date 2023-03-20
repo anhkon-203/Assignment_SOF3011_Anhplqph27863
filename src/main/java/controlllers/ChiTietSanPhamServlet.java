@@ -1,6 +1,6 @@
 package controlllers;
 
-import entitis.*;
+import entities.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +11,7 @@ import repositories.*;
 import viewModel.*;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
@@ -34,12 +35,12 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -51,7 +52,12 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        this.store(request, response);
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            store(request, response);
+        } else if (uri.contains("update")) {
+            update(request, response);
+        }
     }
 
     protected void store(
@@ -87,6 +93,44 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             e.printStackTrace();
         }
        response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
+
+    }
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+
+        try {
+            // Lấy các giá trị từ form
+            String idDong = request.getParameter("idDong");
+            String idNSX = request.getParameter("idNSX");
+            String idMauSac = request.getParameter("idMauSac");
+            String idSp = request.getParameter("idSp");
+            String id = request.getParameter("id");
+            // Tạo đối tượng
+            DongSp dongSp = new DongSp();
+            dongSp.setId(idDong);
+            NSX nsx = new NSX();
+            nsx.setId(idNSX);
+            MauSac mauSac = new MauSac();
+            mauSac.setId(idMauSac);
+            SanPham sanPham = new SanPham();
+            sanPham.setId(idSp);
+            // Set các giá trị vào đối tượng
+            ChiTietSp chiTietSp = new ChiTietSp();
+            chiTietSp.setSanPham(sanPham);
+            chiTietSp.setMauSac(mauSac);
+            chiTietSp.setNsx(nsx);
+            chiTietSp.setDongSp(dongSp);
+            BeanUtils.populate(chiTietSp, request.getParameterMap());
+            chiTietSanPhamRepository.update(id,chiTietSp);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
 
     }
 

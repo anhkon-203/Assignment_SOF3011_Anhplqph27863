@@ -1,6 +1,6 @@
 package utilities;
 
-import entitis.*;
+import entities.*;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

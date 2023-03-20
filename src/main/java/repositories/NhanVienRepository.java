@@ -1,6 +1,6 @@
 package repositories;
 
-import entitis.NhanVien;
+import entities.NhanVien;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;

@@ -1,7 +1,6 @@
 package controlllers;
 
-import entitis.KhachHang;
-import entitis.SanPham;
+import entities.SanPham;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -46,8 +45,15 @@ public class SanPhamServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.store(request, response);
+
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            this.store(request, response);
+        } else if (uri.contains("update")) {
+            update(request, response);
+        }
     }
+
 
     protected void store(
             HttpServletRequest request,
@@ -98,5 +104,17 @@ public class SanPhamServlet extends HttpServlet {
         SanPham sp = sanPhamRepository.findByMa(ma);
         request.setAttribute("sp", sp);
         request.getRequestDispatcher("/views/sanPham/edit.jsp").forward(request, response);
+    }    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        String ma = request.getParameter("ma");
+        String ten = request.getParameter("ten");
+        SanPham sp = new SanPham();
+        sp.setMa(ma);
+        sp.setTen(ten);
+        sanPhamRepository.update(ma, sp);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
 }

@@ -1,9 +1,8 @@
 package controlllers;
 
-import entitis.ChucVu;
-import entitis.CuaHang;
-import entitis.KhachHang;
-import entitis.NhanVien;
+import entities.ChucVu;
+import entities.CuaHang;
+import entities.NhanVien;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

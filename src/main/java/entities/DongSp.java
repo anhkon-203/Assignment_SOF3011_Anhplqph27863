@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entitis;
+package entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,12 +19,12 @@ import java.util.List;
  * @author anhkon
  */
 @Entity
-@Table(name = "MauSac")
+@Table(name = "DongSp")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MauSac implements Serializable{
+public class DongSp implements Serializable{
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
@@ -35,7 +35,8 @@ public class MauSac implements Serializable{
     private String ma;
     @Column(name = "ten",columnDefinition =  "Nvarchar(100)")
     private String ten;
-    @OneToMany(mappedBy = "mauSac", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dongSp", fetch = FetchType.LAZY)
     private List<ChiTietSp> lstSanPham;
+
 
 }

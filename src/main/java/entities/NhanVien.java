@@ -1,4 +1,4 @@
-package entitis;
+package entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,12 +12,12 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "KhachHang")
+@Table(name = "NhanVien")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class KhachHang implements Serializable {
+public class NhanVien implements Serializable {
 
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
@@ -37,17 +37,14 @@ public class KhachHang implements Serializable {
     @Column(name = "Ho", columnDefinition = "Nvarchar(30)")
     private String ho;
 
+    @Column(name = "GioiTinh", columnDefinition = "Nvarchar(10)")
+    private String gioiTinh;
+
     @Column(name = "NgaySinh")
     private Date ngaySinh;
 
     @Column(name = "DiaChi", columnDefinition = "Nvarchar(100)")
     private String diaChi;
-
-    @Column(name = "ThanhPho", columnDefinition = "Nvarchar(50)")
-    private String thanhPho;
-
-    @Column(name = "QuocGia", columnDefinition = "Nvarchar(50)")
-    private String quocGia;
 
     @Column(name = "Sdt", columnDefinition = "Varchar(30)")
     private String sdt;
@@ -58,10 +55,23 @@ public class KhachHang implements Serializable {
     @Column(name = "Email", columnDefinition = "Varchar(MAX)")
     private String email;
 
-    @OneToMany(mappedBy = "khachHang", fetch = FetchType.LAZY)
-    private List<GioHang> listGioHang;
+    @ManyToOne
+    @JoinColumn(name = "idCH")
+    private CuaHang cuaHang;
 
-    @OneToMany(mappedBy = "khachHang", fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "idCV")
+    private ChucVu chucVu;
+
+    @ManyToOne
+    @JoinColumn(name = "idGuiBC")
+    private NhanVien nhanVien;
+
+    @Column(name = "TrangThai")
+    private int trangThai;
+
+    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
     private List<HoaDon> listHoaDon;
+
 
 }

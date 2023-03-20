@@ -5,11 +5,10 @@
 package repositories;
 
 
-import entitis.SanPham;
+import entities.SanPham;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
-import viewModel.SanPhamViewModel;
 
 import javax.persistence.Query;
 import java.util.List;
