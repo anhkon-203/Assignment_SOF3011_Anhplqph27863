@@ -43,13 +43,12 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -61,7 +60,12 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        this.store(request, response);
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            this.store(request, response);
+        } else if (uri.contains("update")) {
+            update(request, response);
+        }
     }
 
     protected void store(
@@ -144,5 +148,33 @@ public class NhanVienServlet extends HttpServlet {
         request.getRequestDispatcher("/views/nhanVien/edit.jsp")
                 .forward(request, response);
     }
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        try {
+            String ma = request.getParameter("ma");
+            // get idCuaHang and idChucVu
+            String idChucVu = request.getParameter("idChucVu");
+            String idCuaHang = request.getParameter("idCuaHang");
+            CuaHang cuaHang = new CuaHang();
+            cuaHang.setId(idCuaHang);
+            ChucVu chucVu = new ChucVu();
+            chucVu.setId(idChucVu);
+            //
+            DateTimeConverter dtc = new DateConverter(new Date());
+            dtc.setPattern("yyyy-MM-dd");
+            ConvertUtils.register(dtc, Date.class);
+            //
+            NhanVien nhanVien = new NhanVien();
+            nhanVien.setCuaHang(cuaHang);
+            nhanVien.setChucVu(chucVu);
+            BeanUtils.populate(nhanVien, request.getParameterMap());
+            nhanVienRepository.update(ma,nhanVien);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/nhan-vien/index");
 
+    }
 }

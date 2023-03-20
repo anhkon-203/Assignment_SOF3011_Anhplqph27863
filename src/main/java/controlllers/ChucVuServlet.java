@@ -30,12 +30,12 @@ public class ChucVuServlet extends HttpServlet {
             throws
             ServletException, IOException {
 
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -45,7 +45,12 @@ public class ChucVuServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.store(request, response);
+            String uri = request.getRequestURI();
+            if (uri.contains("store")) {
+                this.store(request, response);
+            } else if (uri.contains("update")) {
+                update(request, response);
+            }
     }
 
     protected void create(
@@ -65,6 +70,22 @@ public class ChucVuServlet extends HttpServlet {
             ChucVu chucVu = new ChucVu();
             BeanUtils.populate(chucVu, request.getParameterMap());
             chucVuRepository.insert(chucVu);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/chuc-vu/index");
+    }
+
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        try {
+            String ma = request.getParameter("ma");
+            ChucVu chucVu = new ChucVu();
+            BeanUtils.populate(chucVu, request.getParameterMap());
+            chucVuRepository.update(ma,chucVu);
         } catch (Exception e) {
             e.printStackTrace();
         }

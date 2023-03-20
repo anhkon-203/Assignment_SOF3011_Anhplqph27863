@@ -16,10 +16,10 @@
 <div class="col-8 offset-2">
     <h1>Thêm mới Cửa hàng</h1>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/cua-hang/store">
+          action="/Assignment_Sof3011_war_exploded/cua-hang/update?ma=${cuaHang.ma}">
             <div class="mt-3">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" disabled value="${cuaHang.ma}" />
+                <input type="text" name="ma" class="form-control" disabled value="${cuaHang.ma}"  />
             </div>
             <div class="mt-3">
                 <label>Tên</label>

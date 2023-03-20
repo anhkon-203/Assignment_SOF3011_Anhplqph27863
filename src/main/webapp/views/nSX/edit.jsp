@@ -15,11 +15,11 @@
 <div class="col-8 offset-2">
     <h1>Thêm mới NSX</h1>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/nsx/store">
+          action="/Assignment_Sof3011_war_exploded/nsx/update?ma=${nsx.ma}">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" value="${nsx.ma}" />
+                <input type="text" name="ma" class="form-control" value="${nsx.ma}" disabled/>
             </div>
             <div class="col-6">
                 <label>Tên</label>

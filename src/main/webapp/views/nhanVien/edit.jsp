@@ -17,11 +17,11 @@
 <div class="col-8 offset-2">
     <h1>Thêm mới Nhân Viên</h1>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/nhan-vien/store">
+          action="/Assignment_Sof3011_war_exploded/nhan-vien/update?ma=${nhanVien.ma}">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" value="${nhanVien.ma}"/>
+                <input type="text" name="ma" class="form-control" value="${nhanVien.ma}"disabled />
             </div>
             <div class="col-6">
                 <label>Họ</label>
@@ -80,13 +80,13 @@
                 <label>Trạng thái</label>
                 <div class="d-flex">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="trangThai"  value="${nhanVien.trangThai}"${nhanVien.trangThai == 1 ? "checked" : ""} >
+                        <input class="form-check-input" type="radio" name="trangThai"  value="1"${nhanVien.trangThai == 1 ? "checked" : ""} >
                         <label class="form-check-label">
                             Đang làm
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="trangThai" value="${nhanVien.trangThai}" ${nhanVien.trangThai == 0 ? "checked" : ""}>
+                        <input class="form-check-input" type="radio" name="trangThai" value="0" ${nhanVien.trangThai == 0 ? "checked" : ""}>
                         <label class="form-check-label">
                             Đã nghỉ
                         </label>
@@ -97,13 +97,13 @@
                 <label>Giới tính</label>
                 <div class="d-flex">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gioiTinh" value="${nhanVien.gioiTinh}" ${nhanVien.gioiTinh == "Nam" ? "checked" : ""}>
+                        <input class="form-check-input" type="radio" name="gioiTinh" value="Nam" ${nhanVien.gioiTinh == "Nam" ? "checked" : ""}>
                         <label class="form-check-label">
                             Nam
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gioiTinh"  value="${nhanVien.gioiTinh}"  ${nhanVien.gioiTinh == "Nữ" ? "checked" : ""}>
+                        <input class="form-check-input" type="radio" name="gioiTinh"  value="Nữ"  ${nhanVien.gioiTinh == "Nữ" ? "checked" : ""}>
                         <label class="form-check-label">
                             Nữ
                         </label>

@@ -31,12 +31,12 @@ public class DongSanPhamServlet extends HttpServlet {
             throws
             ServletException, IOException {
 
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -45,7 +45,12 @@ public class DongSanPhamServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.store(request, response);
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            this.store(request, response);
+        } else if (uri.contains("update")) {
+            update(request, response);
+        }
     }
 
     protected void create(
@@ -65,6 +70,22 @@ public class DongSanPhamServlet extends HttpServlet {
             DongSp dongSp = new DongSp();
             BeanUtils.populate(dongSp, request.getParameterMap());
             dongSpRepository.insert(dongSp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/dong-san-pham/index");
+    }
+
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        try {
+            String ma = request.getParameter("ma");
+            DongSp dongSp = new DongSp();
+            BeanUtils.populate(dongSp, request.getParameterMap());
+            dongSpRepository.update(ma,dongSp);
         } catch (Exception e) {
             e.printStackTrace();
         }

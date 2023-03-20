@@ -25,17 +25,18 @@ import java.util.List;
 
 public class CuaHangServlet extends HttpServlet {
     private CuaHangRepository cuaHangRepository = new CuaHangRepository();
+
     @Override
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -47,7 +48,12 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        this.store(request, response);
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            this.store(request, response);
+        } else if (uri.contains("update")) {
+            update(request, response);
+        }
     }
 
     protected void store(
@@ -61,7 +67,23 @@ public class CuaHangServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
+
+    }
+
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws ServletException, IOException {
+        try {
+            String ma = request.getParameter("ma");
+            CuaHang cuaHang = new CuaHang();
+            BeanUtils.populate(cuaHang, request.getParameterMap());
+            cuaHangRepository.update(ma,cuaHang);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
 
     }
 
@@ -72,6 +94,7 @@ public class CuaHangServlet extends HttpServlet {
         request.getRequestDispatcher("/views/cuaHang/create.jsp")
                 .forward(request, response);
     }
+
     protected void index(
             HttpServletRequest request,
             HttpServletResponse response
@@ -81,6 +104,7 @@ public class CuaHangServlet extends HttpServlet {
         request.getRequestDispatcher("/views/cuaHang/index.jsp")
                 .forward(request, response);
     }
+
     protected void delete(
             HttpServletRequest request,
             HttpServletResponse response
@@ -95,6 +119,7 @@ public class CuaHangServlet extends HttpServlet {
         response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
 
     }
+
     protected void edit(
             HttpServletRequest request,
             HttpServletResponse response

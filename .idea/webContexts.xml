@@ -3,6 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/dongSp/edit.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/dongSp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/nSX/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/nSX" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/nhanVien/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/nhanVien" />
       </map>

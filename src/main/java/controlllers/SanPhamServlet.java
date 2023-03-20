@@ -69,6 +69,7 @@ public class SanPhamServlet extends HttpServlet {
         }
         response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
+
     protected void create(
             HttpServletRequest request,
             HttpServletResponse response)
@@ -76,6 +77,7 @@ public class SanPhamServlet extends HttpServlet {
             ServletException, IOException {
         request.getRequestDispatcher("/views/sanPham/create.jsp").forward(request, response);
     }
+
     protected void index(
             HttpServletRequest request,
             HttpServletResponse response)
@@ -85,6 +87,7 @@ public class SanPhamServlet extends HttpServlet {
         request.setAttribute("list", list);
         request.getRequestDispatcher("/views/sanPham/index.jsp").forward(request, response);
     }
+
     protected void delete(
             HttpServletRequest request,
             HttpServletResponse response)
@@ -95,6 +98,7 @@ public class SanPhamServlet extends HttpServlet {
         sanPhamRepository.delete(sp);
         response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
+
     protected void edit(
             HttpServletRequest request,
             HttpServletResponse response)
@@ -104,7 +108,9 @@ public class SanPhamServlet extends HttpServlet {
         SanPham sp = sanPhamRepository.findByMa(ma);
         request.setAttribute("sp", sp);
         request.getRequestDispatcher("/views/sanPham/edit.jsp").forward(request, response);
-    }    protected void update(
+    }
+
+    protected void update(
             HttpServletRequest request,
             HttpServletResponse response)
             throws

@@ -30,13 +30,12 @@ public class MauSacServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-
-        String url = request.getRequestURI();
-        if (url.contains("create")) {
+        String uri = request.getRequestURI();
+        if (uri.contains("create")) {
             create(request, response);
-        } else if (url.contains("edit")) {
+        } else if (uri.contains("edit")) {
             edit(request, response);
-        } else if (url.contains("delete")) {
+        } else if (uri.contains("delete")) {
             delete(request, response);
         } else {
             this.index(request, response);
@@ -46,7 +45,12 @@ public class MauSacServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.store(request, response);
+            String uri = request.getRequestURI();
+            if (uri.contains("store")) {
+                this.store(request, response);
+            } else if (uri.contains("update")) {
+                update(request, response);
+            }
     }
 
     protected void create(
@@ -66,6 +70,22 @@ public class MauSacServlet extends HttpServlet {
             MauSac mauSac = new MauSac();
             BeanUtils.populate(mauSac, request.getParameterMap());
             mauSacRepository.insert(mauSac);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
+    }
+
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        try {
+            String ma = request.getParameter("ma");
+            MauSac mauSac = new MauSac();
+            BeanUtils.populate(mauSac, request.getParameterMap());
+            mauSacRepository.update(ma, mauSac);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,6 +112,7 @@ public class MauSacServlet extends HttpServlet {
         mauSacRepository.delete(mauSac);
         response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
     }
+
     protected void edit(
             HttpServletRequest request,
             HttpServletResponse response)

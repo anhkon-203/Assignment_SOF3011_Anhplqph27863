@@ -15,11 +15,11 @@
 <div class="col-8 offset-2">
     <h1>Thêm mới Dòng sản phẩm</h1>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/dong-san-pham/store">
+          action="/Assignment_Sof3011_war_exploded/dong-san-pham/update?ma=${dongSp.ma}">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" value="${dongSp.ma}" />
+                <input type="text" name="ma" class="form-control" value="${dongSp.ma}" disabled />
             </div>
             <div class="col-6">
                 <label>Tên</label>
@@ -32,6 +32,7 @@
             </div>
             <div class="col-6"></div>
         </div>
+
     </form>
 </div>
 </body>

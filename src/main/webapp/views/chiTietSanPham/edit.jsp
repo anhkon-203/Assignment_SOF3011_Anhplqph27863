@@ -21,7 +21,7 @@
         <div class="row">
             <div class=" col-md-4 ">
                 <label  class="form-label">Năm bảo hành</label>
-                <input type="number" class="form-control"  name="namBaoHanh" value="${chiTietSp.namBaoHanh}" required>
+                <input type="number" class="form-control"  name="namBaoHanh" value="${chiTietSp.namBaoHanh}" disabled>
             </div>
 
             <div class=" col-md-4 mb-3">

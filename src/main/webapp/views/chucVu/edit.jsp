@@ -19,7 +19,7 @@
           action="/Assignment_Sof3011_war_exploded/cua-hang/store">
             <div class="mt-3">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" value="${chucVu.ma}" />
+                <input type="text" name="ma" class="form-control" value="${chucVu.ma}" disabled />
             </div>
             <div class="mt-3">
                 <label>Tên</label>

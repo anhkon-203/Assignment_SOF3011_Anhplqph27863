@@ -31,30 +31,31 @@ public class NhanVienRepository {
         }
     }
 
-//    public boolean update(String ma,KhachHang khachHang) {
-//        Transaction transaction = null;
-//        try(Session session = ConnectDB.getFACTORY().openSession()) {
-//            transaction = session.beginTransaction();
-//            Query query = session.createQuery("update KhachHang set ten = :ten,ho =:ho,tenDem=:tenDem,ngaySinh=:ngaySinh" +
-//                    ",sdt =:sdt,diaChi =:diaChi,thanhPho =:thanhPho,quocGia=:quocGia" +
-//                    " where ma = :ma");
-//            query.setParameter("ten",khachHang.getTen());
-//            query.setParameter("ho",khachHang.getHo());
-//            query.setParameter("tenDem",khachHang.getTenDem());
-//            query.setParameter("ngaySinh",khachHang.getNgaySinh());
-//            query.setParameter("sdt",khachHang.getSdt());
-//            query.setParameter("diaChi",khachHang.getDiaChi());
-//            query.setParameter("thanhPho",khachHang.getThanhPho());
-//            query.setParameter("quocGia",khachHang.getQuocGia());
-//            query.setParameter("ma",ma);
-//            query.executeUpdate();
-//            transaction.commit();
-//            return true;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+    public boolean update(String ma,NhanVien nhanVien) {
+        Transaction transaction = null;
+        try(Session session = ConnectDB.getFACTORY().openSession()) {
+            transaction = session.beginTransaction();
+            Query query = session.createQuery("update NhanVien set ten =:ten, tenDem =:tenDem, ho =:ho, gioiTinh =:gioiTinh, ngaySinh =:ngaySinh, diaChi =:diaChi, sdt =:sdt, email =:email, cuaHang.id =:idCH, chucVu.id =:idChucVu, trangThai =:trangThai where ma = :ma");
+            query.setParameter("ten",nhanVien.getTen());
+            query.setParameter("tenDem",nhanVien.getTenDem());
+            query.setParameter("ho",nhanVien.getHo());
+            query.setParameter("gioiTinh",nhanVien.getGioiTinh());
+            query.setParameter("ngaySinh",nhanVien.getNgaySinh());
+            query.setParameter("diaChi",nhanVien.getDiaChi());
+            query.setParameter("sdt",nhanVien.getSdt());
+            query.setParameter("email",nhanVien.getEmail());
+            query.setParameter("idCH",nhanVien.getCuaHang().getId());
+            query.setParameter("idChucVu",nhanVien.getChucVu().getId());
+            query.setParameter("trangThai",nhanVien.getTrangThai());
+            query.setParameter("ma",ma);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public boolean delete(NhanVien nhanVien) {
         Transaction transaction = null;

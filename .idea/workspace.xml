@@ -9,44 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="crd 9 bảng">
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="update sp + ctsp">
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/ChiTietSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/ChiTietSanPhamServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/ChucVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/ChucVuServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/CuaHangServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/DongSanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/KhachHangServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/MauSacServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/NhanVienServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/SanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/ChiTietSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/ChucVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/CuaHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/CuaHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/DongSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DongSp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/GioHangChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/MauSac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/MauSac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/NSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NSX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entitis/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/chiTietSanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/chiTietSanPham/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/chucVu/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/chucVu/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/cuaHang/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/dongSp/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/dongSp/edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/khachHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/khachHang/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/sanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/sanPham/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/mauSac/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/mauSac/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/nSX/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/nSX/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/nhanVien/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/nhanVien/edit.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +277,7 @@
       <workItem from="1679255138814" duration="233000" />
       <workItem from="1679311721392" duration="4228000" />
       <workItem from="1679324474545" duration="1837000" />
-      <workItem from="1679326324690" duration="906000" />
+      <workItem from="1679326324690" duration="4300000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -340,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678985328916</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update sp + ctsp">
+      <created>1679329628712</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679329628712</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,14 +353,15 @@
     <MESSAGE value="thêm,load data chi tiết sp" />
     <MESSAGE value="crd 7 bảng" />
     <MESSAGE value="crd 9 bảng" />
-    <option name="LAST_COMMIT_MESSAGE" value="crd 9 bảng" />
+    <MESSAGE value="update sp + ctsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sp + ctsp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controlllers/NSXServlet.java</url>
-          <line>52</line>
+          <line>58</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
