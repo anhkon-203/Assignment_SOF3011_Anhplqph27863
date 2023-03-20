@@ -45,9 +45,12 @@
             <a href="chuc-vu/store" class="form-control" id="order-link">Chức vụ</a>
         </div>
         <div class="form-group">
-            <label for="order-detail-link">Nhân Viên:</label>
-            <a href="nhan-vien/store" class="form-control" id="order-detail-link">Nhân Viên</a>
+            <label >Nhân Viên:</label>
+            <a href="nhan-vien/store" class="form-control" >Nhân Viên</a>
         </div>
+        <div class="form-group">
+            <label >Layout</label>
+            <a href="/Assignment_Sof3011_war_exploded/views/layout.jsp" class="form-control" >Layout</a>
     </form>
 </div>
 

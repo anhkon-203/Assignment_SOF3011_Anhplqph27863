@@ -75,7 +75,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.getRequestDispatcher("/views/sanPham/create.jsp").forward(request, response);
+        request.setAttribute("view_sanPham", "/views/sanPham/create.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void index(
@@ -85,7 +86,8 @@ public class SanPhamServlet extends HttpServlet {
             ServletException, IOException {
         List<SanPham> list = sanPhamRepository.getAll();
         request.setAttribute("list", list);
-        request.getRequestDispatcher("/views/sanPham/index.jsp").forward(request, response);
+        request.setAttribute("view_sanPham", "/views/sanPham/index.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -107,7 +109,8 @@ public class SanPhamServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         SanPham sp = sanPhamRepository.findByMa(ma);
         request.setAttribute("sp", sp);
-        request.getRequestDispatcher("/views/sanPham/edit.jsp").forward(request, response);
+        request.setAttribute("view_sanPham", "/views/sanPham/edit.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void update(

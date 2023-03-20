@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="col-8 offset-2">
-    <h1>Thêm mới NSX</h1>
+    <h1>Update NSX</h1>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/nsx/update?ma=${nsx.ma}">
         <div class="row mt-3">

@@ -15,7 +15,7 @@
 <body>
 
 <div class="col-8 offset-2">
-    <h1>Thêm mới Nhân Viên</h1>
+    <h1>Update Nhân Viên</h1>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/nhan-vien/update?ma=${nhanVien.ma}">
         <div class="row mt-3">

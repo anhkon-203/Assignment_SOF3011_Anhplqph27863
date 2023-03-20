@@ -15,13 +15,13 @@
 <body>
 
 <div class="col-8 offset-2">
-    <h1>Thêm mới Cửa hàng</h1>
+    <h1>Update Chi tiết sản phẩm</h1>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/update?id=${chiTietSp.id}">
         <div class="row">
             <div class=" col-md-4 ">
                 <label  class="form-label">Năm bảo hành</label>
-                <input type="number" class="form-control"  name="namBaoHanh" value="${chiTietSp.namBaoHanh}" disabled>
+                <input type="number" class="form-control"  name="namBaoHanh" value="${chiTietSp.namBaoHanh}" >
             </div>
 
             <div class=" col-md-4 mb-3">

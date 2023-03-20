@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/Assignment_Sof3011_war_exploded/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Thông tin Sản phẩm</h1>
+<h1>Thông tin màu sắc</h1>
 <a href="/Assignment_Sof3011_war_exploded/mau-sac/create" class="btn btn-success mt-3">Add</a>
 <c:if test="${ f:length(list) == 0 }">
     <h4 class="text-center">Không có dữ liệu</h4>

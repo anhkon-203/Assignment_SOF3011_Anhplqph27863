@@ -91,8 +91,8 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/cuaHang/create.jsp")
-                .forward(request, response);
+        request.setAttribute("view_cuaHang", "/views/cuaHang/create.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void index(
@@ -101,8 +101,8 @@ public class CuaHangServlet extends HttpServlet {
     ) throws ServletException, IOException {
         List<CuaHang> list = cuaHangRepository.getAll();
         request.setAttribute("list", list);
-        request.getRequestDispatcher("/views/cuaHang/index.jsp")
-                .forward(request, response);
+        request.setAttribute("view_cuaHang", "/views/cuaHang/index.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -127,7 +127,7 @@ public class CuaHangServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         CuaHang cuaHang = cuaHangRepository.findByMa(ma);
         request.setAttribute("cuaHang", cuaHang);
-        request.getRequestDispatcher("/views/cuaHang/edit.jsp")
-                .forward(request, response);
+        request.setAttribute("view_cuaHang", "/views/cuaHang/edit.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 }

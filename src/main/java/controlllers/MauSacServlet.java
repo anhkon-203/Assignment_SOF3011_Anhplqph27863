@@ -58,7 +58,8 @@ public class MauSacServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.getRequestDispatcher("/views/mauSac/create.jsp").forward(request, response);
+        request.setAttribute("view_mauSac", "/views/mauSac/create.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void store(
@@ -99,7 +100,8 @@ public class MauSacServlet extends HttpServlet {
             ServletException, IOException {
         List<MauSac> list = mauSacRepository.getAll();
         request.setAttribute("list", list);
-        request.getRequestDispatcher("/views/mauSac/index.jsp").forward(request, response);
+        request.setAttribute("view_mauSac", "/views/mauSac/index.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -121,6 +123,7 @@ public class MauSacServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         MauSac mauSac = mauSacRepository.findByMa(ma);
         request.setAttribute("mauSac", mauSac);
-        request.getRequestDispatcher("/views/mauSac/edit.jsp").forward(request, response);
+        request.setAttribute("view_mauSac", "/views/mauSac/edit.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 }

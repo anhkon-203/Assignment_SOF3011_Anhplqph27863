@@ -60,7 +60,8 @@ public class NSXServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.getRequestDispatcher("/views/nSX/create.jsp").forward(request, response);
+        request.setAttribute("view_nSX", "/views/nSX/create.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void store(
@@ -85,7 +86,8 @@ public class NSXServlet extends HttpServlet {
             ServletException, IOException {
         List<NSX> list = nsxRepository.getAll();
         request.setAttribute("list", list);
-        request.getRequestDispatcher("/views/nSX/index.jsp").forward(request, response);
+        request.setAttribute("view_nSX", "/views/nSX/index.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -106,7 +108,8 @@ public class NSXServlet extends HttpServlet {
        String ma = request.getParameter("ma");
         NSX nsx = nsxRepository.findByMa(ma);
         request.setAttribute("nsx", nsx);
-        request.getRequestDispatcher("/views/nSX/edit.jsp").forward(request, response);
+        request.setAttribute("view_nSX", "/views/nSX/edit.jsp");
+        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
     }
     protected void update(
             HttpServletRequest request,
