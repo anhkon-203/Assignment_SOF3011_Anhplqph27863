@@ -1,28 +1,30 @@
-package controlllers;
+package controlllers.admin;
 
-import entities.MauSac;
+import entities.NSX;
+import entities.SanPham;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
-import repositories.MauSacRepository;
+import repositories.NSXRepository;
 
 
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet({
-        "/mau-sac/index",    // GET
-        "/mau-sac/create",   // GET
-        "/mau-sac/edit",     // GET
-        "/mau-sac/delete",   // GET
-        "/mau-sac/store",    // POST
-        "/mau-sac/update",   // POST
+        "/nsx/index",    // GET
+        "/nsx/create",   // GET
+        "/nsx/edit",     // GET
+        "/nsx/delete",   // GET
+        "/nsx/store",    // POST
+        "/nsx/update",   // POST
 })
-public class MauSacServlet extends HttpServlet {
-    private MauSacRepository mauSacRepository = new MauSacRepository();
+public class NSXServlet extends HttpServlet {
+
+    private NSXRepository nsxRepository = new NSXRepository();
 
     @Override
     protected void doGet(
@@ -58,8 +60,8 @@ public class MauSacServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.setAttribute("view_mauSac", "/views/mauSac/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_nSX", "/views/admin/nSX/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void store(
@@ -68,29 +70,13 @@ public class MauSacServlet extends HttpServlet {
             throws
             ServletException, IOException {
         try {
-            MauSac mauSac = new MauSac();
-            BeanUtils.populate(mauSac, request.getParameterMap());
-            mauSacRepository.insert(mauSac);
+            NSX nsx = new NSX();
+            BeanUtils.populate(nsx, request.getParameterMap());
+            nsxRepository.insert(nsx);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
-    }
-
-    protected void update(
-            HttpServletRequest request,
-            HttpServletResponse response)
-            throws
-            ServletException, IOException {
-        try {
-            String ma = request.getParameter("ma");
-            MauSac mauSac = new MauSac();
-            BeanUtils.populate(mauSac, request.getParameterMap());
-            mauSacRepository.update(ma, mauSac);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
     }
 
     protected void index(
@@ -98,10 +84,10 @@ public class MauSacServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        List<MauSac> list = mauSacRepository.getAll();
+        List<NSX> list = nsxRepository.getAll();
         request.setAttribute("list", list);
-        request.setAttribute("view_mauSac", "/views/mauSac/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_nSX", "/views/admin/nSX/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -110,20 +96,32 @@ public class MauSacServlet extends HttpServlet {
             throws
             ServletException, IOException {
         String ma = request.getParameter("ma");
-        MauSac mauSac = mauSacRepository.findByMa(ma);
-        mauSacRepository.delete(mauSac);
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
+        NSX nsx = nsxRepository.findByMa(ma);
+        nsxRepository.delete(nsx);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
     }
-
     protected void edit(
             HttpServletRequest request,
             HttpServletResponse response)
             throws
             ServletException, IOException {
+       String ma = request.getParameter("ma");
+        NSX nsx = nsxRepository.findByMa(ma);
+        request.setAttribute("nsx", nsx);
+        request.setAttribute("view_nSX", "/views/admin/nSX/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
+    }
+    protected void update(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
         String ma = request.getParameter("ma");
-        MauSac mauSac = mauSacRepository.findByMa(ma);
-        request.setAttribute("mauSac", mauSac);
-        request.setAttribute("view_mauSac", "/views/mauSac/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        String ten = request.getParameter("ten");
+        NSX nsx = new NSX();
+        nsx.setMa(ma);
+        nsx.setTen(ten);
+        nsxRepository.update(ma, nsx);
+        response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
     }
 }

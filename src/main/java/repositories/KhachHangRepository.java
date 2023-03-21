@@ -1,6 +1,7 @@
 package repositories;
 
 import entities.KhachHang;
+import entities.NhanVien;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utilities.ConnectDB;
@@ -15,7 +16,22 @@ public class KhachHangRepository {
         List<KhachHang> lst = query.getResultList();
         return lst;
     }
-
+    public KhachHang checkLogin(String email, String matKhau) {
+        Transaction transaction = null;
+        try(Session session = ConnectDB.getFACTORY().openSession()) {
+            transaction = session.beginTransaction();
+            String hql = "select k from KhachHang k where email = :sdt and matKhau = :matKhau";
+            Query query = session.createQuery(hql);
+            query.setParameter("sdt",email);
+            query.setParameter("matKhau",matKhau);
+            KhachHang khachHang = (KhachHang) query.getSingleResult();
+            transaction.commit();
+            return khachHang;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public boolean insert(KhachHang khachHang) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
@@ -34,7 +50,7 @@ public class KhachHangRepository {
         try(Session session = ConnectDB.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("update KhachHang set ten = :ten,ho =:ho,tenDem=:tenDem,ngaySinh=:ngaySinh" +
-                    ",sdt =:sdt,diaChi =:diaChi,thanhPho =:thanhPho,quocGia=:quocGia" +
+                    ",sdt =:sdt,email=:email,matKhau=:matKhau,diaChi =:diaChi,thanhPho =:thanhPho,quocGia=:quocGia" +
                     " where ma = :ma");
             query.setParameter("ten",khachHang.getTen());
             query.setParameter("ho",khachHang.getHo());
@@ -44,6 +60,8 @@ public class KhachHangRepository {
             query.setParameter("diaChi",khachHang.getDiaChi());
             query.setParameter("thanhPho",khachHang.getThanhPho());
             query.setParameter("quocGia",khachHang.getQuocGia());
+            query.setParameter("email",khachHang.getEmail());
+            query.setParameter("matKhau",khachHang.getMatKhau());
             query.setParameter("ma",ma);
             query.executeUpdate();
             transaction.commit();

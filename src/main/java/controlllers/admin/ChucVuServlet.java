@@ -1,4 +1,4 @@
-package controlllers;
+package controlllers.admin;
 
 import entities.ChucVu;
 import jakarta.servlet.ServletException;
@@ -58,8 +58,8 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.setAttribute("view_chucVu", "/views/chucVu/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_chucVu", "/views/admin/chucVu/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void store(
@@ -100,8 +100,8 @@ public class ChucVuServlet extends HttpServlet {
             ServletException, IOException {
         List<ChucVu> list = chucVuRepository.getAll();
         request.setAttribute("list", list);
-        request.setAttribute("view_chucVu", "/views/chucVu/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_chucVu", "/views/admin/chucVu/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -122,7 +122,7 @@ public class ChucVuServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         ChucVu chucVu = chucVuRepository.findByMa(ma);
         request.setAttribute("chucVu", chucVu);
-        request.setAttribute("view_chucVu", "/views/chucVu/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_chucVu", "/views/admin/chucVu/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 }

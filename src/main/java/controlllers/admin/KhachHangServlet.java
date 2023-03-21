@@ -1,4 +1,4 @@
-package controlllers;
+package controlllers.admin;
 
 import entities.KhachHang;
 import jakarta.servlet.ServletException;
@@ -99,8 +99,8 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        request.setAttribute("view_khachHang", "/views/khachHang/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_khachHang", "/views/admin/khachHang/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void index(
@@ -109,8 +109,8 @@ public class KhachHangServlet extends HttpServlet {
     ) throws ServletException, IOException {
         List<KhachHang> listKhachHang = khachHangRepository.getAll();
         request.setAttribute("listKhachHang", listKhachHang);
-        request.setAttribute("view_khachHang", "/views/khachHang/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_khachHang", "/views/admin/khachHang/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -130,7 +130,7 @@ public class KhachHangServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         KhachHang khachHang = khachHangRepository.findByMa(ma);
         request.setAttribute("khachHang", khachHang);
-        request.setAttribute("view_khachHang", "/views/khachHang/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_khachHang", "/views/admin/khachHang/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 }

@@ -1,4 +1,4 @@
-package controlllers;
+package controlllers.admin;
 
 import entities.DongSp;
 import jakarta.servlet.ServletException;
@@ -58,8 +58,8 @@ public class DongSanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.setAttribute("view_dongSP", "/views/dongSp/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_dongSP", "/views/admin/dongSp/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void store(
@@ -100,8 +100,8 @@ public class DongSanPhamServlet extends HttpServlet {
             ServletException, IOException {
         List<DongSp> list = dongSpRepository.getAll();
         request.setAttribute("list", list);
-        request.setAttribute("view_dongSP", "/views/dongSp/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_dongSP", "/views/admin/dongSp/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
     protected void delete(
             HttpServletRequest request,
@@ -121,7 +121,7 @@ public class DongSanPhamServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         DongSp dongSp = this.dongSpRepository.findByMa(ma);
         request.setAttribute("dongSp",dongSp);
-        request.setAttribute("view_dongSP", "/views/dongSp/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_dongSP", "/views/admin/dongSp/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 }

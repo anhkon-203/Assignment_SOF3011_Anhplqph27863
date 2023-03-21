@@ -1,4 +1,4 @@
-package controlllers;
+package controlllers.admin;
 
 import entities.SanPham;
 import jakarta.servlet.ServletException;
@@ -87,8 +87,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.setAttribute("view_sanPham", "/views/sanPham/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_sanPham", "/views/admin/sanPham/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void index(
@@ -98,8 +98,8 @@ public class SanPhamServlet extends HttpServlet {
             ServletException, IOException {
         List<SanPham> list = sanPhamRepository.getAll();
         request.setAttribute("list", list);
-        request.setAttribute("view_sanPham", "/views/sanPham/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_sanPham", "/views/admin/sanPham/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -121,8 +121,8 @@ public class SanPhamServlet extends HttpServlet {
         String ma = request.getParameter("ma");
         SanPham sp = sanPhamRepository.findByMa(ma);
         request.setAttribute("sp", sp);
-        request.setAttribute("view_sanPham", "/views/sanPham/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_sanPham", "/views/admin/sanPham/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void update(

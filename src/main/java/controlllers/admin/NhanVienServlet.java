@@ -1,4 +1,4 @@
-package controlllers;
+package controlllers.admin;
 
 import entities.ChucVu;
 import entities.CuaHang;
@@ -105,8 +105,8 @@ public class NhanVienServlet extends HttpServlet {
         request.setAttribute("listCuaHang", listCuaHang);
         List<ChucVu> listChucVu = chucVuRepository.getAll();
         request.setAttribute("listChucVu", listChucVu);
-        request.setAttribute("view_nhanVien", "/views/nhanVien/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_nhanVien", "/views/admin/nhanVien/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void index(
@@ -115,8 +115,8 @@ public class NhanVienServlet extends HttpServlet {
     ) throws ServletException, IOException {
         List<NhanVienViewModel> list = nhanVienRepository.getAll();
         request.setAttribute("list", list);
-        request.setAttribute("view_nhanVien", "/views/nhanVien/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_nhanVien", "/views/admin/nhanVien/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
 
     protected void delete(
@@ -145,8 +145,8 @@ public class NhanVienServlet extends HttpServlet {
         request.setAttribute("idCh", nhanVienRepository.findIdCuaHangByMa(maNv));
         NhanVien nhanVien = nhanVienRepository.findByMa(maNv);
         request.setAttribute("nhanVien", nhanVien);
-        request.setAttribute("view_nhanVien", "/views/nhanVien/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_nhanVien", "/views/admin/nhanVien/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
     protected void update(
             HttpServletRequest request,

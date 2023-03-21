@@ -18,6 +18,7 @@ public class NhanVienRepository {
         return lst;
     }
 
+
     public boolean insert(NhanVien nhanVien) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
@@ -89,6 +90,13 @@ public class NhanVienRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select nv from  NhanVien nv where ma=:ma");
         query.setParameter("ma",ma);
+        NhanVien nhanVien = (NhanVien) query.getSingleResult();
+        return nhanVien;
+    }
+    public NhanVien findEmail(String email) {
+        Session session = ConnectDB.getFACTORY().openSession();
+        Query query = session.createQuery("select nv from  NhanVien nv where email=:email");
+        query.setParameter("email",email);
         NhanVien nhanVien = (NhanVien) query.getSingleResult();
         return nhanVien;
     }

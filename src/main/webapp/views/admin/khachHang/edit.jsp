@@ -56,6 +56,10 @@
                 <label>Mật khẩu</label>
                 <input type="password" name="matKhau" class="form-control" value="${khachHang.matKhau}"/>
             </div>
+            <div class="col-6">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="${khachHang.email}" />
+            </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">

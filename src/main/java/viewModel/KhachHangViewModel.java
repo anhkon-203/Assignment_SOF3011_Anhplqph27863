@@ -20,6 +20,7 @@ public class KhachHangViewModel {
     private String diaChi;
     private String quocGia;
     private String thanhPho;
+    private String email;
 
 
 }

@@ -1,4 +1,4 @@
-package controlllers;
+package controlllers.admin;
 
 import entities.*;
 import jakarta.servlet.ServletException;
@@ -148,8 +148,8 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         List<SanPham> listSanPham = sanPhamRepository.getAll();
         // Gửi danh sách các đối tượng qua view
         request.setAttribute("listSanPham", listSanPham);
-        request.setAttribute("view_chiTietSanPham", "/views/chiTietSanPham/create.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_chiTietSanPham", "/views/admin/chiTietSanPham/create.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
     protected void index(
             HttpServletRequest request,
@@ -157,8 +157,8 @@ public class ChiTietSanPhamServlet extends HttpServlet {
     ) throws ServletException, IOException {
         List<ChiTietSanPhamViewModel> list = chiTietSanPhamRepository.getList();
         request.setAttribute("list", list);
-        request.setAttribute("view_chiTietSanPham", "/views/chiTietSanPham/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_chiTietSanPham", "/views/admin/chiTietSanPham/index.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
     protected void edit(
             HttpServletRequest request,
@@ -182,8 +182,8 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         request.setAttribute("idSp", chiTietSanPhamRepository.getIdSanPham(idCtsp));
         ChiTietSp chiTietSpRepo = chiTietSanPhamRepository.getById(idCtsp);
         request.setAttribute("chiTietSp", chiTietSpRepo);
-        request.setAttribute("view_chiTietSanPham", "/views/chiTietSanPham/edit.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view_chiTietSanPham", "/views/admin/chiTietSanPham/edit.jsp");
+        request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
     protected void delete(
             HttpServletRequest request,
