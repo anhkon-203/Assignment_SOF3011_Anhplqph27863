@@ -22,11 +22,13 @@ public class SanPhamUserServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        if (khachHang == null) {
-            // Nếu chưa đăng nhập, yêu cầu người dùng đăng nhập
-            request.getRequestDispatcher("/views/user/formDangNhap/login.jsp").forward(request, response);
-            return;
-        }
+        // setime out
+        session.setMaxInactiveInterval(60 * 2);
+//        if (khachHang == null) {
+//            // Nếu chưa đăng nhập, yêu cầu người dùng đăng nhập
+//            request.getRequestDispatcher("/views/user/formDangNhap/login.jsp").forward(request, response);
+//            return;
+//        }
         request.setAttribute("sanPham", chiTietSanPhamRepository.getList());
         request.setAttribute("view", "/views/user/sanPham/sanPham.jsp");
         request.getRequestDispatcher("/views/user/layoutUser.jsp").forward(request, response);

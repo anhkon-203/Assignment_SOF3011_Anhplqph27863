@@ -42,6 +42,7 @@
             <th>STT</th>
             <th>Mã</th>
             <th>Tên</th>
+            <th>Ảnh</th>
             <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
@@ -52,6 +53,9 @@
                 <td>${status.index + 1}</td>
                 <td>${ sp.ma }</td>
                 <td>${ sp.ten }</td>
+                <td>
+                    <img src="${ sp.srcImage }" alt="ảnh sản phẩm" style="width: 100px; height: 100px;">
+                </td>
 
                 <td class="text-center">
                     <a href="/Assignment_Sof3011_war_exploded/san-pham/edit?ma=${ sp.ma }"

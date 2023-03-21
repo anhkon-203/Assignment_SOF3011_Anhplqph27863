@@ -25,15 +25,21 @@
         <% session.removeAttribute("mess_error"); %>
     </c:if>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/san-pham/store">
+          action="/Assignment_Sof3011_war_exploded/san-pham/store"
+    enctype="multipart/form-data"
+    >
         <div class="row mt-3">
-            <div class="col-6">
+            <div class="col-4">
                 <label>Mã</label>
                 <input type="text" name="ma" class="form-control" />
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label>Tên</label>
                 <input type="text" name="ten" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Ảnh</label>
+                <input type="file" name="srcImage" class="form-control"/>
             </div>
         </div>
         <div class="row mt-3">

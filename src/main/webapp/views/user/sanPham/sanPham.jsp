@@ -31,7 +31,7 @@
             <th>Năm bảo hành</th>
             <th>Số lượng</th>
             <th>Giá bán</th>
-            <th>Mô tả </th>
+            <th>Mô tả</th>
             <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
@@ -48,12 +48,17 @@
                 <td>${ ctsp.soLuongTon }</td>
                 <td>${ ctsp.giaBan }</td>
                 <td>${ ctsp.moTa }</td>
+                <c:if test="${user == null}">
+                    <td class="text-center">
+                        <span>Bạn hãy đăng nhập thể thực hiện chức năng !</span>
+                    </td>
+                </c:if>
                 <c:if test="${user != null}">
                     <td class="text-center">
                         <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"
                            class="btn btn-primary">Thêm vào giỏ hàng</a>
-                        <a  href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"
-                            class="btn btn-success">Xem chi tiết</a>
+                        <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"
+                           class="btn btn-success">Xem chi tiết</a>
                     </td>
                 </c:if>
             </tr>

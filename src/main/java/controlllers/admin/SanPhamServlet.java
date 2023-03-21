@@ -2,17 +2,22 @@ package controlllers.admin;
 
 import entities.SanPham;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import org.apache.commons.beanutils.BeanUtils;
 import repositories.SanPhamRepository;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
-
+@MultipartConfig
 @WebServlet({
         "/san-pham/index",    // GET
         "/san-pham/create",   // GET
@@ -62,7 +67,20 @@ public class SanPhamServlet extends HttpServlet {
             ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            Part part = request.getPart("srcImage");
+            String realPath = request.getServletContext().getRealPath("/images");
+            String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
+            if (!Files.exists(Path.of(realPath))) {
+                Files.createDirectories(Path.of(realPath));
+            }
+            part.write(realPath + "/" + fileName);
+            try {
+                request.setAttribute("srcImage", fileName);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             SanPham sp = new SanPham();
+            sp.setSrcImage(fileName);
             BeanUtils.populate(sp, request.getParameterMap());
             if (sanPhamRepository.findByMa(ma) != null) {
                 request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
@@ -97,6 +115,15 @@ public class SanPhamServlet extends HttpServlet {
             throws
             ServletException, IOException {
         List<SanPham> list = sanPhamRepository.getAll();
+        String realPath = request.getServletContext().getRealPath("/images");
+
+        // Thay đổi đường dẫn tới ảnh để hiển thị ảnh thay vì đường dẫn
+        for (SanPham sp : list) {
+            String fileName = sp.getSrcImage();
+            if (fileName != null) {
+                sp.setSrcImage(request.getContextPath() + "/images/" + fileName);
+            }
+        }
         request.setAttribute("list", list);
         request.setAttribute("view_sanPham", "/views/admin/sanPham/index.jsp");
         request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
