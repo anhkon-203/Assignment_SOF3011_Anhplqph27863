@@ -12,7 +12,9 @@
 <div class="container">
     <a href="/Assignment_Sof3011_war_exploded/views/admin/layout.jsp"><button class="btn btn-primary col-8 offset-2">Layout Admin</button></a>
     <a href="/Assignment_Sof3011_war_exploded/views/user/formDangNhap/login.jsp"><button class="btn btn-primary col-8 offset-2 mt-3">Layout login</button></a>
-    <a href="/Assignment_Sof3011_war_exploded/views/user/layoutUser.jsp"><button class="btn btn-primary col-8 offset-2 mt-3">Layout User </button></a>
+    <form action="/Assignment_Sof3011_war_exploded/SanPhamUserServlet" method="get">
+       <button class="btn btn-primary col-8 offset-2 mt-3">Layout User </button>
+    </form>
 </div>
 </body>
 </html>

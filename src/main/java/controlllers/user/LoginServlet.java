@@ -5,6 +5,7 @@ import entities.NhanVien;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import repositories.ChiTietSanPhamRepository;
 import repositories.KhachHangRepository;
 import repositories.NhanVienRepository;
 
@@ -14,6 +15,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     private KhachHangRepository khachHangRepository = new KhachHangRepository();
     private NhanVienRepository nhanVienRepository = new NhanVienRepository();
+    private ChiTietSanPhamRepository chiTietSanPhamRepository = new ChiTietSanPhamRepository();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -63,21 +65,22 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    protected void login_post(
-            HttpServletRequest request,
-            HttpServletResponse response)
-            throws
-            ServletException, IOException {
+    protected void login_post(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String email = request.getParameter("email");
         String matKhau = request.getParameter("matKhau");
         KhachHang khachHang = khachHangRepository.checkLogin(email, matKhau);
         if (khachHang != null) {
-            request.setAttribute("user", khachHang);
-            request.getRequestDispatcher("/views/user/layoutUser.jsp").forward(request, response);
+            HttpSession session = request.getSession();
+            session.setAttribute("user", khachHang);
+            request.setAttribute("sanPham", chiTietSanPhamRepository.getList());
+            request.setAttribute("view", "/views/user/sanPham/sanPham.jsp");
+            response.sendRedirect(request.getContextPath() + "/SanPhamUserServlet");
         } else {
+            request.setAttribute("error", "Email hoặc mật khẩu không đúng!");
             request.getRequestDispatcher("/views/user/formDangNhap/login.jsp").forward(request, response);
         }
-
-
     }
+
+
 }

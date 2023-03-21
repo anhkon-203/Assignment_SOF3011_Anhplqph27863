@@ -63,7 +63,7 @@
 </div>
 
 <%-- content --%>
-
+    <jsp:include page="${view}"/>
 <%-- footer --%>
   <div class="row" id="footer">
     <div>
