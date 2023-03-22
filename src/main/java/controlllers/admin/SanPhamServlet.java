@@ -157,12 +157,32 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        SanPham sp = new SanPham();
-        sp.setMa(ma);
-        sp.setTen(ten);
-        sanPhamRepository.update(ma, sp);
+        try {
+            String ma = request.getParameter("ma");
+            Part part = request.getPart("srcImage");
+            String realPath = request.getServletContext().getRealPath("/images");
+            String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
+            if (!Files.exists(Path.of(realPath))) {
+                Files.createDirectories(Path.of(realPath));
+            }
+            part.write(realPath + "/" + fileName);
+            try {
+                request.setAttribute("srcImage", fileName);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            SanPham sp = new SanPham();
+            sp.setSrcImage(fileName);
+            BeanUtils.populate(sp, request.getParameterMap());
+            if (sanPhamRepository.update(ma,sp)) {
+                request.getSession().setAttribute("message", "Thêm mới thành công");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
 }

@@ -21,7 +21,7 @@ import java.util.List;
 public class ChiTietSanPhamRepository {
 
     public List<ChiTietSanPhamViewModel> getList() {
-        String select = "select new viewModel.ChiTietSanPhamViewModel(ctsp.id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten) from ChiTietSp ctsp " ;
+        String select = "select new viewModel.ChiTietSanPhamViewModel(ctsp.id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten,ctsp.sanPham.srcImage) from ChiTietSp ctsp " ;
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery(select);
         List<ChiTietSanPhamViewModel> lstCtsp = query.getResultList();
@@ -114,6 +114,14 @@ public class ChiTietSanPhamRepository {
         query.setParameter("id",id);
         ChiTietSp chiTietSp = (ChiTietSp) query.getSingleResult();
         return chiTietSp;
+    }
+    public List<ChiTietSanPhamViewModel> userGetById(String id) {
+        Session session = ConnectDB.getFACTORY().openSession();
+        Query query = session.createQuery("select new viewModel.ChiTietSanPhamViewModel(ctsp.id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten,ctsp.sanPham.srcImage) from ChiTietSp ctsp where id=:id");
+        query.setParameter("id",id);
+        List<ChiTietSanPhamViewModel> chiTietSp = query.getResultList();
+        return chiTietSp;
+
     }
 //    public List<String> check(String ma) {
 //        Session session = ConnectDB.getFACTORY().openSession();

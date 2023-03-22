@@ -32,6 +32,7 @@
             <th>Số lượng</th>
             <th>Giá bán</th>
             <th>Mô tả</th>
+            <th>Ảnh</th>
             <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
@@ -48,6 +49,9 @@
                 <td>${ ctsp.soLuongTon }</td>
                 <td>${ ctsp.giaBan }</td>
                 <td>${ ctsp.moTa }</td>
+                <td>
+                    <img src="${ ctsp.srcImage }" alt="ảnh sản phẩm" style="width: 100px; height: 100px;">
+                </td>
                 <c:if test="${user == null}">
                     <td class="text-center">
                         <span>Bạn hãy đăng nhập thể thực hiện chức năng !</span>
@@ -55,9 +59,12 @@
                 </c:if>
                 <c:if test="${user != null}">
                     <td class="text-center">
-                        <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"
-                           class="btn btn-primary">Thêm vào giỏ hàng</a>
-                        <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"
+                        <form action="${pageContext.request.contextPath}/GioHangUserServlet/store?id=${ctsp.id}"
+                              method="post">
+                            <input type="number" name="soLuong" min="1" max="${ctsp.soLuongTon}"  class="form-control">
+                            <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                        </form>
+                        <a href="/Assignment_Sof3011_war_exploded/ChiTietSanPhamUserServlet?id=${ ctsp.id }"
                            class="btn btn-success">Xem chi tiết</a>
                     </td>
                 </c:if>

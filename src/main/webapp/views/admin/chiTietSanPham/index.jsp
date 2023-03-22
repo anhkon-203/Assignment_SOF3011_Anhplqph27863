@@ -35,6 +35,7 @@
             <th>Màu sắc</th>
             <th>Dòng Sản phẩm</th>
             <th>Mô tả </th>
+            <th>Ảnh</th>
                             <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
@@ -52,6 +53,9 @@
                 <td>${ ctsp.tenMauSac }</td>
                 <td>${ ctsp.tenDongSp }</td>
                 <td>${ ctsp.moTa }</td>
+                <td>
+                    <img src="${ ctsp.srcImage }" alt="ảnh sản phẩm" style="width: 200px; height: 100px;">
+                </td>
 
                 <td class="text-center">
                     <a href="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/edit?id=${ ctsp.id }"

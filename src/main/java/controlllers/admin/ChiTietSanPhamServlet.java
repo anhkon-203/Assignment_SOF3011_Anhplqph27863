@@ -156,6 +156,15 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         List<ChiTietSanPhamViewModel> list = chiTietSanPhamRepository.getList();
+        String realPath = request.getServletContext().getRealPath("/images");
+
+        // Thay đổi đường dẫn tới ảnh để hiển thị ảnh thay vì đường dẫn
+        for (ChiTietSanPhamViewModel sp : list) {
+            String fileName = sp.getSrcImage();
+            if (fileName != null) {
+                sp.setSrcImage(request.getContextPath() + "/images/" + fileName);
+            }
+        }
         request.setAttribute("list", list);
         request.setAttribute("view_chiTietSanPham", "/views/admin/chiTietSanPham/index.jsp");
         request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);

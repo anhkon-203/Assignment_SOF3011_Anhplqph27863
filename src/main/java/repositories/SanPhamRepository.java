@@ -44,9 +44,10 @@ public class SanPhamRepository {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
-            Query query = session.createQuery("update SanPham set  ten =:ten where ma = :ma");
+            Query query = session.createQuery("update SanPham set  ten =:ten,srcImage=:src where ma = :ma");
             query.setParameter("ten",sanPham.getTen());
             query.setParameter("ma",ma);
+            query.setParameter("src",sanPham.getSrcImage());
             query.executeUpdate();
            transaction.commit();
            return true;

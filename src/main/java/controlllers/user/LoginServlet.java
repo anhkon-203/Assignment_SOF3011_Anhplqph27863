@@ -11,7 +11,7 @@ import repositories.NhanVienRepository;
 
 import java.io.IOException;
 
-@WebServlet({"/LoginServlet/login", "/LoginServlet/register", "/LoginServlet/forgot-password"})
+@WebServlet({"/LoginServlet/login", "/LoginServlet/register", "/LoginServlet/forgot-password", "/LoginServlet/logout"})
 public class LoginServlet extends HttpServlet {
     private KhachHangRepository khachHangRepository = new KhachHangRepository();
     private NhanVienRepository nhanVienRepository = new NhanVienRepository();
@@ -26,6 +26,8 @@ public class LoginServlet extends HttpServlet {
             register_get(request, response);
         } else if (uri.contains("forgot-password")) {
             forgotPassword_get(request, response);
+        } else if (uri.contains("logout")) {
+            logout(request, response);
         }
     }
 
@@ -51,6 +53,16 @@ public class LoginServlet extends HttpServlet {
             throws
             ServletException, IOException {
         request.getRequestDispatcher("/views/user/formDangNhap/forgotPassword.jsp").forward(request, response);
+    }
+
+    protected void logout(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws
+            ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.invalidate(); // Thay đổi này để xóa toàn bộ session
+        response.sendRedirect(request.getContextPath() + "/SanPhamUserServlet");
     }
 
     @Override

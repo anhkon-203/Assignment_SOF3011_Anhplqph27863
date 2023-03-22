@@ -15,7 +15,9 @@
 <div class="col-8 offset-2">
     <h1>Update sản phẩm</h1>
     <form method="POST"
-          action="/Assignment_Sof3011_war_exploded/san-pham/update?ma=${sp.ma}">
+          action="/Assignment_Sof3011_war_exploded/san-pham/update?ma=${sp.ma}"
+          enctype="multipart/form-data"
+    >
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
@@ -24,6 +26,10 @@
             <div class="col-6">
                 <label>Tên</label>
                 <input type="text" name="ten" class="form-control" value="${sp.ten}" />
+            </div>
+            <div class="col-4">
+                <label>Ảnh</label>
+                <input type="file" name="srcImage"value="${sp.srcImage} class="form-control"/>
             </div>
         </div>
         <div class="row mt-3">

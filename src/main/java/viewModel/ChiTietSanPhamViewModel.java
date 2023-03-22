@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ChiTietSanPhamViewModel {
     private String id;
-    
+
     private int namBaoHanh;
 
     private String moTa;
@@ -29,6 +29,8 @@ public class ChiTietSanPhamViewModel {
     private String tenMauSac;
 
     private String tenDongSp;
+
+    private String srcImage;
 
 
 }

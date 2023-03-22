@@ -61,9 +61,9 @@
                     <c:if test="${user != null}">
                         <span class="text-success mt-2">Xin chào</span>
                         <a class="nav-link" href="#profile">
-                                ${user.ho} ${user.tenDem} ${user.ten}</a>
-                        <a class="nav-link" href="/Assignment_Sof3011_war_exploded/views/user/formDangNhap/login.jsp">Đăng
-                            xuất</a>
+                                ${user.getHo()} ${user.getTenDem()} ${user.getTen()}
+                        </a>
+                        <a class="nav-link" href="/Assignment_Sof3011_war_exploded/LoginServlet/logout">Đăng xuất</a>
                     </c:if>
                 </div>
             </div>
@@ -72,10 +72,12 @@
 </div>
 
 <%-- content --%>
-<jsp:include page="${view}"/>
+<div class="container">
+    <jsp:include page="${view}"/>
+</div>
 <%-- footer --%>
-<div class="row" id="footer">
-    <div>
+<div class="row mt-5" id="footer">
+    <div class="col-12 col-md-4">
         <p class="mt-3 ms-4"><img src="/Assignment_Sof3011_war_exploded/img/logo_foot.png" alt="innisfree"></p>
         <div class="row col-7 ms-4 ">
             <a href="https://innisfreevietnam.co/2Ab0EGA" class="facebook col-1">
@@ -91,49 +93,40 @@
                 <img src="/Assignment_Sof3011_war_exploded/img/zalo.png" class="img-fluid " alt="">
             </a>
             <div class="col-7">
-                <p class="float-end">ⓒ 2020 innisfree Inc. <br>All rights reserved.</p>
+                <p>ⓒ 2020 innisfree Inc. <br>All rights reserved.</p>
             </div>
         </div>
-        <hr>
-        <ul class="row col-11 list-unstyled ms-4">
-            <li class="col-3">
-                <a class="text-decoration-none  text-white fs-6">Chính sách giao hàng và
-                    thanh toán</a>
-            </li>
-            <li class="col-3">
-                <a class="text-decoration-none text-white ">|</a>
-                <a href="" class="text-decoration-none background: text-white  ">Chính sách bảo mật thông tin
-                    khách hàng</a>
-            </li>
-            <li class="col-2">
-                <a href="" class="text-decoration-none text-white ">|</a>
-                <a href="" class="text-decoration-none text-white">Chính sách mua hàng</a>
-            </li>
-            <li class="col-2">
-                <a class="text-decoration-none text-white ">|</a>
-                <a href="" class="text-decoration-none  text-white">Chính sách trả hàng</a>
-            </li>
-        </ul>
-        <ul class="row list-unstyled ms-4">
-            <li>
-                Thời gian làm việc
-                <span>: Thứ 2 ~ Thứ 6 09:00 ~ 17:00 (trừ Thứ 7, Chủ Nhật và ngày lễ)</span>
-            </li>
-            <li>
-                Tư vấn khách hàng
-                <a href="tel:02838279777" class="text-decoration-none text-white">: 028 3827 9777</a>
-            </li>
-            <li>
-                Email
-                <span><a href="mailto:cs_vn@innisfree.com" class="text-decoration-none text-white">:
-                            cs_vn@innisfree.com</a></span>
-            </li>
-            <li>CÔNG TY TNHH AMOREPACIFIC VIỆT NAM</li>
-            <li>GIẤY CNĐKDN: 0309984165 - Ngày cấp: 05/05/2010, được sửa đổi lần thứ 21, ngày 04/04/2022</li>
-            <li>Địa chỉ đăng ký kinh doanh: Lầu 4A, Toà nhà Vincom, 72 Lê Thánh Tôn, Phường Bến Nghé, Quận 1,
-                Tp. Hồ Chí Minh, Việt Nam.
-            </li>
-        </ul>
+    </div>
+    <div class="col-12 col-md-8 row">
+        <div class="col-12 col-md-3">
+            <h5 class="fw-bold">Về innisfree</h5>
+            <a href="" class="text-decoration-none  text-white fs-6">Chính sách giao hàng và
+                thanh toán</a><br>
+            <a href="" class="text-decoration-none text-white ">Chính sách bảo mật thông tin
+                khách hàng</a><br>
+            <a href="" class="text-decoration-none text-white">Chính sách mua hàng</a><br>
+            <a href="" class="text-decoration-none text-white">Chính sách trả hàng</a><br>
+        </div>
+        <div class="col-12 col-md-3">
+            <h5 class="fw-bold">Liên hệ</h5>
+            <a href="tel:02838279777" class="text-decoration-none text-white">Tư vấn khách hàng: 028 3827 9777</a><br>
+            <a href="mailto:cs_vn@innisfree.com" class="text-decoration-none text-white">Email: cs_vn@innisfree.com</a><br>
+            <p>CÔNG TY TNHH AMOREPACIFIC VIỆT NAM</p>
+            <p>GIẤY CNĐKDN: 0309984165 - Ngày cấp: 05/05/2010, được sửa đổi lần thứ 21, ngày 04/04/2022</p>
+            <p>Địa chỉ đăng ký kinh doanh: Lầu 4A, Toà nhà Vincom, 72 Lê Thánh Tôn, Phường Bến Nghé, Quận 1,
+                Tp. Hồ Chí Minh, Việt Nam.</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <h5 class="fw-bold">Kết nối với innisfree</h5>
+            <p>Đăng ký để nhận được thông tin mới nhất từ innisfree</p>
+            <form>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <label for="email">Địa chỉ email của bạn</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+        </div>
     </div>
 </div>
 <script src="/Assignment_Sof3011_war_exploded/js/bootstrap.min.js"></script>
