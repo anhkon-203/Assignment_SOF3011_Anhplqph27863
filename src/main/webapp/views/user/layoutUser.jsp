@@ -15,7 +15,7 @@
 <body>
 <header class="d-flex align-items-center">
     <div class="col-2 mt-3">
-        <a class="navbar-brand col-2 fw-bold " href="#index">
+        <a class="navbar-brand col-2 fw-bold " href="/Assignment_Sof3011_war_exploded/SanPhamUserServlet">
             <img class="img-fluid" src="/Assignment_Sof3011_war_exploded/img/logo.png" alt="Logo">
         </a>
     </div>
@@ -26,7 +26,7 @@
 
         <c:if test="${user == null}">
             <a class="nav-link"
-               href="/Assignment_Sof3011_war_exploded/views/user/formDangNhap/login.jsp?redirectUrl=${pageContext.request.requestURL}">
+               href="/Assignment_Sof3011_war_exploded/LoginServlet/login">
                 Đăng nhập
             </a>
         </c:if>
@@ -35,7 +35,7 @@
         </c:if>
         <c:if test="${user != null}">
             <div class="shopping-cart d-flex align-items-center">
-                <a href="#shoppingCart" class="btn btn-primary">
+                <a href="/Assignment_Sof3011_war_exploded/GioHangUserServlet/index" class="btn btn-primary" >
                     <img src="/Assignment_Sof3011_war_exploded/img/icons8-shopping-cart-30.png" alt="Shopping cart"></a>
             </div>
         </c:if>

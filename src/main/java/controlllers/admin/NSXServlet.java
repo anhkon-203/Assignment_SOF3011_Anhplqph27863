@@ -73,17 +73,7 @@ public class NSXServlet extends HttpServlet {
             String ma = request.getParameter("ma");
             NSX nsx = new NSX();
             BeanUtils.populate(nsx, request.getParameterMap());
-            if (nsxRepository.findByMa(ma) != null) {
-                request.getSession().setAttribute("mess_error_nsx", "Mã NSX đã tồn tại");
-                //request.getContextPath() trả về đường dẫn của ứng dụng web hiện tại (ví dụ: /Assignment_Sof3011_war_exploded)
-                response.sendRedirect(request.getContextPath() + "/nsx/create");
-                return;
-            }
-            if (     nsxRepository.insert(nsx)) {
-                request.getSession().setAttribute("message_nsx", "Thêm mới thành công");
-            } else {
-                request.getSession().setAttribute("mess_error_nsx", "Thêm mới thất bại");
-            }
+            nsxRepository.insert(nsx);
 
         } catch (Exception e) {
             e.printStackTrace();

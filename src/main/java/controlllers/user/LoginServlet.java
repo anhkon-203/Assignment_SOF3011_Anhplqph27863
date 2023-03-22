@@ -1,20 +1,30 @@
 package controlllers.user;
 
+import entities.GioHang;
 import entities.KhachHang;
 import entities.NhanVien;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.beanutils.converters.DateConverter;
+import org.apache.commons.beanutils.converters.DateTimeConverter;
 import repositories.ChiTietSanPhamRepository;
+import repositories.GioHangRepository;
 import repositories.KhachHangRepository;
 import repositories.NhanVienRepository;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.time.LocalDate;
+import java.util.*;
 
 @WebServlet({"/LoginServlet/login", "/LoginServlet/register", "/LoginServlet/forgot-password", "/LoginServlet/logout"})
 public class LoginServlet extends HttpServlet {
     private KhachHangRepository khachHangRepository = new KhachHangRepository();
     private NhanVienRepository nhanVienRepository = new NhanVienRepository();
+    private GioHangRepository gioHangRepository = new GioHangRepository();
     private ChiTietSanPhamRepository chiTietSanPhamRepository = new ChiTietSanPhamRepository();
 
     @Override
@@ -36,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        request.getRequestDispatcher("/views/user/formDangNhap/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/user/formDangNhap/register.jsp").forward(request, response);
     }
 
     protected void login_get(
@@ -71,7 +81,7 @@ public class LoginServlet extends HttpServlet {
         if (uri.contains("login")) {
             login_post(request, response);
         } else if (uri.contains("register")) {
-//                register_post(request, response);
+            register(request, response);
         } else if (uri.contains("forgot-password")) {
 //                forgotPassword_post(request, response);
         }
@@ -94,5 +104,35 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+    protected void register(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        try {
+            Random random = new Random();
+            DateTimeConverter dtc = new DateConverter(new Date());
+            dtc.setPattern("yyyy-MM-dd");
+            ConvertUtils.register(dtc, Date.class);
+            KhachHang khachHang = new KhachHang();
+            khachHang.setMa("KH" + random.nextInt(1000000));
+            BeanUtils.populate(khachHang, request.getParameterMap());
+            khachHangRepository.insert(khachHang);
+
+
+            GioHang gioHang = new GioHang();
+            gioHang.setMa(khachHang.getMa());
+            gioHang.setKhachHang(khachHang);
+            int year = LocalDate.now().getYear();
+            int month = LocalDate.now().getMonthValue();
+            int day = LocalDate.now().getDayOfMonth();
+            gioHang.setNgayTao(java.sql.Date.valueOf(LocalDate.of(year, month, day)));
+            gioHang.setTrangThai(0);
+            gioHangRepository.insertGioHang(gioHang);
+            response.sendRedirect(request.getContextPath() + "/LoginServlet/login");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
+

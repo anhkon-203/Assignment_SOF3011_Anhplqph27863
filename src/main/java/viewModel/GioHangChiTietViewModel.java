@@ -10,6 +10,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class GioHangChiTietViewModel {
+    private String id;
+    private String idGioHang;
     private String tenSp;
     private int soLuong;
     private Float donGia;

@@ -93,9 +93,11 @@
                     <span class="text-center text-truncate text-danger" >${ghct.donGia}</span>
                 </div>
                 <div class="col-md-1 col-2">
-                    <form action="${pageContext.request.contextPath}/GioHangUserServlet/delete?id=1" method="get">
-                        <button class="btn btn-danger" type="submit">Xóa</button>
-                    </form>
+<%--                    <form action="/Assignment_Sof3011_war_exploded/GioHangUserServlet/delete" method="GET">--%>
+<%--                        <input  type="hidden" name="id" value="${ghct.id}">--%>
+<%--                        <input  type="hidden" name="idGioHang" value="${ghct.idGioHang}">--%>
+<%--                        <button class="btn btn-danger" type="submit">Xóa</button>--%>
+<%--                    </form>--%>
                 </div>
             </div>
         </div>

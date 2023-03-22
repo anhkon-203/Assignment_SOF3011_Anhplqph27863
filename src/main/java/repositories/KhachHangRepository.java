@@ -93,5 +93,4 @@ public class KhachHangRepository {
         KhachHang khachHang = (KhachHang) query.getSingleResult();
         return khachHang;
     }
-
 }

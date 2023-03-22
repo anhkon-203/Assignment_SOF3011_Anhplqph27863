@@ -16,30 +16,34 @@
 </head>
 <body>
 <div class="container">
-
-  <!-- Product Detail -->
-  <c:forEach var="ctsp" items="${ sanPham }" varStatus="status">
   <div class="row">
-    <div class="col-md-5">
-      <img src="${ ctsp.srcImage }" alt="ảnh sản phẩm" class="img-fluid">
-    </div>
-    <div class="col-md-7">
-      <h3 class="product-name">${ctsp.tenSp}</h3>
-      <h3 class="product-price">${ctsp.giaBan}</h3>
-      <div class="input-group mb-3 w-50 mt-5">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Số lượng</span>
+    <div class="col-8 offset-2">
+      <c:forEach var="ctsp" items="${sanPham}" varStatus="status">
+        <div class="card mb-3">
+          <img src="${ctsp.srcImage}" alt="ảnh sản phẩm" class="card-img-top img-fluid w-50">
+          <div class="card-body">
+            <h3 class="card-title">${ctsp.tenSp}</h3>
+            <h3 class="card-text">$${ctsp.giaBan}</h3>
+            <p class="card-text mau-sac">Màu sắc :${ctsp.tenMauSac}</p>
+            <p class="card-text mo-ta">Mô tả: ${ctsp.moTa}</p>
+            <form action="${pageContext.request.contextPath}/GioHangUserServlet/store?id=${ctsp.id}"
+                  method="post">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Số lượng</span>
+                </div>
+                <input type="number" class="form-control" id="quantity-input" name="soLuong" min="1"
+                       max="${ctsp.soLuongTon}">
+                <p class="text-danger ml-3">còn ${ctsp.soLuongTon} sản phẩm</p>
+              </div>
+              <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+            </form>
+          </div>
         </div>
-        <input type="number" class="form-control"  id="quantity-input" name="soLuong" min="1" max="${ctsp.soLuongTon}" >
-        <p class="text-danger ml-3">còn ${ctsp.soLuongTon} sản phẩm</p>
-      </div>
-      <form action="${pageContext.request.contextPath}/GioHangUserServlet/store?id=${ctsp.id}"
-            method="post">
-        <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
-      </form>
+      </c:forEach>
     </div>
   </div>
-    </c:forEach>
+</div>
 
   <!-- Related Products -->
   <h3 class="fw-bold mt-5 text-center">Các sản phẩm tương tự</h3>

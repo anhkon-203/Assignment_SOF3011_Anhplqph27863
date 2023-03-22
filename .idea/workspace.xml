@@ -9,32 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="thêm ảnh cho sanPham">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/ChiTietSanPhamUserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewModel/GioHangChiTietViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/sanPham/chiTietSanPham.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong + form đăng ký khách hàng và tạo luôn giỏ hàng khi đăng ký">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NSXServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/SanPhamUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/SanPhamUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/GioHangChiTietViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/GioHangChiTietViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/forgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/forgotPassword.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/layoutUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/layoutUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/sanPham/sanPham.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/sanPham/sanPham.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/sanPham/chiTietSanPham.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/sanPham/chiTietSanPham.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -65,6 +55,14 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2MrWs4YB3j2q4hnHxm2UI32gUaQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -297,6 +295,7 @@
       <workItem from="1679472563394" duration="9234000" />
       <workItem from="1679481823100" duration="200000" />
       <workItem from="1679482037466" duration="2395000" />
+      <workItem from="1679507038176" duration="16599000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -422,7 +421,9 @@
     <MESSAGE value="layoutUser + login" />
     <MESSAGE value="login user" />
     <MESSAGE value="thêm ảnh cho sanPham" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm ảnh cho sanPham" />
+    <MESSAGE value="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong" />
+    <MESSAGE value="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong + form đăng ký khách hàng và tạo luôn giỏ hàng khi đăng ký" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong + form đăng ký khách hàng và tạo luôn giỏ hàng khi đăng ký" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

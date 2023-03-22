@@ -17,7 +17,7 @@ public class GioHangRepository {
 
     public List<GioHangChiTietViewModel> getAllGioHangChiTietByGioHangId(String idGioHang) {
         Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("select new viewModel.GioHangChiTietViewModel(g.chiTietSp.sanPham.ten,g.soLuongTon,g.donGia,g.chiTietSp.sanPham.srcImage) from GioHangChiTiet g where g.gioHang.id = :idGioHang");
+        Query query = session.createQuery("select new viewModel.GioHangChiTietViewModel(g.chiTietSp.id,g.gioHang.id ,g.chiTietSp.sanPham.ten,g.soLuongTon,g.donGia,g.chiTietSp.sanPham.srcImage) from GioHangChiTiet g where g.gioHang.id = :idGioHang");
         query.setParameter("idGioHang", idGioHang);
         List<GioHangChiTietViewModel> lst = query.getResultList();
         return lst;
@@ -62,11 +62,13 @@ public class GioHangRepository {
         }
     }
 
-    public boolean deltete(GioHangChiTiet gioHangChiTiet) {
+    public boolean delete(String idCtsp,String idGioHang) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
-            session.delete(gioHangChiTiet);
+            Query query = session.createQuery("delete from GioHangChiTiet ghct where ghct.chiTietSp.id=:idCtsp and ghct.gioHang.id=:idGioHang");
+            query.setParameter("idCtsp", idCtsp);
+            query.setParameter("idGioHang", idGioHang);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -75,18 +77,13 @@ public class GioHangRepository {
         }
     }
 
-    public GioHangChiTiet getGioHangChiTietByIdGioHang(String idGioHang, String idChiTietSp) {
+    public List<GioHangChiTiet> getGioHangChiTietByIdGioHang(String idGioHang, String idChiTietSp) {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select ghct from GioHangChiTiet ghct where ghct.gioHang.id=:idGioHang and ghct.chiTietSp.id=:idChiTietSp");
         query.setParameter("idGioHang", idGioHang);
         query.setParameter("idChiTietSp", idChiTietSp);
-        GioHangChiTiet gioHangChiTiet = null;
-        try {
-            gioHangChiTiet = (GioHangChiTiet) query.getSingleResult();
-        } catch (Exception e) {
-           e.printStackTrace();
-        }
-        return gioHangChiTiet;
+        List<GioHangChiTiet> lst = query.getResultList();
+        return lst;
     }
 
     public GioHangChiTiet getGioHangChiTietById(String id) {
@@ -112,12 +109,5 @@ public class GioHangRepository {
         query.setParameter("trangThai", 0); // Giỏ hàng chưa thanh toán
         GioHang gioHang = (GioHang) query.getSingleResult();
         return gioHang;
-    }
-    public List<GioHangChiTietViewModel> getAllGioHangChiTiet(String idGioHang) {
-        Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("select new viewModel.GioHangChiTietViewModel(g.chiTietSp.sanPham.ten,g.soLuongTon,g.donGia,g.chiTietSp.sanPham.srcImage) from GioHangChiTiet g where g.gioHang.id = :idGioHang");
-        query.setParameter("idGioHang", idGioHang);
-        List<GioHangChiTietViewModel> lst = query.getResultList();
-        return lst;
     }
 }
