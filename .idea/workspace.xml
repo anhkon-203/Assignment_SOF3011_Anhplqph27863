@@ -9,7 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="add cart, register">
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="thay doi giao dien trang chu">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/sanPham/full_sanPham.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -301,7 +302,7 @@
       <workItem from="1679482037466" duration="2395000" />
       <workItem from="1679507038176" duration="16894000" />
       <workItem from="1679547167073" duration="3331000" />
-      <workItem from="1679565695268" duration="9955000" />
+      <workItem from="1679565695268" duration="10497000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -401,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679523868585</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="thay doi giao dien trang chu">
+      <created>1679579385336</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679579385336</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +445,8 @@
     <MESSAGE value="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong" />
     <MESSAGE value="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong + form đăng ký khách hàng và tạo luôn giỏ hàng khi đăng ký" />
     <MESSAGE value="add cart, register" />
-    <option name="LAST_COMMIT_MESSAGE" value="add cart, register" />
+    <MESSAGE value="thay doi giao dien trang chu" />
+    <option name="LAST_COMMIT_MESSAGE" value="thay doi giao dien trang chu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
