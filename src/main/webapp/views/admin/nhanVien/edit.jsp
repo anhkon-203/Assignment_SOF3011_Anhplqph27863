@@ -122,7 +122,7 @@
 
         <div class="row mt-3">
             <div class="col-6">
-                <button class="btn btn-primary">Thêm mới</button>
+                <button class="btn btn-primary">Update</button>
             </div>
             <div class="col-6">
 

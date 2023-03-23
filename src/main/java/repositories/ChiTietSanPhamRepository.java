@@ -21,9 +21,27 @@ import java.util.List;
 public class ChiTietSanPhamRepository {
 
     public List<ChiTietSanPhamViewModel> getList() {
-        String select = "select new viewModel.ChiTietSanPhamViewModel(ctsp.id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten,ctsp.sanPham.srcImage) from ChiTietSp ctsp " ;
+        String select = "select new viewModel.ChiTietSanPhamViewModel(ctsp.id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten,ctsp.sanPham.srcImage) from ChiTietSp ctsp  " ;
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery(select);
+        List<ChiTietSanPhamViewModel> lstCtsp = query.getResultList();
+        return lstCtsp;
+
+    }
+    public String selectTenDongSp(String idCtsp) {
+        String select = "select ctsp.dongSp.ten from ChiTietSp ctsp where ctsp.id =:idCtsp" ;
+        Session session = ConnectDB.getFACTORY().openSession();
+        Query query = session.createQuery(select);
+        query.setParameter("idCtsp",idCtsp);
+        String tenDongSp = query.getSingleResult().toString();
+        return tenDongSp;
+
+    }
+    public List<ChiTietSanPhamViewModel> getListByTenDongsp(String tenDongSp) {
+        String select = "select new viewModel.ChiTietSanPhamViewModel(ctsp.id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten,ctsp.sanPham.srcImage) from ChiTietSp ctsp where ctsp.dongSp.ten =:tenDongSp" ;
+        Session session = ConnectDB.getFACTORY().openSession();
+        Query query = session.createQuery(select);
+        query.setParameter("tenDongSp",tenDongSp);
         List<ChiTietSanPhamViewModel> lstCtsp = query.getResultList();
         return lstCtsp;
 

@@ -7,84 +7,70 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
 <head>
-  <title>Product Detail</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <link rel="stylesheet" href="/css/style.css">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="/Assignment_Sof3011_war_exploded/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <c:forEach var="ctsp" items="${sanPham}" varStatus="status">
-        <div class="card mb-3">
-          <img src="${ctsp.srcImage}" alt="ảnh sản phẩm" class="card-img-top img-fluid w-50">
-          <div class="card-body">
-            <h3 class="card-title">${ctsp.tenSp}</h3>
-            <h3 class="card-text">$${ctsp.giaBan}</h3>
-            <p class="card-text mau-sac">Màu sắc :${ctsp.tenMauSac}</p>
-            <p class="card-text mo-ta">Mô tả: ${ctsp.moTa}</p>
-            <form action="${pageContext.request.contextPath}/GioHangUserServlet/store?id=${ctsp.id}"
-                  method="post">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Số lượng</span>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <c:forEach var="ctsp" items="${sanPham}" varStatus="status">
+                <div class="card mb-3">
+                    <img src="${ctsp.srcImage}" alt="ảnh sản phẩm" class="card-img-top img-fluid w-50">
+                    <div class="card-body">
+                        <h3 class="card-title">${ctsp.tenSp}</h3>
+                        <h3 class="card-text">$${ctsp.giaBan}</h3>
+                        <p class="card-text mau-sac">Màu sắc :${ctsp.tenMauSac}</p>
+                        <p class="card-text mo-ta">Mô tả: ${ctsp.moTa}</p>
+                        <form action="${pageContext.request.contextPath}/GioHangUserServlet/store?id=${ctsp.id}"
+                              method="post">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Số lượng</span>
+                                </div>
+                                <input type="number" class="ms-3 w-25" id="quantity-input" name="soLuong" value="1"
+                                       min="1" max="${ctsp.soLuongTon}">
+                                <p class="text-danger ms-3">còn ${ctsp.soLuongTon} sản phẩm</p>
+                            </div>
+                            <c:if test="${user != null}">
+                                <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                            </c:if>
+                        </form>
+                        <c:if test="${user == null}">
+                            <a class="nav-link text-primary"
+                               href="/Assignment_Sof3011_war_exploded/LoginServlet/login">
+                                Bạn hãy đăng nhập để thực hiện chức năng này
+                            </a>
+                        </c:if>
+                    </div>
                 </div>
-                <input type="number" class="form-control" id="quantity-input" name="soLuong" min="1"
-                       max="${ctsp.soLuongTon}">
-                <p class="text-danger ml-3">còn ${ctsp.soLuongTon} sản phẩm</p>
-              </div>
-              <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
-            </form>
-          </div>
+            </c:forEach>
         </div>
-      </c:forEach>
     </div>
-  </div>
 </div>
 
-  <!-- Related Products -->
-  <h3 class="fw-bold mt-5 text-center">Các sản phẩm tương tự</h3>
-  <div class="row mt-3">
-    <div class="col-md-3 col-6">
-      <div class="card">
-        <img src="/Assignment_Sof3011_war_exploded/img/b1.jpg" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title text-center">SP1</h5>
-          <h6 class="card-subtitle mb-2 text-muted text-center">$30</h6>
+<!-- Related Products -->
+<h3 class="fw-bold mt-5 text-center">Các sản phẩm tương tự</h3>
+<div class="row col-8 offset-2 justify-content-center">
+    <c:forEach var="ctsp" items="${sanPham_Category}" varStatus="status" begin="0" end="2">
+        <div class="col-md-3 col-12">
+            <div class="card">
+                <img src="${ ctsp.srcImage }" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <a href="/Assignment_Sof3011_war_exploded/ChiTietSanPhamUserServlet?id=${ ctsp.id } "
+                       class="text-decoration-none fw-bold text-dark">
+                        <p class="card-text text-center">${ ctsp.tenSp }</p>
+                    </a>
+                    <span class="card text text-center fw-bold">${ ctsp.giaBan }</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-6">
-      <div class="card">
-        <img src="/Assignment_Sof3011_war_exploded/img/b1.jpg" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title text-center">SP2</h5>
-          <h6 class="card-subtitle mb-2 text-muted text-center">$30</h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-6">
-      <div class="card">
-        <img src="/Assignment_Sof3011_war_exploded/img/b1.jpg" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title text-center">SP3</h5>
-          <h6 class="card-subtitle mb-2 text-muted text-center">$30</h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-6">
-      <div class="card">
-        <img src="/Assignment_Sof3011_war_exploded/img/b1.jpg" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title text-center">SP4</h5>
-          <h6 class="card-subtitle mb-2 text-muted text-center">$30</h6>
-        </div>
-      </div>
-    </div>
-  </div>
+    </c:forEach>
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>

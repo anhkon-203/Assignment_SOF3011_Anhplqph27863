@@ -16,7 +16,7 @@
 <header class="d-flex align-items-center">
     <div class="col-2 mt-3">
         <a class="navbar-brand col-2 fw-bold " href="/Assignment_Sof3011_war_exploded/SanPhamUserServlet">
-            <img class="img-fluid" src="/Assignment_Sof3011_war_exploded/img/logo.png" alt="Logo">
+            <img class="img-fluid w-50" src="/Assignment_Sof3011_war_exploded/img/logo.png" alt="Logo">
         </a>
     </div>
     <form class="d-flex col-4 mt-3" role="search">

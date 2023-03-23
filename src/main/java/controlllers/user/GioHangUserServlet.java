@@ -100,11 +100,13 @@ public class GioHangUserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
         String id = request.getParameter("id");
-        GioHangChiTiet gioHangChiTiet = gioHangRepository.getGioHangChiTietById(id);
-        GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
-            gioHangRepository.delete(id, gioHang.getId());
-            response.sendRedirect("/Assignment_Sof3011_war_exploded/GioHangUserServlet/index");
-
+        String idGioHang = request.getParameter("idGioHang");
+        boolean result = gioHangRepository.delete(idGioHang, id);
+        if (result) {
+            response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");
+        } else {
+            // Xử lý lỗi
+        }
     }
 
 }

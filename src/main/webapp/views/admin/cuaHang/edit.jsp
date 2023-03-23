@@ -44,7 +44,7 @@
                 </select>
             </div>
             <div class="mt-3">
-                <button class="btn btn-primary">Thêm mới</button>
+                <button class="btn btn-primary">Update</button>
             </div>
     </form>
 </div>

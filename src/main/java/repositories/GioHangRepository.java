@@ -62,13 +62,15 @@ public class GioHangRepository {
         }
     }
 
-    public boolean delete(String idCtsp,String idGioHang) {
+    public boolean delete(String idGioHang, String idSanPham) {
         Transaction transaction = null;
         try(Session session = ConnectDB.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
-            Query query = session.createQuery("delete from GioHangChiTiet ghct where ghct.chiTietSp.id=:idCtsp and ghct.gioHang.id=:idGioHang");
-            query.setParameter("idCtsp", idCtsp);
-            query.setParameter("idGioHang", idGioHang);
+            GioHangChiTiet gioHangChiTiet = (GioHangChiTiet) session.createQuery("FROM GioHangChiTiet WHERE gioHang.id = :idGioHang AND chiTietSp.id = :idSanPham")
+                    .setParameter("idGioHang", idGioHang)
+                    .setParameter("idSanPham", idSanPham)
+                    .uniqueResult();
+            session.delete(gioHangChiTiet);
             transaction.commit();
             return true;
         } catch (Exception e) {

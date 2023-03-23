@@ -19,60 +19,53 @@
 </c:if>
 
 <c:if test="${ f:length(sanPham) != 0 }">
-
-    <table class="table table-bordered mt-5">
-        <thead>
-        <tr>
-            <th>STT</th>
-            <th>Sản phẩm</th>
-            <th>NSX</th>
-            <th>Màu sắc</th>
-            <th>Dòng Sản phẩm</th>
-            <th>Năm bảo hành</th>
-            <th>Số lượng</th>
-            <th>Giá bán</th>
-            <th>Mô tả</th>
-            <th>Ảnh</th>
-            <th class="col-2 text-center">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <c:forEach var="ctsp" items="${ sanPham }" varStatus="status">
-            <tr>
-                <td>${status.index + 1}</td>
-                <td>${ ctsp.tenSp }</td>
-                <td>${ ctsp.tenNSX }</td>
-                <td>${ ctsp.tenMauSac }</td>
-                <td>${ ctsp.tenDongSp }</td>
-                <td>${ ctsp.namBaoHanh }</td>
-                <td>${ ctsp.soLuongTon }</td>
-                <td>${ ctsp.giaBan }</td>
-                <td>${ ctsp.moTa }</td>
-                <td>
-                    <img src="${ ctsp.srcImage }" alt="ảnh sản phẩm" style="width: 100px; height: 100px;">
-                </td>
-                <c:if test="${user == null}">
-                    <td class="text-center">
-                        <span>Bạn hãy đăng nhập thể thực hiện chức năng !</span>
-                    </td>
-                </c:if>
-                <c:if test="${user != null}">
-                    <td class="text-center">
-                        <form action="${pageContext.request.contextPath}/GioHangUserServlet/store?id=${ctsp.id}"
-                              method="post">
-                            <input type="number" name="soLuong" min="1" max="${ctsp.soLuongTon}"  class="form-control">
-                            <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
-                        </form>
-                        <a href="/Assignment_Sof3011_war_exploded/ChiTietSanPhamUserServlet?id=${ ctsp.id }"
-                           class="btn btn-success">Xem chi tiết</a>
-                    </td>
-                </c:if>
-            </tr>
-
+<div class="container">
+    <div class="row text-center mt-4 mb-4">
+        <h2>Sản phẩm bán chạy nhất</h2>
+    </div>
+    <!-- Sản phẩm -->
+    <div class="row">
+        <c:forEach var="ctsp" items="${sanPham}" varStatus="status" begin="0" end="3">
+            <div class="col-md-3 col-12">
+                <div class="card">
+                    <img src="${ ctsp.srcImage }" class="card-img-top img-fluid w50" alt="...">
+                    <div class="card-body">
+                        <a href="/Assignment_Sof3011_war_exploded/ChiTietSanPhamUserServlet?id=${ ctsp.id } "
+                           class="text-decoration-none fw-bold text-dark">
+                            <p class="card-text text-center">${ ctsp.tenSp }</p>
+                        </a>
+                        <span class="card text text-center fw-bold">${ ctsp.giaBan }</span>
+                    </div>
+                </div>
+            </div>
         </c:forEach>
-        </tbody>
-    </table>
-</c:if>
+    </div>
+
+    <div class="row text-center mt-4 mb-4">
+        <h2>Sản phẩm mới nhất</h2></div>
+    <!-- Sản phẩm mới nhất -->
+    <div class="row">
+        <article class="col-12 ">
+            <div class="row">
+                <c:forEach var="ctsp" items="${sanPham}" varStatus="status" begin="0" end="7">
+                    <div class="col-md-3 col-12">
+                        <div class="card">
+                            <img src="${ ctsp.srcImage }" class="card-img-top img-fluid w50" alt="...">
+                            <div class="card-body">
+                                <a href="/Assignment_Sof3011_war_exploded/ChiTietSanPhamUserServlet?id=${ ctsp.id } "
+                                   class="text-decoration-none fw-bold text-dark">
+                                    <p class="card-text text-center">${ ctsp.tenSp }</p>
+                                </a>
+                                <span class="card text text-center fw-bold">${ ctsp.giaBan }</span>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </article>
+    </div>
+    </c:if>
+</div>
+
 </body>
 </html>

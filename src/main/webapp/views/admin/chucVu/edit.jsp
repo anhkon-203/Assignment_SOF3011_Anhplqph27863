@@ -26,7 +26,7 @@
                 <input type="text" name="ten" class="form-control"  value="${chucVu.ten}" />
             </div>
             <div class="mt-3">
-                <button class="btn btn-primary">Thêm mới</button>
+                <button class="btn btn-primary">Update</button>
             </div>
     </form>
 </div>
