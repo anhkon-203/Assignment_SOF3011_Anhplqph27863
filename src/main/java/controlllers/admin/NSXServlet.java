@@ -71,14 +71,29 @@ public class NSXServlet extends HttpServlet {
             ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/nsx/create");
+                return;
+            }
             NSX nsx = new NSX();
             BeanUtils.populate(nsx, request.getParameterMap());
-            nsxRepository.insert(nsx);
+            if (nsxRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/nsx/create");
+                return;
+            }
+            if (nsxRepository.insert(nsx)) {
+                request.getSession().setAttribute("message", "Thêm mới thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
     }
 
     protected void index(

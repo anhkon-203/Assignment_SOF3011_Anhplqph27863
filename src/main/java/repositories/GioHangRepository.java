@@ -92,16 +92,24 @@ public class GioHangRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select ghct from GioHangChiTiet ghct where ghct.id=:id");
         query.setParameter("id", id);
-        GioHangChiTiet gioHangChiTiet = (GioHangChiTiet) query.getSingleResult();
-        return gioHangChiTiet;
+        List<GioHangChiTiet> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 
     public ChiTietSp getChiTietSp(String idChiTietSp) {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select ctsp from ChiTietSp ctsp where ctsp.id=:idChiTietSp");
         query.setParameter("idChiTietSp", idChiTietSp);
-        ChiTietSp chiTietSp = (ChiTietSp) query.getSingleResult();
-        return chiTietSp;
+        List<ChiTietSp> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 
     public GioHang getGioHang(String idKhachHang) {
@@ -109,7 +117,11 @@ public class GioHangRepository {
         Query query = session.createQuery("select gh from GioHang gh where gh.khachHang.id=:idKhachHang and gh.trangThai=:trangThai");
         query.setParameter("idKhachHang", idKhachHang);
         query.setParameter("trangThai", 0); // Giỏ hàng chưa thanh toán
-        GioHang gioHang = (GioHang) query.getSingleResult();
-        return gioHang;
+        List<GioHang> gioHang = query.getResultList();
+        if (gioHang.isEmpty()) {
+            return null;
+        } else {
+            return gioHang.get(0);
+        }
     }
 }

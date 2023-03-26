@@ -73,7 +73,11 @@ public class NSXRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select n from  NSX n where ma=:ma");
         query.setParameter("ma",ma);
-        NSX nsx = (NSX) query.getSingleResult();
-        return nsx;
+        List<NSX> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 }

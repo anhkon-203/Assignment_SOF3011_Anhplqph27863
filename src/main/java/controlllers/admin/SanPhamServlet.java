@@ -68,28 +68,36 @@ public class SanPhamServlet extends HttpServlet {
         try {
             String ma = request.getParameter("ma");
             Part part = request.getPart("srcImage");
+            String ten = request.getParameter("ten");
             String realPath = request.getServletContext().getRealPath("/images");
             String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
             if (!Files.exists(Path.of(realPath))) {
                 Files.createDirectories(Path.of(realPath));
             }
-            part.write(realPath + "/" + fileName);
-            try {
-                request.setAttribute("srcImage", fileName);
-            }catch (Exception e){
-                e.printStackTrace();
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+                return;
             }
+            if (fileName.isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng chọn ảnh");
+                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+                return;
+            }
+
+            part.write(realPath + "/" + fileName);
+            request.setAttribute("srcImage", fileName);
             SanPham sp = new SanPham();
             sp.setSrcImage(fileName);
             BeanUtils.populate(sp, request.getParameterMap());
             if (sanPhamRepository.findByMa(ma) != null) {
                 request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
-                //request.getContextPath() trả về đường dẫn của ứng dụng web hiện tại (ví dụ: /Assignment_Sof3011_war_exploded)
                 response.sendRedirect(request.getContextPath() + "/san-pham/create");
                 return;
             }
             if (sanPhamRepository.insert(sp)) {
                 request.getSession().setAttribute("message", "Thêm mới thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
             } else {
                 request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
             }
@@ -97,7 +105,6 @@ public class SanPhamServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
 
     protected void create(

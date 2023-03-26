@@ -16,22 +16,22 @@
 <body>
 <div class="col-8 offset-2">
     <h1>Thêm mới NSX</h1>
-    <c:if test="${not empty sessionScope.mess_error_nsx}">
+    <c:if test="${not empty sessionScope.mess_error}">
         <div class="alert alert-danger" role="alert">
-                ${sessionScope.mess_error_nsx}
+                ${sessionScope.mess_error}
         </div>
-        <% session.removeAttribute("mess_error_nsx"); %>
+        <% session.removeAttribute("mess_error"); %>
     </c:if>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/nsx/store">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" />
+                <input type="text" name="ma" class="form-control"/>
             </div>
             <div class="col-6">
                 <label>Tên</label>
-                <input type="text" name="ten" class="form-control" />
+                <input type="text" name="ten" class="form-control"/>
             </div>
         </div>
         <div class="row mt-3">

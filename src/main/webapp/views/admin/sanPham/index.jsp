@@ -61,7 +61,10 @@
                     <a href="/Assignment_Sof3011_war_exploded/san-pham/edit?ma=${ sp.ma }"
                        class="btn btn-primary">Update</a>
                     <a href="/Assignment_Sof3011_war_exploded/san-pham/delete?ma=${ sp.ma }"
-                       class="btn btn-danger">Delete</a>
+                       class="btn btn-danger"
+                        onclick="return confirm('Bạn có chắc chắn muốn xoá?  ')">
+                        Delete
+                    </a>
                 </td>
             </tr>
         </c:forEach>
