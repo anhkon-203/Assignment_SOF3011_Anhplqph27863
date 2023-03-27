@@ -11,6 +11,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
  * @author anhkon
  */
 @Entity
-@Table(name = "ChiTietSanPham")
+@Table(name = "ChiTietSP")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,37 +29,37 @@ public class ChiTietSp {
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "id", columnDefinition = "uniqueidentifier")
+    @Column(name = "Id", columnDefinition = "uniqueidentifier")
     private String id;
 
     @Column(name = "NamBH")
     private int namBaoHanh;
 
-    @Column(name = "MoTa", columnDefinition = "Nvarchar(100)")
+    @Column(name = "MoTa")
     private String moTa;
 
     @Column(name = "SoLuongTon")
-    private int soLuongTon;
+    private Integer soLuongTon;
 
-    @Column(name = "GiaNhap", columnDefinition = "Decimal(20,0)")
-    private Integer giaNhap;
+    @Column(name = "GiaNhap")
+    private BigDecimal giaNhap;
 
-    @Column(name = "GiaBan", columnDefinition = "Decimal(20,0)")
-    private Integer giaBan;
+    @Column(name = "GiaBan")
+    private BigDecimal giaBan;
     @ManyToOne
-    @JoinColumn(name = "idSp")
+    @JoinColumn(name = "IdSP")
     private SanPham sanPham;
 
     @ManyToOne
-    @JoinColumn(name = "idNSX")
+    @JoinColumn(name = "IdNsx")
     private NSX nsx;
 
     @ManyToOne
-    @JoinColumn(name = "idMauSac")
+    @JoinColumn(name = "IdMauSac")
     private MauSac mauSac;
 
     @ManyToOne
-    @JoinColumn(name = "idDong")
+    @JoinColumn(name = "IdDongSP")
     private DongSp dongSp;
     @OneToMany(mappedBy = "chiTietSp", fetch = FetchType.LAZY)
     private List<GioHangChiTiet> listGioHangChiTiet;

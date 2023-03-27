@@ -12,6 +12,7 @@ import viewModel.ChiTietSanPhamViewModel;
 import viewModel.GioHangChiTietViewModel;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -72,7 +73,10 @@ public class GioHangUserServlet extends HttpServlet {
             gioHangChiTiet.setGioHang(gioHang);
             ChiTietSp chiTietSp = gioHangRepository.getChiTietSp(idChiTietSp);
             gioHangChiTiet.setChiTietSp(chiTietSp);
-            gioHangChiTiet.setDonGia((float) (chiTietSp.getGiaBan() * chiTietSp.getSoLuongTon()));
+            BigDecimal giaBan = chiTietSp.getGiaBan();
+            BigDecimal soLuongTon = BigDecimal.valueOf(chiTietSp.getSoLuongTon());
+            BigDecimal donGia = giaBan.multiply(soLuongTon);
+            gioHangChiTiet.setDonGia(donGia);
             gioHangChiTiet.setSoLuongTon(soLuong);
             gioHangRepository.insertGioHangChiTiet(gioHangChiTiet);
         } else {

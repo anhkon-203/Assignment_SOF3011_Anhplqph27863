@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "GioHang")
@@ -22,17 +23,17 @@ public class GioHang implements Serializable {
         @Id
         @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
         @GeneratedValue(generator = "generator")
-        @Column(name = "id", columnDefinition = "uniqueidentifier")
+        @Column(name = "Id", columnDefinition = "uniqueidentifier")
         private String id;
 
         @ManyToOne
         @JoinColumn(name = "idKH")
         private KhachHang khachHang;
 
-        @Column(name = "idNV", columnDefinition = "uniqueidentifier")
+        @Column(name = "idNV")
         private String idNV;
 
-        @Column(name = "Ma", columnDefinition = "Varchar(20)",unique = true)
+        @Column(name = "Ma")
         private String ma;
 
         @Column(name = "NgayTao")
@@ -41,16 +42,16 @@ public class GioHang implements Serializable {
         @Column(name = "NgayThanhToan")
         private Date ngayThanhToan;
 
-        @Column(name = "TenNguoiNhan", columnDefinition = "Nvarchar(50)")
+        @Column(name = "TenNguoiNhan")
         private String tenNguoiNhan;
 
-        @Column(name = "DiaChi", columnDefinition = "Nvarchar(100)")
+        @Column(name = "DiaChi")
         private String diaChi;
 
-        @Column(name = "Sdt", columnDefinition = "Varchar(30)")
+        @Column(name = "Sdt")
         private String sdt;
 
-        @Column(name = "TrangThai")
+        @Column(name = "TinhTrang")
         private int trangThai;
 
         @OneToMany(mappedBy = "gioHang", fetch = FetchType.LAZY)

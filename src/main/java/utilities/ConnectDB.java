@@ -20,7 +20,7 @@ public class ConnectDB {
         Properties properties = new Properties();
         properties.put(Environment.DIALECT, "org.hibernate.dialect.SQLServerDialect");
         properties.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=ASM_SOF3011");
+        properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=FINALASS_FPOLYSHOP_SOF3011");
         properties.put(Environment.USER, "anhplph27863");
         properties.put(Environment.PASS, "123");
         properties.put(Environment.SHOW_SQL, "true");

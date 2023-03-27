@@ -10,57 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="thay doi giao dien trang chu">
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asm.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChucVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChucVuServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/MauSacServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NSXServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/CuaHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/CuaHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/DongSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DongSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/MauSac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/MauSac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/NSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NSX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p1.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p1.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/ChiTietSanPhamViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/GioHangChiTietViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/GioHangChiTietViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/create.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/create.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/edit.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -345,6 +319,9 @@
       <workItem from="1679843066259" duration="912000" />
       <workItem from="1679887750341" duration="632000" />
       <workItem from="1679897148555" duration="8087000" />
+      <workItem from="1679919867590" duration="36000" />
+      <workItem from="1679919919330" duration="1655000" />
+      <workItem from="1679925780327" duration="7322000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -496,16 +473,5 @@
     <MESSAGE value="add cart, register" />
     <MESSAGE value="thay doi giao dien trang chu" />
     <option name="LAST_COMMIT_MESSAGE" value="thay doi giao dien trang chu" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

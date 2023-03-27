@@ -31,11 +31,11 @@
             </div>
             <div class="mt-3">
                 <label>Tên</label>
-                <input type="text" name="ten" class="form-control"  value="${cuaHang.ten}" />
+                <input type="text" name="ten" class="form-control"  value="${cuaHang.ten}" required/>
             </div>
             <div class="mt-3">
                 <label>Địa chỉ</label>
-                <input type="text" name="diaChi" class="form-control"  value="${cuaHang.diaChi}" />
+                <input type="text" name="diaChi" class="form-control"  value="${cuaHang.diaChi}"required />
             </div>
             <div class="mt-3">
                 <label>Quốc gia</label>

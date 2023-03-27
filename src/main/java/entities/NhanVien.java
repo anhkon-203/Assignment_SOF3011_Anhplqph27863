@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "NhanVien")
@@ -22,37 +23,37 @@ public class NhanVien implements Serializable {
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "id", columnDefinition = "uniqueidentifier")
+    @Column(name = "Id", columnDefinition = "uniqueidentifier")
     private String id;
 
-    @Column(name = "Ma", columnDefinition = "Varchar(20)",unique = true)
+    @Column(name = "Ma")
     private String ma;
 
-    @Column(name = "Ten", columnDefinition = "Nvarchar(30)")
+    @Column(name = "Ten")
     private String ten;
 
-    @Column(name = "TenDem", columnDefinition = "Nvarchar(30)")
+    @Column(name = "TenDem")
     private String tenDem;
 
-    @Column(name = "Ho", columnDefinition = "Nvarchar(30)")
+    @Column(name = "Ho")
     private String ho;
 
-    @Column(name = "GioiTinh", columnDefinition = "Nvarchar(10)")
+    @Column(name = "GioiTinh")
     private String gioiTinh;
 
     @Column(name = "NgaySinh")
     private Date ngaySinh;
 
-    @Column(name = "DiaChi", columnDefinition = "Nvarchar(100)")
+    @Column(name = "DiaChi")
     private String diaChi;
 
-    @Column(name = "Sdt", columnDefinition = "Varchar(30)")
+    @Column(name = "Sdt")
     private String sdt;
 
-    @Column(name = "MatKhau", columnDefinition = "Varchar(MAX)")
+    @Column(name = "MatKhau")
     private String matKhau;
 
-    @Column(name = "Email", columnDefinition = "Varchar(MAX)")
+    @Column(name = "Email")
     private String email;
 
     @ManyToOne

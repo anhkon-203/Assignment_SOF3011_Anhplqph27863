@@ -20,6 +20,7 @@ import viewModel.NhanVienViewModel;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 
 @WebServlet({
@@ -148,6 +149,7 @@ public class NhanVienServlet extends HttpServlet {
         request.setAttribute("view_nhanVien", "/views/admin/nhanVien/edit.jsp");
         request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
+
     protected void update(
             HttpServletRequest request,
             HttpServletResponse response
@@ -157,6 +159,7 @@ public class NhanVienServlet extends HttpServlet {
             // get idCuaHang and idChucVu
             String idChucVu = request.getParameter("idChucVu");
             String idCuaHang = request.getParameter("idCuaHang");
+
             CuaHang cuaHang = new CuaHang();
             cuaHang.setId(idCuaHang);
             ChucVu chucVu = new ChucVu();
@@ -170,7 +173,7 @@ public class NhanVienServlet extends HttpServlet {
             nhanVien.setCuaHang(cuaHang);
             nhanVien.setChucVu(chucVu);
             BeanUtils.populate(nhanVien, request.getParameterMap());
-            nhanVienRepository.update(ma,nhanVien);
+            nhanVienRepository.update(ma, nhanVien);
         } catch (Exception e) {
             e.printStackTrace();
         }

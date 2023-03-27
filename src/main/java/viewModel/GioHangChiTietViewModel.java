@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -13,8 +15,8 @@ public class GioHangChiTietViewModel {
     private String id;
     private String idGioHang;
     private String tenSp;
-    private int soLuong;
-    private Float donGia;
+    private Integer soLuong;
+    private BigDecimal donGia;
     private String srcImage;
 
 }

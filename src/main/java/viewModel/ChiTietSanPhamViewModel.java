@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -16,11 +18,11 @@ public class ChiTietSanPhamViewModel {
 
     private String moTa;
 
-    private int soLuongTon;
+    private Integer soLuongTon;
 
-    private Integer giaNhap;
+    private BigDecimal giaNhap;
 
-    private Integer giaBan;
+    private BigDecimal giaBan;
 
     private String tenSp;
 

@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "HoaDon")
@@ -22,7 +23,7 @@ public class HoaDon implements Serializable {
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "id", columnDefinition = "uniqueidentifier")
+    @Column(name = "Id", columnDefinition = "uniqueidentifier")
     private String id;
 
     @ManyToOne
@@ -33,7 +34,7 @@ public class HoaDon implements Serializable {
     @JoinColumn(name = "idNV")
     private NhanVien nhanVien;
 
-    @Column(name = "Ma", columnDefinition = "Varchar(20)",unique = true)
+    @Column(name = "Ma")
     private String ma;
 
     @Column(name = "NgayTao")
@@ -51,13 +52,13 @@ public class HoaDon implements Serializable {
     @Column(name = "TrangThai")
     private int trangThai;
 
-    @Column(name = "TenNguoiNhan", columnDefinition = "Nvarchar(50)")
+    @Column(name = "TenNguoiNhan")
     private String tenNguoiNhan;
 
-    @Column(name = "DiaChi", columnDefinition = "Nvarchar(100)")
+    @Column(name = "DiaChi")
     private String diaChi;
 
-    @Column(name = "Sdt", columnDefinition = "Varchar(30)")
+    @Column(name = "Sdt")
     private String sdt;
 
     @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)

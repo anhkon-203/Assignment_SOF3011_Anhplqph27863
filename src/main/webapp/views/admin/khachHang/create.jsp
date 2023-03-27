@@ -28,45 +28,45 @@
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control"/>
+                <input type="text" name="ma" class="form-control"required/>
             </div>
             <div class="col-6">
                 <label>Họ</label>
-                <input type="text" name="ho" class="form-control"/>
+                <input type="text" name="ho" class="form-control"required/>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Tên đệm</label>
-                <input type="text" name="tenDem" class="form-control"/>
+                <input type="text" name="tenDem" class="form-control"required/>
             </div>
             <div class="col-6">
                 <label>Tên</label>
-                <input type="text" name="ten" class="form-control"/>
+                <input type="text" name="ten" class="form-control"required/>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Ngày sinh</label>
-                <input type="date" name="ngaySinh" class="form-control"/>
+                <input type="date" name="ngaySinh" class="form-control"required/>
             </div>
             <div class="col-6">
                 <label>SDT</label>
-                <input type="tel" name="sdt" class="form-control"/>
+                <input type="tel" name="sdt" class="form-control"required />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Địa chỉ</label>
-                <input type="text" name="diaChi" class="form-control"/>
+                <input type="text" name="diaChi" class="form-control" required/>
             </div>
             <div class="col-6">
                 <label>Mật khẩu</label>
-                <input type="password" name="matKhau" class="form-control"/>
+                <input type="password" name="matKhau" class="form-control" required/>
             </div>
             <div class="col-6">
                 <label>Email</label>
-                <input type="text" name="email" class="form-control"/>
+                <input type="text" name="email" class="form-control"required/>
             </div>
         </div>
         <div class="row mt-3">

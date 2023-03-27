@@ -13,6 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 /**
  *
@@ -25,16 +26,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NSX implements Serializable{
-    
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "id", columnDefinition = "uniqueidentifier")
+    @Column(name = "Id", columnDefinition = "uniqueidentifier")
     private String id;
 
-    @Column(name = "ma", unique = true)
+    @Column(name = "ma")
     private String ma;
-    @Column(name = "ten",columnDefinition =  "Nvarchar(100)")
+    @Column(name = "ten")
     private String ten;
     @OneToMany(mappedBy = "nsx", fetch = FetchType.LAZY)
     private List<ChiTietSp> lstSP;
