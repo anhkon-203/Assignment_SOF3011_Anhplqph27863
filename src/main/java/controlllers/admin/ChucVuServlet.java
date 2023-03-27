@@ -1,6 +1,7 @@
 package controlllers.admin;
 
 import entities.ChucVu;
+import entities.MauSac;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -68,13 +69,30 @@ public class ChucVuServlet extends HttpServlet {
             throws
             ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/create");
+                return;
+            }
             ChucVu chucVu = new ChucVu();
             BeanUtils.populate(chucVu, request.getParameterMap());
-            chucVuRepository.insert(chucVu);
+            if (chucVuRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/create");
+                return;
+            }
+            if (chucVuRepository.insert(chucVu)) {
+                request.getSession().setAttribute("message", "Thêm mới thành công");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/chuc-vu/index");
     }
 
     protected void update(
@@ -84,13 +102,24 @@ public class ChucVuServlet extends HttpServlet {
             ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/edit?ma=" + ma);
+                return;
+            }
             ChucVu chucVu = new ChucVu();
             BeanUtils.populate(chucVu, request.getParameterMap());
-            chucVuRepository.update(ma,chucVu);
+            if (chucVuRepository.update(ma,chucVu)) {
+                request.getSession().setAttribute("message", "Update thành công");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Update thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/chuc-vu/index");
     }
 
     protected void index(

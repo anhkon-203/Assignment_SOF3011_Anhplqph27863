@@ -73,7 +73,11 @@ public class ChucVuRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select c from  ChucVu c where ma=:ma");
         query.setParameter("ma",ma);
-        ChucVu chucVu = (ChucVu) query.getSingleResult();
-        return chucVu;
+        List<ChucVu> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 }

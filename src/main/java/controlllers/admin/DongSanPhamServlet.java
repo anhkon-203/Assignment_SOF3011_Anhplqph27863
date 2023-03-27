@@ -1,6 +1,7 @@
 package controlllers.admin;
 
 import entities.DongSp;
+import entities.MauSac;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -68,13 +69,30 @@ public class DongSanPhamServlet extends HttpServlet {
             throws
             ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() +"/dong-san-pham/create");
+                return;
+            }
             DongSp dongSp = new DongSp();
             BeanUtils.populate(dongSp, request.getParameterMap());
-            dongSpRepository.insert(dongSp);
+            if (dongSpRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() +"/dong-san-pham/create");
+                return;
+            }
+            if (dongSpRepository.insert(dongSp)) {
+                request.getSession().setAttribute("message", "Thêm mới thành công");
+                response.sendRedirect(request.getContextPath() +"/dong-san-pham/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/dong-san-pham/index");
     }
 
     protected void update(
@@ -84,13 +102,24 @@ public class DongSanPhamServlet extends HttpServlet {
             ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/dong-san-pham/edit?ma=" + ma);
+                return;
+            }
             DongSp dongSp = new DongSp();
             BeanUtils.populate(dongSp, request.getParameterMap());
-            dongSpRepository.update(ma,dongSp);
+            if (dongSpRepository.update(ma,dongSp)) {
+                request.getSession().setAttribute("message", "Update thành công");
+                response.sendRedirect(request.getContextPath() +"/dong-san-pham/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Update thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/dong-san-pham/index");
     }
 
     protected void index(

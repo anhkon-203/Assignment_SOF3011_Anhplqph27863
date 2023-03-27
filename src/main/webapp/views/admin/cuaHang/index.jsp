@@ -21,7 +21,12 @@
 </c:if>
 
 <c:if test="${ f:length(list) != 0 }">
-
+    <c:if test="${not empty sessionScope.message}">
+        <div class="alert alert-success" role="alert">
+                ${sessionScope.message}
+        </div>
+        <% session.removeAttribute("message"); %>
+    </c:if>
     <table class="table table-bordered mt-5">
         <thead>
         <tr>
@@ -49,7 +54,9 @@
                     <a href="/Assignment_Sof3011_war_exploded/cua-hang/edit?ma=${ cuaHang.ma }"
                        class="btn btn-primary">Update</a>
                     <a href="/Assignment_Sof3011_war_exploded/cua-hang/delete?ma=${ cuaHang.ma }"
-                       class="btn btn-danger">Delete</a>
+                       class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xoá?  ')">
+                        Delete
+                    </a>
                 </td>
             </tr>
         </c:forEach>

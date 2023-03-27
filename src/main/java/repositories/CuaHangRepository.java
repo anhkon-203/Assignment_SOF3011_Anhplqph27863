@@ -77,8 +77,12 @@ public class CuaHangRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select c from  CuaHang c where ma=:ma");
         query.setParameter("ma", ma);
-        CuaHang cuaHang = (CuaHang) query.getSingleResult();
-        return cuaHang;
+        List<CuaHang> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 
 }

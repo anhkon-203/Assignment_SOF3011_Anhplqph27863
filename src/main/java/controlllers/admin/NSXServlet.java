@@ -47,12 +47,12 @@ public class NSXServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String uri = request.getRequestURI();
-            if (uri.contains("store")) {
-                this.store(request, response);
-            } else if (uri.contains("update")) {
-                update(request, response);
-            }
+        String uri = request.getRequestURI();
+        if (uri.contains("store")) {
+            this.store(request, response);
+        } else if (uri.contains("update")) {
+            update(request, response);
+        }
     }
 
     protected void create(
@@ -117,28 +117,44 @@ public class NSXServlet extends HttpServlet {
         nsxRepository.delete(nsx);
         response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
     }
+
     protected void edit(
             HttpServletRequest request,
             HttpServletResponse response)
             throws
             ServletException, IOException {
-       String ma = request.getParameter("ma");
+        String ma = request.getParameter("ma");
         NSX nsx = nsxRepository.findByMa(ma);
         request.setAttribute("nsx", nsx);
         request.setAttribute("view_nSX", "/views/admin/nSX/edit.jsp");
         request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }
+
     protected void update(
             HttpServletRequest request,
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        NSX nsx = new NSX();
-        nsx.setMa(ma);
-        nsx.setTen(ten);
-        nsxRepository.update(ma, nsx);
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
+        try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/nsx/edit?ma=" + ma);
+                return;
+            }
+            NSX nsx = new NSX();
+            BeanUtils.populate(nsx, request.getParameterMap());
+            if (nsxRepository.update(ma,nsx)) {
+                request.getSession().setAttribute("message", "Update thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/nsx/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Update thất bại");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
     }
 }

@@ -73,7 +73,11 @@ public class DongSpRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select d from  DongSp d  where ma=:ma");
         query.setParameter("ma",ma);
-        DongSp dongSp = (DongSp) query.getSingleResult();
-        return dongSp;
+        List<DongSp> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 }

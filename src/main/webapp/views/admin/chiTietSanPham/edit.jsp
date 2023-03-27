@@ -16,6 +16,12 @@
 
 <div class="col-8 offset-2">
     <h1>Update Chi tiết sản phẩm</h1>
+    <c:if test="${not empty sessionScope.mess_error}">
+        <div class="alert alert-danger" role="alert">
+                ${sessionScope.mess_error}
+        </div>
+        <% session.removeAttribute("mess_error"); %>
+    </c:if>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/update?id=${chiTietSp.id}">
         <div class="row">

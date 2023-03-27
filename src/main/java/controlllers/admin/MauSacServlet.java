@@ -1,6 +1,7 @@
 package controlllers.admin;
 
 import entities.MauSac;
+import entities.NSX;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -68,13 +69,30 @@ public class MauSacServlet extends HttpServlet {
             throws
             ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/create");
+                return;
+            }
             MauSac mauSac = new MauSac();
             BeanUtils.populate(mauSac, request.getParameterMap());
-            mauSacRepository.insert(mauSac);
+            if (mauSacRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/create");
+                return;
+            }
+            if (mauSacRepository.insert(mauSac)) {
+                request.getSession().setAttribute("message", "Thêm mới thành công");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
     }
 
     protected void update(
@@ -84,13 +102,24 @@ public class MauSacServlet extends HttpServlet {
             ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/edit?ma=" + ma);
+                return;
+            }
             MauSac mauSac = new MauSac();
             BeanUtils.populate(mauSac, request.getParameterMap());
-            mauSacRepository.update(ma, mauSac);
+            if (mauSacRepository.update(ma,mauSac)) {
+                request.getSession().setAttribute("message", "Update thành công");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Update thất bại");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/mau-sac/index");
     }
 
     protected void index(

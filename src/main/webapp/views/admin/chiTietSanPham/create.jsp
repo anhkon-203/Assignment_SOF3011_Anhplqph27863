@@ -12,16 +12,22 @@
     <title>Title</title>
     <link rel="stylesheet" href="/Assignment_Sof3011_war_exploded/css/bootstrap.min.css">
     <!-- Notie CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notie@4.3.1/dist/notie.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notie@4.3.1/dist/notie.min.css">--%>
 
-    <!-- Notie JS -->
-    <script src="https://cdn.jsdelivr.net/npm/notie@4.3.1/dist/notie.min.js"></script>
+<%--    <!-- Notie JS -->--%>
+<%--    <script src="https://cdn.jsdelivr.net/npm/notie@4.3.1/dist/notie.min.js"></script>--%>
 
 </head>
 <body>
 
 <div class="col-8 offset-2">
     <h1>Thêm mới Chi tiết sản phẩm</h1>
+    <c:if test="${not empty sessionScope.mess_error}">
+    <div class="alert alert-danger" role="alert">
+            ${sessionScope.mess_error}
+    </div>
+    <% session.removeAttribute("mess_error"); %>
+    </c:if>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/store">
         <div class="row">
@@ -31,8 +37,8 @@
             </div>
 
             <div class=" col-md-4 mb-3">
-                <label for="soLuongTon" class="form-label">Số lượng tồn</label>
-                <input type="number" class="form-control" id="soLuongTon" name="soLuongTon" required>
+                <label class="form-label">Số lượng tồn</label>
+                <input type="number" class="form-control"  name="soLuongTon" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label  class="form-label">Dòng Sản phẩm</label>
@@ -45,7 +51,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="giaNhap" class="form-label">Giá nhập</label>
+                <label class="form-label">Giá nhập</label>
                 <input type="number" class="form-control"  name="giaNhap" required>
             </div>
             <div class="col-md-4 mb-3">

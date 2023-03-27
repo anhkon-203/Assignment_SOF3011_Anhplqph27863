@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
 <head>
     <title>Title</title>
@@ -14,6 +16,12 @@
 <body>
 <div class="col-8 offset-2">
     <h1>Update sản phẩm</h1>
+    <c:if test="${not empty sessionScope.mess_error}">
+        <div class="alert alert-danger" role="alert">
+                ${sessionScope.mess_error}
+        </div>
+        <% session.removeAttribute("mess_error"); %>
+    </c:if>
     <form method="POST"
           action="/Assignment_Sof3011_war_exploded/san-pham/update?ma=${sp.ma}"
           enctype="multipart/form-data"
@@ -29,7 +37,7 @@
             </div>
             <div class="col-4">
                 <label>Ảnh</label>
-                <input type="file" name="srcImage"value="${sp.srcImage} class="form-control"/>
+                <input type="file" name="srcImage" value="${sp.srcImage}" class="form-control"/>
             </div>
         </div>
         <div class="row mt-3">

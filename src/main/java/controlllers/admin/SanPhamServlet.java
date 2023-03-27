@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+
 @MultipartConfig
 @WebServlet({
         "/san-pham/index",    // GET
@@ -71,9 +72,6 @@ public class SanPhamServlet extends HttpServlet {
             String ten = request.getParameter("ten");
             String realPath = request.getServletContext().getRealPath("/images");
             String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
-            if (!Files.exists(Path.of(realPath))) {
-                Files.createDirectories(Path.of(realPath));
-            }
             if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
                 request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
                 response.sendRedirect(request.getContextPath() + "/san-pham/create");
@@ -97,7 +95,7 @@ public class SanPhamServlet extends HttpServlet {
             }
             if (sanPhamRepository.insert(sp)) {
                 request.getSession().setAttribute("message", "Thêm mới thành công");
-                response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
+                response.sendRedirect(request.getContextPath() + "/san-pham/index");
             } else {
                 request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
             }
@@ -167,29 +165,33 @@ public class SanPhamServlet extends HttpServlet {
         try {
             String ma = request.getParameter("ma");
             Part part = request.getPart("srcImage");
+            String ten = request.getParameter("ten");
             String realPath = request.getServletContext().getRealPath("/images");
             String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
-            if (!Files.exists(Path.of(realPath))) {
-                Files.createDirectories(Path.of(realPath));
+            if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/san-pham/edit?ma=" + ma);
+                return;
+            }
+            if (fileName.isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng chọn ảnh");
+                response.sendRedirect(request.getContextPath() + "/san-pham/edit?ma=" + ma);
+                return;
             }
             part.write(realPath + "/" + fileName);
-            try {
-                request.setAttribute("srcImage", fileName);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            request.setAttribute("srcImage", fileName);
             SanPham sp = new SanPham();
             sp.setSrcImage(fileName);
             BeanUtils.populate(sp, request.getParameterMap());
-            if (sanPhamRepository.update(ma,sp)) {
-                request.getSession().setAttribute("message", "Thêm mới thành công");
+            if (sanPhamRepository.update(ma, sp)) {
+                request.getSession().setAttribute("message", "Update thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
             } else {
-                request.getSession().setAttribute("mess_error", "Thêm mới thất bại");
+                request.getSession().setAttribute("mess_error", "Update thất bại");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
     }
 }

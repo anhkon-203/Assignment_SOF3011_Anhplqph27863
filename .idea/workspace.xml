@@ -12,13 +12,55 @@
     <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="thay doi giao dien trang chu">
       <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChucVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChucVuServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/MauSacServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NSXServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NSXServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConnectDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p1.1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p1.2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/product9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chucVu/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/cuaHang/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/dongSp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/khachHang/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/mauSac/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nSX/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/sanPham/edit.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +95,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
@@ -242,6 +285,10 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ConnectDB" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.6" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ConnectDB" />
@@ -295,6 +342,9 @@
       <workItem from="1679624987267" duration="600000" />
       <workItem from="1679720046121" duration="5937000" />
       <workItem from="1679833931569" duration="5782000" />
+      <workItem from="1679843066259" duration="912000" />
+      <workItem from="1679887750341" duration="632000" />
+      <workItem from="1679897148555" duration="8087000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>

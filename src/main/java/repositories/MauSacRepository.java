@@ -74,8 +74,13 @@ public class MauSacRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select m from  MauSac m  where ma=:ma");
         query.setParameter("ma", ma);
-        MauSac mauSac = (MauSac) query.getSingleResult();
-        return mauSac;
+        List<MauSac> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
+
     }
 
 }

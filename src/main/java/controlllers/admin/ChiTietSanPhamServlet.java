@@ -72,7 +72,7 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             String idMauSac = request.getParameter("idMauSac");
             String idSp = request.getParameter("idSp");
             ChiTietSp chiTietSp = new ChiTietSp();
-        // Tạo đối tượng
+            // Tạo đối tượng
             DongSp dongSp = new DongSp();
             dongSp.setId(idDong);
             NSX nsx = new NSX();
@@ -88,11 +88,15 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             chiTietSp.setDongSp(dongSp);
             // Thêm vào database
             BeanUtils.populate(chiTietSp, request.getParameterMap());
-            chiTietSanPhamRepository.insert(chiTietSp);
+            if (chiTietSanPhamRepository.insert(chiTietSp)) {
+                request.getSession().setAttribute("message", "Thêm thành công");
+                response.sendRedirect(request.getContextPath() + "/chi-tiet-san-pham/index");
+            }else {
+                request.getSession().setAttribute("mess_error", "Thêm thất bại");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-       response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
 
     }
     protected void update(
@@ -123,14 +127,18 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             chiTietSp.setNsx(nsx);
             chiTietSp.setDongSp(dongSp);
             BeanUtils.populate(chiTietSp, request.getParameterMap());
-            chiTietSanPhamRepository.update(id,chiTietSp);
+            if (chiTietSanPhamRepository.update(id,chiTietSp)) {
+                request.getSession().setAttribute("message", "Update thành công");
+                response.sendRedirect(request.getContextPath() + "/chi-tiet-san-pham/index");
+            }else {
+                request.getSession().setAttribute("mess_error", "Update thất bại");
+            }
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {
             throw new RuntimeException(e);
         }
 
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
 
     }
 
@@ -198,9 +206,9 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-            String id = request.getParameter("id");
-            ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(id);
-            chiTietSanPhamRepository.delete(chiTietSp);
+        String id = request.getParameter("id");
+        ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(id);
+        chiTietSanPhamRepository.delete(chiTietSp);
         response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
 
     }

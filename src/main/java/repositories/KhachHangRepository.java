@@ -90,7 +90,11 @@ public class KhachHangRepository {
         Session session = ConnectDB.getFACTORY().openSession();
         Query query = session.createQuery("select k from  KhachHang k  where ma=:ma");
         query.setParameter("ma",ma);
-        KhachHang khachHang = (KhachHang) query.getSingleResult();
-        return khachHang;
+        List<KhachHang> lst = query.getResultList();
+        if (lst.isEmpty()) {
+            return null;
+        } else {
+            return lst.get(0);
+        }
     }
 }
