@@ -6,65 +6,59 @@ package repositories;
 
 
 import entities.CuaHang;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtil;
 
 import jakarta.persistence.Query;
+
 import java.util.List;
 
 /**
  * @author anhkon
  */
 public class CuaHangRepository {
+    Session hSession = HibernateUtil.getFACTORY().openSession();
+    Transaction transaction = hSession.getTransaction();
 
     public List<CuaHang> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery("from CuaHang");
-        List<CuaHang> lstCuaHang = query.getResultList();
-        return lstCuaHang;
-
+        String hql = "SELECT obj FROM CuaHang obj";
+        TypedQuery<CuaHang> query = session.createQuery(hql, CuaHang.class);
+        return query.getResultList();
     }
 
     public boolean insert(CuaHang cuaHang) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            session.save(cuaHang);
+        try {
+            transaction.begin();
+            hSession.save(cuaHang);
             transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            transaction.rollback();
             return false;
         }
     }
 
-    public boolean update(String ma, CuaHang cuaHang) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            Query query = session.createQuery("update CuaHang set ten = :ten, diaChi = :diaChi, thanhPho =:thanhPho, quocGia =:quocGia where ma = :ma");
-            query.setParameter("ten", cuaHang.getTen());
-            query.setParameter("diaChi", cuaHang.getDiaChi());
-            query.setParameter("thanhPho", cuaHang.getThanhPho());
-            query.setParameter("quocGia", cuaHang.getQuocGia());
-            query.setParameter("ma", ma);
-            query.executeUpdate();
+    public boolean update(CuaHang cuaHang) {
+        try {
+            transaction.begin();
+            hSession.update(cuaHang);
             transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            transaction.rollback();
             return false;
         }
     }
 
     public boolean delete(CuaHang cuaHang) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            Query query = session.createQuery("delete from CuaHang  where  ma = :ma");
-            query.setParameter("ma", cuaHang.getMa());
-            query.executeUpdate();
+        try {
+            transaction.begin();
+            hSession.delete(cuaHang);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -74,15 +68,14 @@ public class CuaHangRepository {
     }
 
     public CuaHang findByMa(String ma) {
-        Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery("select c from  CuaHang c where ma=:ma");
+        String hql = "SELECT obj FROM CuaHang obj WHERE obj.ma = :ma";
+        TypedQuery<CuaHang> query = hSession.createQuery(hql, CuaHang.class);
         query.setParameter("ma", ma);
-        List<CuaHang> lst = query.getResultList();
-        if (lst.isEmpty()) {
-            return null;
+        if (query.getResultList().size() > 0) {
+            return query.getResultList().get(0);
         } else {
-            return lst.get(0);
+            return null;
         }
-    }
 
+    }
 }

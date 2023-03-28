@@ -9,6 +9,7 @@ import viewModel.ChiTietSanPhamViewModel;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @WebServlet(value = "/ChiTietSanPhamUserServlet")
 public class ChiTietSanPhamUserServlet extends HttpServlet {
@@ -20,7 +21,7 @@ public class ChiTietSanPhamUserServlet extends HttpServlet {
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        String id = request.getParameter("id");
+        UUID id = UUID.fromString(request.getParameter("id"));
         String tenDongSp = chiTietSanPhamRepository.selectTenDongSp(id);
         List<ChiTietSanPhamViewModel> sanPham_Category = chiTietSanPhamRepository.getListByTenDongsp(tenDongSp);
         List<ChiTietSanPhamViewModel> list = chiTietSanPhamRepository.userGetById(id);

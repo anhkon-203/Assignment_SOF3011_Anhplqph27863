@@ -1,7 +1,6 @@
 package controlllers.admin;
 
 import entities.DongSp;
-import entities.MauSac;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -71,6 +70,11 @@ public class DongSanPhamServlet extends HttpServlet {
         try {
             String ma = request.getParameter("ma");
             String ten = request.getParameter("ten");
+            if (dongSpRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() +"/dong-san-pham/create");
+                return;
+            }
             if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
                 request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
                 response.sendRedirect(request.getContextPath() +"/dong-san-pham/create");
@@ -78,11 +82,6 @@ public class DongSanPhamServlet extends HttpServlet {
             }
             DongSp dongSp = new DongSp();
             BeanUtils.populate(dongSp, request.getParameterMap());
-            if (dongSpRepository.findByMa(ma) != null) {
-                request.getSession().setAttribute("mess_error", "Mã đã tồn tại");
-                response.sendRedirect(request.getContextPath() +"/dong-san-pham/create");
-                return;
-            }
             if (dongSpRepository.insert(dongSp)) {
                 request.getSession().setAttribute("message", "Thêm mới thành công");
                 response.sendRedirect(request.getContextPath() +"/dong-san-pham/index");
@@ -109,6 +108,7 @@ public class DongSanPhamServlet extends HttpServlet {
                 return;
             }
             DongSp dongSp = new DongSp();
+            dongSp.setTen(ten);
             BeanUtils.populate(dongSp, request.getParameterMap());
             if (dongSpRepository.update(ma,dongSp)) {
                 request.getSession().setAttribute("message", "Update thành công");

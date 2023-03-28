@@ -5,11 +5,14 @@
 package repositories;
 
 import entities.MauSac;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtil;
 
 import jakarta.persistence.Query;
+
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -17,20 +20,20 @@ import java.util.List;
  */
 public class MauSacRepository {
 
+    Session hSession = HibernateUtil.getFACTORY().openSession();
+    Transaction transaction = hSession.getTransaction();
+
     public List<MauSac> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery(
-                "from MauSac");
-        List<MauSac> lst = query.getResultList();
-        return lst;
-
+        String hql = "SELECT obj FROM MauSac obj";
+        TypedQuery<MauSac> query = session.createQuery(hql, MauSac.class);
+        return query.getResultList();
     }
 
     public boolean insert(MauSac mauSac) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            session.save(mauSac);
+        try {
+            transaction.begin();
+            hSession.save(mauSac);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -40,10 +43,9 @@ public class MauSacRepository {
     }
 
     public boolean update(String ma, MauSac mauSac) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            Query query = session.createQuery("update MauSac set  ten =:ten where ma = :ma");
+        try {
+            transaction.begin();
+            Query query = hSession.createQuery("update MauSac set  ten =:ten where ma = :ma");
             query.setParameter("ten", mauSac.getTen());
             query.setParameter("ma", ma);
             query.executeUpdate();
@@ -56,12 +58,9 @@ public class MauSacRepository {
     }
 
     public boolean delete(MauSac mauSac) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            Query query = session.createQuery("delete from MauSac  where  ma = :ma");
-            query.setParameter("ma", mauSac.getMa());
-            query.executeUpdate();
+        try {
+            transaction.begin();
+            hSession.delete(mauSac);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -71,14 +70,13 @@ public class MauSacRepository {
     }
 
     public MauSac findByMa(String ma) {
-        Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery("select m from  MauSac m  where ma=:ma");
+        String hql = "SELECT obj FROM MauSac obj WHERE obj.ma = :ma";
+        TypedQuery<MauSac> query = hSession.createQuery(hql, MauSac.class);
         query.setParameter("ma", ma);
-        List<MauSac> lst = query.getResultList();
-        if (lst.isEmpty()) {
-            return null;
+        if (query.getResultList().size() > 0) {
+            return query.getSingleResult();
         } else {
-            return lst.get(0);
+            return null;
         }
 
     }

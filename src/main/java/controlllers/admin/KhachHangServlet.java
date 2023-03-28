@@ -85,9 +85,9 @@ public class KhachHangServlet extends HttpServlet {
             DateTimeConverter dtc = new DateConverter(new Date());
             dtc.setPattern("yyyy-MM-dd");
             ConvertUtils.register(dtc, Date.class);
-            KhachHang khachHang = new KhachHang();
+            KhachHang khachHang = khachHangRepository.findByMa(maKH);
             BeanUtils.populate(khachHang, request.getParameterMap());
-            khachHangRepository.update(maKH,khachHang);
+            khachHangRepository.update(khachHang);
         } catch (Exception e) {
             e.printStackTrace();
         }

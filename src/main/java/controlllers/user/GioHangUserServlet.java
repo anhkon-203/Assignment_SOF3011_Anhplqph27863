@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @WebServlet({"/GioHangUserServlet/index", "/GioHangUserServlet/store", "/GioHangUserServlet/update", "/GioHangUserServlet/delete"})
 public class GioHangUserServlet extends HttpServlet {
@@ -42,8 +43,8 @@ public class GioHangUserServlet extends HttpServlet {
     protected void showGioHang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        GioHang gioHang = gioHangRepository.getGioHang(String.valueOf(khachHang.getId()));
-        List<GioHangChiTietViewModel> listGioHangChiTiet = gioHangRepository.getAllGioHangChiTietByGioHangId(String.valueOf(gioHang.getId()));
+        GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
+        List<GioHangChiTietViewModel> listGioHangChiTiet = gioHangRepository.getAllGioHangChiTietByGioHangId(gioHang.getId());
 
         String realPath = request.getServletContext().getRealPath("/images");
         // Thay đổi đường dẫn tới ảnh để hiển thị ảnh thay vì đường dẫn
@@ -63,11 +64,11 @@ public class GioHangUserServlet extends HttpServlet {
     protected void storeGioHang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        GioHang gioHang = gioHangRepository.getGioHang(String.valueOf(khachHang.getId()));
-        String idChiTietSp = request.getParameter("id");
+        GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
+        UUID idChiTietSp = UUID.fromString(request.getParameter("id"));
         request.getParameter("soLuong");
         int soLuong = Integer.parseInt(request.getParameter("soLuong"));
-        List<GioHangChiTiet> list = gioHangRepository.getGioHangChiTietByIdGioHang(String.valueOf(khachHang.getId()), idChiTietSp);
+        List<GioHangChiTiet> list = gioHangRepository.getGioHangChiTietByIdGioHang(khachHang.getId(), idChiTietSp);
         if (list.isEmpty()) {
             GioHangChiTiet gioHangChiTiet = new GioHangChiTiet();
             gioHangChiTiet.setGioHang(gioHang);
@@ -91,7 +92,7 @@ public class GioHangUserServlet extends HttpServlet {
     protected void updateGioHang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        String idGioHangChiTiet = request.getParameter("id");
+        UUID idGioHangChiTiet = UUID.fromString(request.getParameter("id"));
         int soLuong = Integer.parseInt(request.getParameter("soLuong"));
         GioHangChiTiet gioHangChiTiet = gioHangRepository.getGioHangChiTietById(idGioHangChiTiet);
         if (gioHangChiTiet != null) {
@@ -103,8 +104,8 @@ public class GioHangUserServlet extends HttpServlet {
     protected void deleteGioHang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        String id = request.getParameter("id");
-        String idGioHang = request.getParameter("idGioHang");
+        UUID id = UUID.fromString(request.getParameter("id"));
+        UUID idGioHang = UUID.fromString(request.getParameter("idGioHang"));
         boolean result = gioHangRepository.delete(idGioHang, id);
         if (result) {
             response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");

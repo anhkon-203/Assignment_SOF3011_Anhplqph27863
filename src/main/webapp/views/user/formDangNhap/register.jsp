@@ -35,10 +35,6 @@
       <input type="text" class="form-control" id="inputTen" name="ten" required>
     </div>
     <div class="form-group">
-      <label for="inputNgaySinh">Ngày sinh:</label>
-      <input type="date" class="form-control" id="inputNgaySinh" name="ngaySinh" required>
-    </div>
-    <div class="form-group">
       <label for="inputSdt">Số điện thoại:</label>
       <input type="tel" class="form-control" id="inputSdt" name="sdt" required>
     </div>

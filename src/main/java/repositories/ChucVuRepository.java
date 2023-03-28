@@ -5,79 +5,78 @@
 package repositories;
 
 import entities.ChucVu;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtil;
 
 import jakarta.persistence.Query;
+
 import java.util.List;
 
 /**
- *
  * @author anhkon
  */
 public class ChucVuRepository {
+    Session hSession = HibernateUtil.getFACTORY().openSession();
+    Transaction transaction = hSession.getTransaction();
 
     public List<ChucVu> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery("from ChucVu ");
-        List<ChucVu> lst = query.getResultList();
-        return lst;
+        String hql = "Select obj From ChucVu obj";
+        TypedQuery<ChucVu> chucVuTypedQuery = session.createQuery(hql, ChucVu.class);
+        return chucVuTypedQuery.getResultList();
 
     }
-    
+
     public boolean insert(ChucVu chucVu) {
-        Transaction transaction = null;
-        try(Session session = HibernateUtil.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-           session.save(chucVu);
-           transaction.commit();
-           return true;
+        try {
+            transaction.begin();
+            hSession.save(chucVu);
+            transaction.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            transaction.rollback();
             return false;
         }
     }
-    
-    public boolean update(String ma,ChucVu chucVu) {
-        Transaction transaction = null;
-        try(Session session = HibernateUtil.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-            Query query = session.createQuery("update ChucVu set ten =:ten where ma = :ma");
-            query.setParameter("ten",chucVu.getTen());
-            query.setParameter("ma",ma);
+
+    public boolean update(String ma, ChucVu chucVu) {
+        try {
+            transaction.begin();
+            Query query = hSession.createQuery("UPDATE ChucVu set ten=:ten where ma=:ma");
+            query.setParameter("ten", chucVu.getTen());
+            query.setParameter("ma", ma);
             query.executeUpdate();
-           transaction.commit();
-           return true;
+            transaction.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            transaction.rollback();
             return false;
         }
     }
-    
-    public boolean delete( ChucVu chucVu) {
-        Transaction transaction = null;
-        try(Session session = HibernateUtil.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-            Query query = session.createQuery("delete from ChucVu  where  ma = :ma");
-            query.setParameter("ma",chucVu.getMa());
-            query.executeUpdate();
-           transaction.commit();
-           return true;
+
+    public void delete(ChucVu chucVu) {
+        try {
+            transaction.begin();
+            hSession.delete(chucVu);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            transaction.rollback();
         }
     }
+
     public ChucVu findByMa(String ma) {
-        Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery("select c from  ChucVu c where ma=:ma");
-        query.setParameter("ma",ma);
-        List<ChucVu> lst = query.getResultList();
-        if (lst.isEmpty()) {
-            return null;
+        String hql = "Select obj From ChucVu obj where obj.ma =:ma";
+        TypedQuery<ChucVu> chucVuTypedQuery = hSession.createQuery(hql, ChucVu.class);
+        chucVuTypedQuery.setParameter("ma", ma);
+        if (chucVuTypedQuery.getResultList().size() > 0) {
+            return chucVuTypedQuery.getSingleResult();
         } else {
-            return lst.get(0);
+            return null;
         }
     }
 }

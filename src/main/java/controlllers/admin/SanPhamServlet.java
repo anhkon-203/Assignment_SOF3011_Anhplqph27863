@@ -91,11 +91,11 @@ public class SanPhamServlet extends HttpServlet {
             SanPham sp = new SanPham();
             sp.setSrcImage(part.getSubmittedFileName());
             BeanUtils.populate(sp, request.getParameterMap());
-//            if (sanPhamRepository.findByMa(ma) != null) {
-//                request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
-//                response.sendRedirect(request.getContextPath() + "/san-pham/create");
-//                return;
-//            }
+            if (sanPhamRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+                return;
+            }
             if (sanPhamRepository.insert(sp)) {
                 request.getSession().setAttribute("message", "Thêm mới thành công");
                 response.sendRedirect(request.getContextPath() + "/san-pham/index");
@@ -183,10 +183,10 @@ public class SanPhamServlet extends HttpServlet {
             }
             part.write(realPath + "/" + fileName);
             request.setAttribute("srcImage", fileName);
-            SanPham sp = sanPhamRepository.findByMa(ma);
+            SanPham sp = new SanPham();
             sp.setSrcImage(fileName);
             BeanUtils.populate(sp, request.getParameterMap());
-            if (sanPhamRepository.update(sp)) {
+            if (sanPhamRepository.update(ma,sp)) {
                 request.getSession().setAttribute("message", "Update thành công");
                 response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
             } else {

@@ -12,6 +12,7 @@ import viewModel.*;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -111,7 +112,7 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             UUID idNSX = UUID.fromString(request.getParameter("idNSX"));
             UUID idMauSac = UUID.fromString(request.getParameter("idMauSac"));
             UUID idSp = UUID.fromString(request.getParameter("idSp"));
-            String id = request.getParameter("id");
+            UUID id = UUID.fromString(request.getParameter("id"));
             // Tạo đối tượng
             DongSp dongSp = new DongSp();
             dongSp.setId(idDong);
@@ -122,26 +123,29 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             SanPham sanPham = new SanPham();
             sanPham.setId(idSp);
             // Set các giá trị vào đối tượng
-            ChiTietSp chiTietSp = new ChiTietSp();
+            ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(id);
             chiTietSp.setSanPham(sanPham);
             chiTietSp.setMauSac(mauSac);
             chiTietSp.setNsx(nsx);
             chiTietSp.setDongSp(dongSp);
-            BeanUtils.populate(chiTietSp, request.getParameterMap());
-            if (chiTietSanPhamRepository.update(id,chiTietSp)) {
+            chiTietSp.setNamBaoHanh(Integer.parseInt(request.getParameter("namBaoHanh")));
+            chiTietSp.setMoTa(request.getParameter("moTa"));
+            chiTietSp.setSoLuongTon(Integer.parseInt(request.getParameter("soLuongTon")));
+            chiTietSp.setGiaNhap(new BigDecimal(request.getParameter("giaNhap")));
+            chiTietSp.setGiaBan(new BigDecimal(request.getParameter("giaBan")));
+            if (chiTietSanPhamRepository.update(chiTietSp)) {
                 request.getSession().setAttribute("message", "Update thành công");
                 response.sendRedirect(request.getContextPath() + "/chi-tiet-san-pham/index");
             }else {
                 request.getSession().setAttribute("mess_error", "Update thất bại");
             }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
     }
+
+
+
 
     protected void create(
             HttpServletRequest request,
@@ -194,11 +198,11 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         // Lấy id từ url
         String idCtsp = request.getParameter("id");
         ChiTietSp chiTietSp = new ChiTietSp();
-        request.setAttribute("idDongsp", chiTietSanPhamRepository.getIdDongSp(idCtsp));
-        request.setAttribute("idMauSac", chiTietSanPhamRepository.getIdMauSac(idCtsp));
-        request.setAttribute("idNSX", chiTietSanPhamRepository.getIdNhaSanXuat(idCtsp));
-        request.setAttribute("idSp", chiTietSanPhamRepository.getIdSanPham(idCtsp));
-        ChiTietSp chiTietSpRepo = chiTietSanPhamRepository.getById(idCtsp);
+        request.setAttribute("idDongsp", chiTietSanPhamRepository.getIdDongSp(UUID.fromString(idCtsp)));
+        request.setAttribute("idMauSac", chiTietSanPhamRepository.getIdMauSac(UUID.fromString(idCtsp)));
+        request.setAttribute("idNSX", chiTietSanPhamRepository.getIdNhaSanXuat(UUID.fromString(idCtsp)));
+        request.setAttribute("idSp", chiTietSanPhamRepository.getIdSanPham(UUID.fromString(idCtsp)));
+        ChiTietSp chiTietSpRepo = chiTietSanPhamRepository.getById(UUID.fromString(idCtsp));
         request.setAttribute("chiTietSp", chiTietSpRepo);
         request.setAttribute("view_chiTietSanPham", "/views/admin/chiTietSanPham/edit.jsp");
         request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
@@ -208,7 +212,7 @@ public class ChiTietSanPhamServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         String id = request.getParameter("id");
-        ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(id);
+        ChiTietSp chiTietSp = chiTietSanPhamRepository.getById(UUID.fromString(id));
         chiTietSanPhamRepository.delete(chiTietSp);
         response.sendRedirect("/Assignment_Sof3011_war_exploded/chi-tiet-san-pham/index");
 

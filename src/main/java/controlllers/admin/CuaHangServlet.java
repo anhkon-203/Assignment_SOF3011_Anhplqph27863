@@ -77,9 +77,9 @@ public class CuaHangServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
-            CuaHang cuaHang = new CuaHang();
+            CuaHang cuaHang = cuaHangRepository.findByMa(ma);
             BeanUtils.populate(cuaHang, request.getParameterMap());
-            cuaHangRepository.update(ma,cuaHang);
+            cuaHangRepository.update(cuaHang);
         } catch (Exception e) {
             e.printStackTrace();
         }
