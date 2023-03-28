@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 /**
  *
@@ -27,10 +28,9 @@ import java.util.List;
 public class ChiTietSp {
 
     @Id
-    @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
-    @GeneratedValue(generator = "generator")
-    @Column(name = "Id", columnDefinition = "uniqueidentifier")
-    private String id;
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID Id;
 
     @Column(name = "NamBH")
     private int namBaoHanh;
@@ -46,19 +46,19 @@ public class ChiTietSp {
 
     @Column(name = "GiaBan")
     private BigDecimal giaBan;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdSP")
     private SanPham sanPham;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdNsx")
     private NSX nsx;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdMauSac")
     private MauSac mauSac;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdDongSP")
     private DongSp dongSp;
     @OneToMany(mappedBy = "chiTietSp", fetch = FetchType.LAZY)

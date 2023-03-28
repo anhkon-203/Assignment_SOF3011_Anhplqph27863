@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
@@ -20,10 +20,9 @@ import java.util.UUID;
 public class ChucVu implements Serializable {
 
     @Id
-    @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
-    @GeneratedValue(generator = "generator")
-    @Column(name = "Id", columnDefinition = "uniqueidentifier")
-    private String id;
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID Id;
 
     @Column(name = "Ma")
     private String ma;
@@ -31,7 +30,7 @@ public class ChucVu implements Serializable {
     @Column(name = "Ten")
     private String ten;
 
-    @OneToMany(mappedBy = "chucVu", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "chucVu", cascade = CascadeType.ALL)
     private List<NhanVien> listNhanVien;
 
 

@@ -68,10 +68,10 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         try {
 
             // Lấy các giá trị từ form
-            String idDong = request.getParameter("idDong");
-            String idNSX = request.getParameter("idNSX");
-            String idMauSac = request.getParameter("idMauSac");
-            String idSp = request.getParameter("idSp");
+            UUID idDong = UUID.fromString(request.getParameter("idDong"));
+            UUID idNSX = UUID.fromString(request.getParameter("idNSX"));
+            UUID idMauSac = UUID.fromString(request.getParameter("idMauSac"));
+            UUID idSp = UUID.fromString(request.getParameter("idSp"));
             ChiTietSp chiTietSp = new ChiTietSp();
             // Tạo đối tượng
             DongSp dongSp = new DongSp();
@@ -107,10 +107,10 @@ public class ChiTietSanPhamServlet extends HttpServlet {
 
         try {
             // Lấy các giá trị từ form
-            String idDong = request.getParameter("idDong");
-            String idNSX = request.getParameter("idNSX");
-            String idMauSac = request.getParameter("idMauSac");
-            String idSp = request.getParameter("idSp");
+            UUID idDong = UUID.fromString(request.getParameter("idDong"));
+            UUID idNSX = UUID.fromString(request.getParameter("idNSX"));
+            UUID idMauSac = UUID.fromString(request.getParameter("idMauSac"));
+            UUID idSp = UUID.fromString(request.getParameter("idSp"));
             String id = request.getParameter("id");
             // Tạo đối tượng
             DongSp dongSp = new DongSp();
@@ -154,7 +154,7 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         request.setAttribute("listDongSp", listDongSp);
         List<MauSac> listMauSac = mauSacRepository.getAll();
         request.setAttribute("listMauSac", listMauSac);
-        List<SanPham> listSanPham = sanPhamRepository.getAll();
+        List<SanPham> listSanPham = sanPhamRepository.findAll();
         // Gửi danh sách các đối tượng qua view
         request.setAttribute("listSanPham", listSanPham);
         request.setAttribute("view_chiTietSanPham", "/views/admin/chiTietSanPham/create.jsp");
@@ -189,7 +189,7 @@ public class ChiTietSanPhamServlet extends HttpServlet {
         request.setAttribute("listDongSp", listDongSp);
         List<MauSac> listMauSac = mauSacRepository.getAll();
         request.setAttribute("listMauSac", listMauSac);
-        List<SanPham> listSanPham = sanPhamRepository.getAll();
+        List<SanPham> listSanPham = sanPhamRepository.findAll();
         request.setAttribute("listSanPham", listSanPham);
         // Lấy id từ url
         String idCtsp = request.getParameter("id");

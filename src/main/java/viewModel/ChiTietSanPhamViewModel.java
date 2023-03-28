@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
 public class ChiTietSanPhamViewModel {
-    private String id;
+    private UUID id;
 
     private int namBaoHanh;
 

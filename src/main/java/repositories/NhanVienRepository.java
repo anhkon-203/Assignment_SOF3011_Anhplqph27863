@@ -3,16 +3,16 @@ package repositories;
 import entities.NhanVien;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 import viewModel.NhanVienViewModel;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 public class NhanVienRepository {
     public List<NhanVienViewModel> getAll() {
         String hql = "SELECT new viewModel.NhanVienViewModel(nv.ma, nv.ten, nv.tenDem, nv.ho, nv.gioiTinh, nv.ngaySinh, nv.diaChi, nv.sdt, nv.email, nv.cuaHang.ten, nv.chucVu.ten, nv.trangThai) FROM NhanVien nv";
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery(hql);
         List<NhanVienViewModel> lst = query.getResultList();
         return lst;
@@ -21,7 +21,7 @@ public class NhanVienRepository {
 
     public boolean insert(NhanVien nhanVien) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             session.save(nhanVien);
             transaction.commit();
@@ -34,7 +34,7 @@ public class NhanVienRepository {
 
     public boolean update(String ma,NhanVien nhanVien) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("update NhanVien set ten =:ten, tenDem =:tenDem, ho =:ho, gioiTinh =:gioiTinh, ngaySinh =:ngaySinh, diaChi =:diaChi, sdt =:sdt, email =:email, cuaHang.id =:idCH, chucVu.id =:idChucVu, trangThai =:trangThai where ma = :ma");
             query.setParameter("ten",nhanVien.getTen());
@@ -60,7 +60,7 @@ public class NhanVienRepository {
 
     public boolean delete(NhanVien nhanVien) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("delete from NhanVien where  ma = :ma");
             query.setParameter("ma",nhanVien.getMa());
@@ -73,28 +73,28 @@ public class NhanVienRepository {
         }
     }
     public String findIdCuaHangByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select nv.cuaHang.id from  NhanVien nv where ma=:ma");
         query.setParameter("ma",ma);
         String maCuaHang = (String) query.getSingleResult();
         return maCuaHang;
     }
     public String findIdChucVuByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select nv.chucVu.id from  NhanVien nv where ma=:ma");
         query.setParameter("ma",ma);
         String maChucVu = (String) query.getSingleResult();
         return maChucVu;
     }
     public NhanVien findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select nv from  NhanVien nv where ma=:ma");
         query.setParameter("ma",ma);
         NhanVien nhanVien = (NhanVien) query.getSingleResult();
         return nhanVien;
     }
     public NhanVien findEmail(String email) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select nv from  NhanVien nv where email=:email");
         query.setParameter("email",email);
         NhanVien nhanVien = (NhanVien) query.getSingleResult();

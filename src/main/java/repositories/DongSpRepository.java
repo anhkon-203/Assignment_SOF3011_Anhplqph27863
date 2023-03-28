@@ -7,9 +7,9 @@ package repositories;
 import entities.DongSp;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 public class DongSpRepository {
 
     public List<DongSp> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("from DongSp");
         List<DongSp> lst = query.getResultList();
         return lst;
@@ -28,7 +28,7 @@ public class DongSpRepository {
     
     public boolean insert(DongSp dongSp) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
            session.save(dongSp);
            transaction.commit();
@@ -41,7 +41,7 @@ public class DongSpRepository {
     
     public boolean update(String ma,DongSp dongSp) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
             Query query = session.createQuery("update DongSp set  ten =:ten where ma = :ma");
             query.setParameter("ten",dongSp.getTen());
@@ -57,7 +57,7 @@ public class DongSpRepository {
     
     public boolean delete(DongSp dongSp) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
             Query query = session.createQuery("delete from DongSp  where  ma = :ma");
             query.setParameter("ma",dongSp.getMa());
@@ -70,7 +70,7 @@ public class DongSpRepository {
         }
     }
     public DongSp findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select d from  DongSp d  where ma=:ma");
         query.setParameter("ma",ma);
         List<DongSp> lst = query.getResultList();

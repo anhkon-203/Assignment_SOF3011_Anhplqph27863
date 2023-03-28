@@ -7,9 +7,9 @@ package repositories;
 import entities.NSX;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 public class NSXRepository {
 
     public List<NSX> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("from NSX");
         List<NSX> lst = query.getResultList();
         return lst;
@@ -28,7 +28,7 @@ public class NSXRepository {
     
     public boolean insert(NSX nsx) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
            session.save(nsx);
            transaction.commit();
@@ -41,7 +41,7 @@ public class NSXRepository {
     
     public boolean update(String ma,NSX nsx) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
             Query query = session.createQuery("update NSX set ten =:ten where ma = :ma");
             query.setParameter("ten",nsx.getTen());
@@ -57,7 +57,7 @@ public class NSXRepository {
     
     public boolean delete(NSX nsx) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
             Query query = session.createQuery("delete from NSX  where  ma = :ma");
             query.setParameter("ma",nsx.getMa());
@@ -70,7 +70,7 @@ public class NSXRepository {
         }
     }
     public NSX findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select n from  NSX n where ma=:ma");
         query.setParameter("ma",ma);
         List<NSX> lst = query.getResultList();

@@ -42,8 +42,8 @@ public class GioHangUserServlet extends HttpServlet {
     protected void showGioHang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
-        List<GioHangChiTietViewModel> listGioHangChiTiet = gioHangRepository.getAllGioHangChiTietByGioHangId(gioHang.getId());
+        GioHang gioHang = gioHangRepository.getGioHang(String.valueOf(khachHang.getId()));
+        List<GioHangChiTietViewModel> listGioHangChiTiet = gioHangRepository.getAllGioHangChiTietByGioHangId(String.valueOf(gioHang.getId()));
 
         String realPath = request.getServletContext().getRealPath("/images");
         // Thay đổi đường dẫn tới ảnh để hiển thị ảnh thay vì đường dẫn
@@ -63,11 +63,11 @@ public class GioHangUserServlet extends HttpServlet {
     protected void storeGioHang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
+        GioHang gioHang = gioHangRepository.getGioHang(String.valueOf(khachHang.getId()));
         String idChiTietSp = request.getParameter("id");
         request.getParameter("soLuong");
         int soLuong = Integer.parseInt(request.getParameter("soLuong"));
-        List<GioHangChiTiet> list = gioHangRepository.getGioHangChiTietByIdGioHang(gioHang.getId(), idChiTietSp);
+        List<GioHangChiTiet> list = gioHangRepository.getGioHangChiTietByIdGioHang(String.valueOf(khachHang.getId()), idChiTietSp);
         if (list.isEmpty()) {
             GioHangChiTiet gioHangChiTiet = new GioHangChiTiet();
             gioHangChiTiet.setGioHang(gioHang);

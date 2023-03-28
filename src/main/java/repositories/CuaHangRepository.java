@@ -8,9 +8,9 @@ package repositories;
 import entities.CuaHang;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 public class CuaHangRepository {
 
     public List<CuaHang> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("from CuaHang");
         List<CuaHang> lstCuaHang = query.getResultList();
         return lstCuaHang;
@@ -28,7 +28,7 @@ public class CuaHangRepository {
 
     public boolean insert(CuaHang cuaHang) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             session.save(cuaHang);
             transaction.commit();
@@ -41,7 +41,7 @@ public class CuaHangRepository {
 
     public boolean update(String ma, CuaHang cuaHang) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("update CuaHang set ten = :ten, diaChi = :diaChi, thanhPho =:thanhPho, quocGia =:quocGia where ma = :ma");
             query.setParameter("ten", cuaHang.getTen());
@@ -60,7 +60,7 @@ public class CuaHangRepository {
 
     public boolean delete(CuaHang cuaHang) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("delete from CuaHang  where  ma = :ma");
             query.setParameter("ma", cuaHang.getMa());
@@ -74,7 +74,7 @@ public class CuaHangRepository {
     }
 
     public CuaHang findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select c from  CuaHang c where ma=:ma");
         query.setParameter("ma", ma);
         List<CuaHang> lst = query.getResultList();

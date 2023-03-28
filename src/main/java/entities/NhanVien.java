@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -21,10 +21,9 @@ import java.util.UUID;
 public class NhanVien implements Serializable {
 
     @Id
-    @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
-    @GeneratedValue(generator = "generator")
-    @Column(name = "Id", columnDefinition = "uniqueidentifier")
-    private String id;
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID Id;;
 
     @Column(name = "Ma")
     private String ma;

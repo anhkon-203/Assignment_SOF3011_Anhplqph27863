@@ -6,11 +6,15 @@ package repositories;
 
 
 import entities.SanPham;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.NonUniqueResultException;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import org.hibernate.exception.ConstraintViolationException;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,69 +23,82 @@ import java.util.List;
  */
 public class SanPhamRepository {
 
-    public List<SanPham> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("from SanPham");
-        List<SanPham> lstSp = query.getResultList();
-        return lstSp;
+    private Session hSession;
 
+    public SanPhamRepository()
+    {
+        this.hSession = HibernateUtil.getFACTORY().openSession();
     }
-   
+
     public boolean insert(SanPham sanPham) {
-        Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-           session.save(sanPham);
-           transaction.commit();
-           return true;
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction = hSession.beginTransaction();
+            hSession.persist(sanPham);
+            transaction.commit();
+            return true;
+        } catch (ConstraintViolationException e) {
+            // Thực hiện xử lý khi gặp lỗi unique key constraint
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
         } catch (Exception e) {
+            transaction.rollback();
             e.printStackTrace();
             return false;
-        }
-    }
-    
-    public boolean update(String ma,SanPham sanPham) {
-        Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-            Query query = session.createQuery("update SanPham set  ten =:ten,srcImage=:src where ma = :ma");
-            query.setParameter("ten",sanPham.getTen());
-            query.setParameter("ma",ma);
-            query.setParameter("src",sanPham.getSrcImage());
-            query.executeUpdate();
-           transaction.commit();
-           return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    
-    public boolean delete(SanPham sanPham) {
-        Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
-           transaction = session.beginTransaction();
-            Query query = session.createQuery("delete from SanPham  where  ma = :ma");
-            query.setParameter("ma",sanPham.getMa());
-            query.executeUpdate();
-           transaction.commit();
-           return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    public SanPham findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
-        Query query = session.createQuery("from SanPham where ma = :ma");
-        query.setParameter("ma", ma);
-        List<SanPham> sanPhams = query.getResultList();
-        if (sanPhams.isEmpty()) {
-            return null;
-        } else {
-            return sanPhams.get(0);
         }
     }
 
+    public boolean update(SanPham sanPham) {
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction = hSession.beginTransaction();
+            hSession.merge(sanPham);
+            transaction.commit();
+            return true;
+        } catch (ConstraintViolationException e) {
+            // Thực hiện xử lý khi gặp lỗi unique key constraint
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        }
+    }
 
+    public void delete(SanPham sanPham)
+    {
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction.begin();
+            this.hSession.delete(sanPham);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }
+    }
+
+    public SanPham findById(String id)
+    {
+        return this.hSession.find(SanPham.class, id);
+    }
+
+    public List<SanPham> findAll()
+    {
+        String hql = "SELECT obj FROM SanPham obj";
+        TypedQuery<SanPham> query =  this.hSession.createQuery(hql, SanPham.class);
+        return query.getResultList();
+    }
+
+
+    public SanPham findByMa(String ma)
+    {
+        String hql = "SELECT obj FROM SanPham obj WHERE obj.ma = ?1";
+        TypedQuery<SanPham> query = this.hSession.createQuery(hql, SanPham.class);
+        query.setParameter(1, ma);
+        return query.getSingleResult();
+    }
 }

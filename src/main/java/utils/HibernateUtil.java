@@ -1,4 +1,4 @@
-package utilities;
+package utils;
 
 import entities.*;
 
@@ -10,7 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
-public class ConnectDB {
+public class HibernateUtil {
 
     private static final SessionFactory FACTORY;
 
@@ -42,7 +42,8 @@ public class ConnectDB {
         conf.addAnnotatedClass(NhanVien.class);
         conf.addAnnotatedClass(ChiTietSp.class);
 
-        ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
+        ServiceRegistry registry = new StandardServiceRegistryBuilder()
+                .applySettings(conf.getProperties()).build();
         FACTORY = conf.buildSessionFactory(registry);
 
     }
@@ -52,7 +53,7 @@ public class ConnectDB {
     }
 
     public static void main(String[] args) {
-        getFACTORY();
+        System.out.println(getFACTORY());
     }
 
 }

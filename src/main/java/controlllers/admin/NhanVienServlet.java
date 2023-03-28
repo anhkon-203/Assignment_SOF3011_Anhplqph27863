@@ -75,8 +75,8 @@ public class NhanVienServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             // get idCuaHang and idChucVu
-            String idChucVu = request.getParameter("idChucVu");
-            String idCuaHang = request.getParameter("idCuaHang");
+            UUID idChucVu = UUID.fromString(request.getParameter("idChucVu"));
+            UUID idCuaHang = UUID.fromString(request.getParameter("idCuaHang"));
             CuaHang cuaHang = new CuaHang();
             cuaHang.setId(idCuaHang);
             ChucVu chucVu = new ChucVu();
@@ -157,8 +157,8 @@ public class NhanVienServlet extends HttpServlet {
         try {
             String ma = request.getParameter("ma");
             // get idCuaHang and idChucVu
-            String idChucVu = request.getParameter("idChucVu");
-            String idCuaHang = request.getParameter("idCuaHang");
+            UUID idChucVu = UUID.fromString(request.getParameter("idChucVu"));
+            UUID idCuaHang = UUID.fromString(request.getParameter("idCuaHang"));
 
             CuaHang cuaHang = new CuaHang();
             cuaHang.setId(idCuaHang);

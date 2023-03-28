@@ -7,9 +7,9 @@ package repositories;
 import entities.MauSac;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 /**
@@ -18,7 +18,7 @@ import java.util.List;
 public class MauSacRepository {
 
     public List<MauSac> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery(
                 "from MauSac");
         List<MauSac> lst = query.getResultList();
@@ -28,7 +28,7 @@ public class MauSacRepository {
 
     public boolean insert(MauSac mauSac) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             session.save(mauSac);
             transaction.commit();
@@ -41,7 +41,7 @@ public class MauSacRepository {
 
     public boolean update(String ma, MauSac mauSac) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("update MauSac set  ten =:ten where ma = :ma");
             query.setParameter("ten", mauSac.getTen());
@@ -57,7 +57,7 @@ public class MauSacRepository {
 
     public boolean delete(MauSac mauSac) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("delete from MauSac  where  ma = :ma");
             query.setParameter("ma", mauSac.getMa());
@@ -71,7 +71,7 @@ public class MauSacRepository {
     }
 
     public MauSac findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select m from  MauSac m  where ma=:ma");
         query.setParameter("ma", ma);
         List<MauSac> lst = query.getResultList();

@@ -72,6 +72,9 @@ public class SanPhamServlet extends HttpServlet {
             String ten = request.getParameter("ten");
             String realPath = request.getServletContext().getRealPath("/images");
             String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
+            if (!Files.exists(Path.of(realPath))) {
+                Files.createDirectories(Path.of(realPath));
+            }
             if (ma.trim().isEmpty() || ten.trim().isEmpty()) {
                 request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
                 response.sendRedirect(request.getContextPath() + "/san-pham/create");
@@ -86,13 +89,13 @@ public class SanPhamServlet extends HttpServlet {
             part.write(realPath + "/" + fileName);
             request.setAttribute("srcImage", fileName);
             SanPham sp = new SanPham();
-            sp.setSrcImage(fileName);
+            sp.setSrcImage(part.getSubmittedFileName());
             BeanUtils.populate(sp, request.getParameterMap());
-            if (sanPhamRepository.findByMa(ma) != null) {
-                request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
-                response.sendRedirect(request.getContextPath() + "/san-pham/create");
-                return;
-            }
+//            if (sanPhamRepository.findByMa(ma) != null) {
+//                request.getSession().setAttribute("mess_error", "Mã sản phẩm đã tồn tại");
+//                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+//                return;
+//            }
             if (sanPhamRepository.insert(sp)) {
                 request.getSession().setAttribute("message", "Thêm mới thành công");
                 response.sendRedirect(request.getContextPath() + "/san-pham/index");
@@ -119,7 +122,7 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response)
             throws
             ServletException, IOException {
-        List<SanPham> list = sanPhamRepository.getAll();
+        List<SanPham> list = sanPhamRepository.findAll();
         String realPath = request.getServletContext().getRealPath("/images");
 
         // Thay đổi đường dẫn tới ảnh để hiển thị ảnh thay vì đường dẫn
@@ -180,10 +183,10 @@ public class SanPhamServlet extends HttpServlet {
             }
             part.write(realPath + "/" + fileName);
             request.setAttribute("srcImage", fileName);
-            SanPham sp = new SanPham();
+            SanPham sp = sanPhamRepository.findByMa(ma);
             sp.setSrcImage(fileName);
             BeanUtils.populate(sp, request.getParameterMap());
-            if (sanPhamRepository.update(ma, sp)) {
+            if (sanPhamRepository.update(sp)) {
                 request.getSession().setAttribute("message", "Update thành công");
                 response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
             } else {

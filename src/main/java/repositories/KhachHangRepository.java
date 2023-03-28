@@ -1,24 +1,23 @@
 package repositories;
 
 import entities.KhachHang;
-import entities.NhanVien;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 public class KhachHangRepository {
     public List<KhachHang> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("from KhachHang");
         List<KhachHang> lst = query.getResultList();
         return lst;
     }
     public KhachHang checkLogin(String email, String matKhau) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             String hql = "select k from KhachHang k where email = :sdt and matKhau = :matKhau";
             Query query = session.createQuery(hql);
@@ -34,7 +33,7 @@ public class KhachHangRepository {
     }
     public boolean insert(KhachHang khachHang) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             session.save(khachHang);
             transaction.commit();
@@ -47,7 +46,7 @@ public class KhachHangRepository {
 
     public boolean update(String ma,KhachHang khachHang) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("update KhachHang set ten = :ten,ho =:ho,tenDem=:tenDem,ngaySinh=:ngaySinh" +
                     ",sdt =:sdt,email=:email,matKhau=:matKhau,diaChi =:diaChi,thanhPho =:thanhPho,quocGia=:quocGia" +
@@ -74,7 +73,7 @@ public class KhachHangRepository {
 
     public boolean delete(KhachHang khachHang) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("delete from KhachHang where  ma = :ma");
             query.setParameter("ma",khachHang.getMa());
@@ -87,7 +86,7 @@ public class KhachHangRepository {
         }
     }
     public KhachHang findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select k from  KhachHang k  where ma=:ma");
         query.setParameter("ma",ma);
         List<KhachHang> lst = query.getResultList();

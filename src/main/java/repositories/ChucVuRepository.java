@@ -7,9 +7,9 @@ package repositories;
 import entities.ChucVu;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import utilities.ConnectDB;
+import utils.HibernateUtil;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 public class ChucVuRepository {
 
     public List<ChucVu> getAll() {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("from ChucVu ");
         List<ChucVu> lst = query.getResultList();
         return lst;
@@ -28,7 +28,7 @@ public class ChucVuRepository {
     
     public boolean insert(ChucVu chucVu) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
            session.save(chucVu);
            transaction.commit();
@@ -41,7 +41,7 @@ public class ChucVuRepository {
     
     public boolean update(String ma,ChucVu chucVu) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
             Query query = session.createQuery("update ChucVu set ten =:ten where ma = :ma");
             query.setParameter("ten",chucVu.getTen());
@@ -57,7 +57,7 @@ public class ChucVuRepository {
     
     public boolean delete( ChucVu chucVu) {
         Transaction transaction = null;
-        try(Session session = ConnectDB.getFACTORY().openSession()) {
+        try(Session session = HibernateUtil.getFACTORY().openSession()) {
            transaction = session.beginTransaction();
             Query query = session.createQuery("delete from ChucVu  where  ma = :ma");
             query.setParameter("ma",chucVu.getMa());
@@ -70,7 +70,7 @@ public class ChucVuRepository {
         }
     }
     public ChucVu findByMa(String ma) {
-        Session session = ConnectDB.getFACTORY().openSession();
+        Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select c from  ChucVu c where ma=:ma");
         query.setParameter("ma",ma);
         List<ChucVu> lst = query.getResultList();
