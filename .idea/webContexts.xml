@@ -13,6 +13,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/nhanVien/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/nhanVien" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/sanPham/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/sanPham" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/user/gioHang" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/user/hoaDon" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/user/sanPham/chiTietSanPham.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/user/sanPham" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/user/sanPham/sanPham.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/user/sanPham" />
       </map>

@@ -6,15 +6,12 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import repositories.GioHangRepository;
 import repositories.HoaDonRepository;
-import viewModel.GioHangChiTietViewModel;
+import viewModel.HoaDonChiTietViewModel;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 @WebServlet(value = {"/HoaDonUserServlet/index", "/HoaDonUserServlet/store", "/HoaDonUserServlet/update", "/HoaDonUserServlet/delete"})
 public class HoaDonUserServlet extends HttpServlet {
@@ -34,10 +31,22 @@ public class HoaDonUserServlet extends HttpServlet {
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
-        List<GioHangChiTietViewModel> listGioHangChiTiet = gioHangRepository.getAllGioHangChiTietByGioHangId(gioHang.getId());
+        HoaDon hoaDon = hoaDonRepository.getHoaDonByIdKH(khachHang.getId());
+        List<HoaDonChiTietViewModel> listHoaDonChiTietViewModel = hoaDonRepository.getListByIdKH(khachHang.getId(),hoaDon.getId());
 
-        request.setAttribute("listGioHangChiTiet", listGioHangChiTiet);
+        // Tạo Map để lưu trữ các hoá đơn theo mã
+        Map<String, List<HoaDonChiTietViewModel>> mapHoaDonChiTietViewModel = new HashMap<>();
+        for (HoaDonChiTietViewModel hd : listHoaDonChiTietViewModel) {
+            if (mapHoaDonChiTietViewModel.containsKey(hd.getMaHD())) {
+                mapHoaDonChiTietViewModel.get(hd.getMaHD()).add(hd);
+            } else {
+                List<HoaDonChiTietViewModel> newList = new ArrayList<>();
+                newList.add(hd);
+                mapHoaDonChiTietViewModel.put(hd.getMaHD(), newList);
+            }
+        }
+
+        request.setAttribute("mapHoaDonChiTietViewModel", mapHoaDonChiTietViewModel);
         request.getRequestDispatcher("/views/user/hoaDon/order.jsp").forward(request, response);
     }
 

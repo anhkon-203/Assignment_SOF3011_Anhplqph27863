@@ -32,28 +32,51 @@
             <p class="lead">Hoá đơn của bạn đã được ghi nhận và đang được xử lý.</p>
             <hr>
             <p class="lead">Thông tin hoá đơn:</p>
-            <table class="table">
-                <tr>
-                    <td>Tên khách hàng:</td>
-                    <td>${hoaDon.khachHang.tenKhachHang}</td>
-                </tr>
-                <tr>
-                    <td>Địa chỉ:</td>
-                    <td>${hoaDon.khachHang.diaChi}</td>
-                </tr>
-                <tr>
-                    <td>Số điện thoại:</td>
-                    <td>${hoaDon.khachHang.soDienThoai}</td>
-                </tr>
-                <tr>
-                    <td>Ngày tạo:</td>
-                    <td>${hoaDon.ngayTao}</td>
-                </tr>
-                <tr>
-                    <td>Trạng thái:</td>
-                    <td>${hoaDon.trangThai == 0 ? 'Chưa xử lý' : 'Đã xử lý'}</td>
-                </tr>
-            </table>
+            <c:forEach var="hd" items="${mapHoaDonChiTietViewModel}" varStatus="status">
+                <table class="table">
+                    <tr>
+                        <td>Mã hoá đơn:</td>
+                        <td>${hd.key}</td>
+                    </tr>
+                    <tr>
+                        <td>Tên khách hàng:</td>
+                        <td>${hd.value[0].tenNguoiNhan}</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>${hd.value[0].diaChi}</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>${hd.value[0].sdt}</td>
+                    </tr>
+                    <tr>
+                        <td>Tình trạng:</td>
+                        <td>${hd.value[0].tinhTrang == 0 ? 'Chờ xác nhận' : 'Đã xác nhận'}</td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="ct" items="${hd.value}" varStatus="status">
+                        <tr>
+                            <td>${ct.tenSP}</td>
+                            <td>${ct.soLuong}</td>
+                            <td>${ct.donGia}</td>
+                            <td>${ct.soLuong * ct.donGia}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:forEach>
+
             <p class="lead">Thông tin liên hệ:</p>
             <p class="lead">Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi:</p>
             <ul class="list-unstyled">

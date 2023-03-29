@@ -9,19 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="code lai repo">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="code hoa don">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewModel/HoaDonChiTietViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/SanPhamUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/SanPhamUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asm.sql" beforeDir="false" afterPath="$PROJECT_DIR$/asm.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +323,8 @@
       <workItem from="1679925780327" duration="7322000" />
       <workItem from="1679998093424" duration="186000" />
       <workItem from="1679998295536" duration="19719000" />
-      <workItem from="1680076262470" duration="10696000" />
+      <workItem from="1680076262470" duration="10759000" />
+      <workItem from="1680098993735" duration="6275000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -447,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680014812032</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="code hoa don">
+      <created>1680087481716</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680087481716</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +490,8 @@
     <MESSAGE value="add cart, register" />
     <MESSAGE value="thay doi giao dien trang chu" />
     <MESSAGE value="code lai repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="code lai repo" />
+    <MESSAGE value="code hoa don" />
+    <option name="LAST_COMMIT_MESSAGE" value="code hoa don" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
