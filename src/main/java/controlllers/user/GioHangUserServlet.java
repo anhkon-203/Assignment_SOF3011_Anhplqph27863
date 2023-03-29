@@ -8,13 +8,10 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import repositories.GioHangRepository;
-import viewModel.ChiTietSanPhamViewModel;
 import viewModel.GioHangChiTietViewModel;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -66,26 +63,22 @@ public class GioHangUserServlet extends HttpServlet {
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
         GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
         UUID idChiTietSp = UUID.fromString(request.getParameter("id"));
-        request.getParameter("soLuong");
         int soLuong = Integer.parseInt(request.getParameter("soLuong"));
-        List<GioHangChiTiet> list = gioHangRepository.getGioHangChiTietByIdGioHang(khachHang.getId(), idChiTietSp);
-        if (list.isEmpty()) {
-            GioHangChiTiet gioHangChiTiet = new GioHangChiTiet();
-            gioHangChiTiet.setGioHang(gioHang);
-            ChiTietSp chiTietSp = gioHangRepository.getChiTietSp(idChiTietSp);
-            gioHangChiTiet.setChiTietSp(chiTietSp);
-            BigDecimal giaBan = chiTietSp.getGiaBan();
-            BigDecimal soLuongTon = BigDecimal.valueOf(chiTietSp.getSoLuongTon());
-            BigDecimal donGia = giaBan.multiply(soLuongTon);
-            gioHangChiTiet.setDonGia(donGia);
-            gioHangChiTiet.setSoLuongTon(soLuong);
-            gioHangRepository.insertGioHangChiTiet(gioHangChiTiet);
+        GioHangChiTiet gioHangChiTiet = new GioHangChiTiet();
+        gioHangChiTiet.setGioHang(gioHang);
+        ChiTietSp chiTietSp = gioHangRepository.getChiTietSp(idChiTietSp);
+        gioHangChiTiet.setChiTietSp(chiTietSp);
+        BigDecimal giaBan = chiTietSp.getGiaBan();
+        BigDecimal soLuongTon = BigDecimal.valueOf(chiTietSp.getSoLuongTon());
+        BigDecimal donGia = giaBan.multiply(soLuongTon);
+        gioHangChiTiet.setDonGia(donGia);
+        gioHangChiTiet.setSoLuongTon(soLuong);
+        boolean result = gioHangRepository.insertGioHangChiTiet(gioHangChiTiet);
+        if (result) {
+            response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");
         } else {
-            GioHangChiTiet gioHangChiTiet = list.get(0);
-            gioHangChiTiet.setSoLuongTon(gioHangChiTiet.getSoLuongTon() + soLuong);
-            gioHangRepository.updateGioHangChiTiet(gioHangChiTiet);
+            // Xử lý lỗi
         }
-        response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");
     }
 
 
@@ -105,7 +98,7 @@ public class GioHangUserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
         UUID id = UUID.fromString(request.getParameter("id"));
-        UUID idGioHang = UUID.fromString(request.getParameter("idGioHang"));
+        UUID idGioHang = gioHangRepository.getGioHang(khachHang.getId()).getId();
         boolean result = gioHangRepository.delete(idGioHang, id);
         if (result) {
             response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");

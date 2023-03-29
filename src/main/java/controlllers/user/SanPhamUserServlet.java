@@ -27,7 +27,7 @@ public class SanPhamUserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
         // setime out
-        session.setMaxInactiveInterval(60 * 2);
+//        session.setMaxInactiveInterval(60 * 2);
         List<ChiTietSanPhamViewModel> list = chiTietSanPhamRepository.getList();
         String realPath = request.getServletContext().getRealPath("/images");
 

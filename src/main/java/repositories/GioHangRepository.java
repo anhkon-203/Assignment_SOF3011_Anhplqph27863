@@ -28,7 +28,19 @@ public class GioHangRepository {
     public boolean insertGioHangChiTiet(GioHangChiTiet gioHangChiTiet) {
         try {
             transaction.begin();
-            hSession.save(gioHangChiTiet);
+            // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+            GioHangChiTiet existingGioHangChiTiet = (GioHangChiTiet) hSession.createQuery("FROM GioHangChiTiet WHERE gioHang.id = :idGioHang AND chiTietSp.id = :idChiTietSp")
+                    .setParameter("idGioHang", gioHangChiTiet.getGioHang().getId())
+                    .setParameter("idChiTietSp", gioHangChiTiet.getChiTietSp().getId())
+                    .uniqueResult();
+            if (existingGioHangChiTiet != null) {
+                // Nếu sản phẩm đã có trong giỏ hàng, cập nhật số lượng sản phẩm
+                existingGioHangChiTiet.setSoLuongTon(existingGioHangChiTiet.getSoLuongTon() + gioHangChiTiet.getSoLuongTon());
+                hSession.update(existingGioHangChiTiet);
+            } else {
+                // Nếu sản phẩm chưa có trong giỏ hàng, thêm bản ghi mới
+                hSession.save(gioHangChiTiet);
+            }
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -80,12 +92,11 @@ public class GioHangRepository {
         }
     }
 
-    public List<GioHangChiTiet> getGioHangChiTietByIdGioHang(UUID idGioHang, UUID idChiTietSp) {
+    public List<GioHangChiTiet> getGioHangChiTietByIdGioHang(UUID idGioHang) {
         Session session = HibernateUtil.getFACTORY().openSession();
-        String hql = "select ghct from GioHangChiTiet ghct where ghct.gioHang.Id=:idGioHang and ghct.chiTietSp.Id=:idChiTietSp";
+        String hql = "select ghct from GioHangChiTiet ghct where ghct.gioHang.Id=:idGioHang";
         TypedQuery<GioHangChiTiet> query = session.createQuery(hql, GioHangChiTiet.class);
         query.setParameter("idGioHang", idGioHang);
-        query.setParameter("idChiTietSp", idChiTietSp);
         return query.getResultList();
     }
 

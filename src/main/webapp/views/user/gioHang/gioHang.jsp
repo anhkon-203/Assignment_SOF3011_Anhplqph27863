@@ -62,55 +62,72 @@
 <body>
 
 <div class="container">
-    <c:forEach var="ghct" items="${ listGioHangChiTiet }" varStatus="status">
-    <div class="card mb-2" >
-        <div class="card-header">
-            <span id="deal">Deal Sốc</span>
-            <a href="#" class="text-decoration-none text-danger">Thêm</a>
-        </div>
-        <div class="card-body">
-            <div class="row align-items-center">
-                <span class="fw-bold">${ghct.tenSp}</span>
-                <div class="col-1">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck${status.index}">
-                    <img src="${ ghct.srcImage }" alt="ảnh sản phẩm" class="img-fluid d-flex">
-                </div>
-                <div class="col-md-3 col-7">
-                    <img src="/Assignment_Sof3011_war_exploded/img/freeShip.png" class="img-fluid" alt="Miễn phí vận chuyển">
-                    <img src="/Assignment_Sof3011_war_exploded/img/7.png" class="img-fluid " alt="Miễn phí vận chuyển">
-                    <span id="textProduct">7 ngày miễn phí trả hàng</span>
-                </div>
-                <div class="col-md-1 col-2">
-                    <span id="priceProduct" class="text-center">${ghct.donGia}</span>
-                </div>
-                <div class="col-md-2 col-3">
-                    <div class="input-group">
-                        <label>Số lượng</label>
-                        <input type="text" class="form-control"  id="quantity-input" value="${ghct.soLuong}" >
+    <div class="row">
+        <div class="col-md-8">
+            <c:forEach var="ghct" items="${listGioHangChiTiet}" varStatus="status">
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <span id="deal">Deal Sốc</span>
+                        <a href="#" class="text-decoration-none text-danger">Thêm</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <span class="fw-bold">${ghct.tenSp}</span>
+                            <div class="col-1">
+                                <img src="${ghct.srcImage}" alt="ảnh sản phẩm" class="img-fluid d-flex">
+                            </div>
+                            <div class="col-md-3 col-7">
+                                <img src="/Assignment_Sof3011_war_exploded/img/freeShip.png" class="img-fluid"
+                                     alt="Miễn phí vận chuyển">
+                                <img src="/Assignment_Sof3011_war_exploded/img/7.png" class="img-fluid " alt="Miễn phí vận chuyển">
+                                <span id="textProduct">7 ngày miễn phí trả hàng</span>
+                            </div>
+                            <div class="col-md-1 col-2">
+                                <span id="priceProduct" class="text-center">${ghct.donGia}</span>
+                            </div>
+                            <div class="col-md-2 col-3">
+                                <div class="input-group">
+                                    <label>Số lượng</label>
+                                    <input type="text" class="form-control" id="quantity-input" value="${ghct.soLuong}">
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-2">
+                                <span class="text-center text-truncate text-danger">${ghct.donGia * ghct.soLuong}</span>
+                            </div>
+                            <div class="col-md-1 col-2">
+                                <form action="/Assignment_Sof3011_war_exploded/GioHangUserServlet/delete" method="GET">
+                                    <input type="hidden" name="id" value="${ghct.id}">
+                                    <input type="hidden" name="idGioHang" value="${ghct.idGioHang}">
+                                    <button class="btn btn-danger" type="submit">Xóa</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-1 col-2">
-                    <span class="text-center text-truncate text-danger" >${ghct.donGia}</span>
+            </c:forEach>
+        </div>
+        <div class="col-md-4">
+            <form action="/Assignment_Sof3011_war_exploded/HoaDonUserServlet/store" method="post">
+                <input type="hidden" name="idKhachHang" value="${user.getId()}">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Họ tên Người nhận</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
-                <div class="col-md-1 col-2">
-                    <form action="/Assignment_Sof3011_war_exploded/GioHangUserServlet/delete" method="GET">
-                        <input  type="hidden" name="id" value="${ghct.id}">
-                        <input  type="hidden" name="idGioHang" value="${ghct.idGioHang}">
-                        <button class="btn btn-danger" type="submit">Xóa</button>
-                    </form>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Địa chỉ</label>
+                    <input type="text" class="form-control" id="address" name="address" required>
                 </div>
-            </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+                <button class="btn btn-success" type="submit">Đặt hàng</button>
+            </form>
         </div>
     </div>
-    </c:forEach>
-    <div class="row col-8 offset-2">
-        <button class="btn text-white btn-success float-end" >
-            <img src="/Assignment_Sof3011_war_exploded/img/cart.svg" alt="">
-            Mua hàng
-        </button>
+</div>
     </div>
 
-</div>
 
 </body>
 </html>

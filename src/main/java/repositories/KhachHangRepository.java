@@ -19,8 +19,6 @@ public class KhachHangRepository {
         return query.getResultList();
     }
     public KhachHang checkLogin(String email, String matKhau) {
-        try {
-            transaction.begin();
             String hql = "select k from KhachHang k where email = :sdt and matKhau = :matKhau";
             Query query = session.createQuery(hql);
             query.setParameter("sdt",email);
@@ -28,13 +26,8 @@ public class KhachHangRepository {
             if (query.getResultList().isEmpty()) {
                 return null;
             } else {
-                return (KhachHang) query.getResultList().get(0);
+                return (KhachHang) query.getSingleResult();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            transaction.rollback();
-            return null;
-        }
     }
     public boolean insert(KhachHang khachHang) {
         try {

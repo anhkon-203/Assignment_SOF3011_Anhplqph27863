@@ -48,8 +48,8 @@ public class HoaDon implements Serializable {
     @Column(name = "NgayNhan")
     private Date ngayNhan;
 
-    @Column(name = "TrangThai")
-    private int trangThai;
+    @Column(name = "TinhTrang")
+    private int tinhTrang;
 
     @Column(name = "TenNguoiNhan")
     private String tenNguoiNhan;

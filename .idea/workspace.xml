@@ -9,27 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="thay doi giao dien trang chu">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Assignment_Sof3011_war_exploded.xml" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="code lai repo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/ChiTietSanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/CuaHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/CuaHangServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/KhachHangServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/SanPhamServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/ChiTietSanPhamUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/ChiTietSanPhamUserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/SanPhamUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/SanPhamUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -126,6 +118,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HibernateUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utils.HibernateUtil" />
+      <module name="Assignment_Sof3011" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -255,11 +260,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.HibernateUtil" />
       <item itemvalue="Application.ConnectDB" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.6" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HibernateUtil" />
         <item itemvalue="Application.ConnectDB" />
       </list>
     </recent_temporary>
@@ -318,7 +325,8 @@
       <workItem from="1679919919330" duration="1655000" />
       <workItem from="1679925780327" duration="7322000" />
       <workItem from="1679998093424" duration="186000" />
-      <workItem from="1679998295536" duration="10697000" />
+      <workItem from="1679998295536" duration="19719000" />
+      <workItem from="1680076262470" duration="10696000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -432,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679579402092</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="code lai repo">
+      <created>1680014812032</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680014812032</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +484,8 @@
     <MESSAGE value="thêm sản phẩm vào giỏ hàng + update số lượng khi đã có sản phẩm ở trong + form đăng ký khách hàng và tạo luôn giỏ hàng khi đăng ký" />
     <MESSAGE value="add cart, register" />
     <MESSAGE value="thay doi giao dien trang chu" />
-    <option name="LAST_COMMIT_MESSAGE" value="thay doi giao dien trang chu" />
+    <MESSAGE value="code lai repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="code lai repo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

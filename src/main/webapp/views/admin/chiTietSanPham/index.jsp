@@ -39,9 +39,9 @@
             <th>NSX</th>
             <th>Màu sắc</th>
             <th>Dòng Sản phẩm</th>
-            <th>Mô tả </th>
+            <th>Mô tả</th>
             <th>Ảnh</th>
-                            <th class="col-2 text-center">Action</th>
+            <th class="col-2 text-center">Action</th>
         </tr>
         </thead>
         <tbody>
