@@ -9,15 +9,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="code hoa don">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewModel/HoaDonChiTietViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="hiển thị hoá đơn khi mua">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asm.sql" beforeDir="false" afterPath="$PROJECT_DIR$/asm.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,10 +87,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/toastr&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -109,6 +129,78 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.6">
+    <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
+      <option name="appName" />
+      <option name="appServicePlanName" />
+      <option name="appServicePlanResourceGroup" />
+      <option name="appSettingsKey" value="cd881dee-06de-4aaf-b6de-611651a4b5c3" />
+      <option name="artifact" />
+      <option name="autoPort" value="true" />
+      <option name="debugOptions" />
+      <option name="deployment" />
+      <option name="deploymentStagingDirectoryPath" />
+      <option name="funcPath" />
+      <option name="funcPort" value="0" />
+      <option name="functionHostArguments" />
+      <option name="hostJsonPath" />
+      <option name="insightsName" />
+      <option name="instrumentationKey" />
+      <option name="javaVersion" />
+      <option name="localSettingsJsonPath" />
+      <option name="moduleName" />
+      <option name="os" />
+      <option name="pricingTier" />
+      <option name="providerMap">
+        <map />
+      </option>
+      <option name="region" />
+      <option name="resourceGroup" />
+      <option name="stagingFolder" />
+      <option name="subscription" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="com.microsoft.intellij.run.configuration.WebAppConfigurationType" factoryName="Azure Web App">
+      <option name="appServicePlanName" value="" />
+      <option name="appServicePlanResourceGroupName" value="" />
+      <option name="appSettingsKey" value="2b9022c7-1997-422c-ae23-e155ee2b23c5" />
+      <option name="appSettingsToRemove" />
+      <option name="applicationLogLevel" value="Error" />
+      <option name="artifactIdentifier" />
+      <option name="azureArtifactType" />
+      <option name="creatingAppServicePlan" value="false" />
+      <option name="creatingNew" value="false" />
+      <option name="creatingResGrp" value="false" />
+      <option name="deployToRoot" value="true" />
+      <option name="deployToSlot" value="false" />
+      <option name="enableApplicationLog" value="false" />
+      <option name="enableDetailedErrorMessage" value="false" />
+      <option name="enableFailedRequestTracing" value="false" />
+      <option name="enableWebServerLogging" value="false" />
+      <option name="newSlotConfigurationSource" />
+      <option name="newSlotName" />
+      <option name="openBrowserAfterDeployment" value="true" />
+      <option name="operatingSystem" />
+      <option name="packaging" />
+      <option name="pricing" value="" />
+      <option name="projectBase" value="" />
+      <option name="projectType" value="" />
+      <option name="region" value="" />
+      <option name="resourceGroup" value="" />
+      <option name="slotName" />
+      <option name="slotPanelVisible" value="false" />
+      <option name="subscriptionId" value="" />
+      <option name="targetName" value="" />
+      <option name="targetPath" value="" />
+      <option name="webAppContainer" />
+      <option name="webAppId" value="" />
+      <option name="webAppJavaVersion" />
+      <option name="webAppName" value="" />
+      <option name="webServerLogQuota" value="35" />
+      <option name="webServerRetentionPeriod" />
+      <method v="2" />
+    </configuration>
     <configuration name="ConnectDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="utilities.ConnectDB" />
       <module name="Assignment_Sof3011" />
@@ -324,7 +416,15 @@
       <workItem from="1679998093424" duration="186000" />
       <workItem from="1679998295536" duration="19719000" />
       <workItem from="1680076262470" duration="10759000" />
-      <workItem from="1680098993735" duration="6275000" />
+      <workItem from="1680098993735" duration="6898000" />
+      <workItem from="1680113045552" duration="905000" />
+      <workItem from="1680116922501" duration="810000" />
+      <workItem from="1680117815061" duration="307000" />
+      <workItem from="1680118210604" duration="172000" />
+      <workItem from="1680118396912" duration="371000" />
+      <workItem from="1680118787687" duration="1058000" />
+      <workItem from="1680152311225" duration="3675000" />
+      <workItem from="1680324736942" duration="3146000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -452,11 +552,23 @@
       <option name="project" value="LOCAL" />
       <updated>1680087481716</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="hiển thị hoá đơn khi mua">
+      <created>1680106996437</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680106996437</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="com.intellij.configurationType" implementationName="com.microsoft.intellij.run.configuration.WebAppConfigurationType" />
+    <option featureType="dependencySupport" implementationName="maven-packaging:war" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -491,7 +603,8 @@
     <MESSAGE value="thay doi giao dien trang chu" />
     <MESSAGE value="code lai repo" />
     <MESSAGE value="code hoa don" />
-    <option name="LAST_COMMIT_MESSAGE" value="code hoa don" />
+    <MESSAGE value="hiển thị hoá đơn khi mua" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiển thị hoá đơn khi mua" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -503,5 +616,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

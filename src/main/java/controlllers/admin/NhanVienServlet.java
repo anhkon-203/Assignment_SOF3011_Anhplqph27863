@@ -79,7 +79,7 @@ public class NhanVienServlet extends HttpServlet {
             UUID idCuaHang = UUID.fromString(request.getParameter("idCuaHang"));
             CuaHang cuaHang = new CuaHang();
             cuaHang.setId(idCuaHang);
-            ChucVu chucVu = new ChucVu();
+            ChucVu chucVu = new  ChucVu();
             chucVu.setId(idChucVu);
             //
             DateTimeConverter dtc = new DateConverter(new Date());

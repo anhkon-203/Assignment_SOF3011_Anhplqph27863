@@ -23,7 +23,7 @@ import java.util.UUID;
 public class ChiTietSanPhamRepository {
 
     Session hSession = HibernateUtil.getFACTORY().openSession();
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<ChiTietSanPhamViewModel> getList() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -48,6 +48,7 @@ public class ChiTietSanPhamRepository {
     }
 
     public boolean insert(ChiTietSp chiTietSp) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(chiTietSp);
@@ -61,6 +62,7 @@ public class ChiTietSanPhamRepository {
     }
 
     public boolean update(ChiTietSp chiTietSp) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.merge(chiTietSp);
@@ -75,6 +77,7 @@ public class ChiTietSanPhamRepository {
 
     //
     public boolean delete(ChiTietSp chiTietSp) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.delete(chiTietSp);

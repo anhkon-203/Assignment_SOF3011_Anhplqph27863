@@ -63,9 +63,8 @@ public class NhanVien implements Serializable {
     @JoinColumn(name = "idCV")
     private ChucVu chucVu;
 
-    @ManyToOne
-    @JoinColumn(name = "idGuiBC")
-    private NhanVien nhanVien;
+    @Column(name = "idGuiBC")
+    private UUID idGuiBC;
 
     @Column(name = "TrangThai")
     private int trangThai;

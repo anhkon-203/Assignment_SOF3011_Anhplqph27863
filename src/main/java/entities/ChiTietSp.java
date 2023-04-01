@@ -46,19 +46,19 @@ public class ChiTietSp {
 
     @Column(name = "GiaBan")
     private BigDecimal giaBan;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "IdSP")
     private SanPham sanPham;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "IdNsx")
     private NSX nsx;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "IdMauSac")
     private MauSac mauSac;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "IdDongSP")
     private DongSp dongSp;
     @OneToMany(mappedBy = "chiTietSp", fetch = FetchType.LAZY)

@@ -112,8 +112,14 @@ public class LoginServlet extends HttpServlet {
             DateTimeConverter dtc = new DateConverter(new Date());
             dtc.setPattern("yyyy-MM-dd");
             ConvertUtils.register(dtc, Date.class);
+            String RandomMa = "KH" + random.nextInt(1000000);
+//            if (khachHangRepository.findByMa(RandomMa) != null) {
+//                RandomMa = "KH" + random.nextInt(1000000);
+//                return;
+//            }
+
             KhachHang khachHang = new KhachHang();
-            khachHang.setMa("KH" + random.nextInt(1000000));
+            khachHang.setMa(RandomMa);
             BeanUtils.populate(khachHang, request.getParameterMap());
             khachHangRepository.insert(khachHang);
 

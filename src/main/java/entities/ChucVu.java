@@ -30,7 +30,7 @@ public class ChucVu implements Serializable {
     @Column(name = "Ten")
     private String ten;
 
-    @OneToMany(mappedBy = "chucVu", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "chucVu",fetch = FetchType.LAZY)
     private List<NhanVien> listNhanVien;
 
 

@@ -25,7 +25,7 @@ public class GioHang implements Serializable {
         @GeneratedValue(strategy = GenerationType.UUID)
         private UUID Id;
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne
         @JoinColumn(name = "idKH")
         private KhachHang khachHang;
 

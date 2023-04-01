@@ -82,9 +82,9 @@
             <ul class="list-unstyled">
                 <li><strong>Địa chỉ:</strong> 123 Đường ABC, Quận XYZ, Thành phố HCM</li>
                 <li><strong>Điện thoại:</strong> 0123456789</li>
-                <li><strong>Email:</strong> info@example.com</li>
+                <li><strong>Email:</strong> innisfree@gmail.com</li>
             </ul>
-            <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary">Quay lại trang chủ</a>
+            <a href="${pageContext.request.contextPath}/SanPhamUserServlet" class="btn btn-primary">Quay lại trang chủ</a>
         </div>
     </div>
 </div>

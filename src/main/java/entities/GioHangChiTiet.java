@@ -18,12 +18,12 @@ import java.math.BigDecimal;
 public class GioHangChiTiet implements Serializable {
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idGioHang")
     private GioHang gioHang;
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idChiTietSp")
     private ChiTietSp chiTietSp;
 

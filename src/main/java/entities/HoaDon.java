@@ -25,11 +25,11 @@ public class HoaDon implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID Id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idKH")
     private KhachHang khachHang;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idNV")
     private NhanVien nhanVien;
 

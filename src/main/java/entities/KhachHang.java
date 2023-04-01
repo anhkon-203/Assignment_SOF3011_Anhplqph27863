@@ -58,10 +58,10 @@ public class KhachHang implements Serializable {
     @Column(name = "Email")
     private String email;
 
-    @OneToMany(mappedBy = "khachHang", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "khachHang",fetch = FetchType.LAZY)
     private List<GioHang> listGioHang;
 
-    @OneToMany(mappedBy = "khachHang", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "khachHang",fetch = FetchType.LAZY)
     private List<HoaDon> listHoaDon;
 
 }
