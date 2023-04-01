@@ -22,7 +22,7 @@ public class NSXRepository {
 
     Session hSession = HibernateUtil.getFACTORY().openSession();
 
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<NSX> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -33,6 +33,7 @@ public class NSXRepository {
     }
 
     public boolean insert(NSX nsx) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(nsx);
@@ -46,6 +47,7 @@ public class NSXRepository {
     }
 
     public boolean update(String ma, NSX nsx) {
+        Transaction transaction = hSession.getTransaction();
         try  {
             transaction.begin();
             Query query = hSession.createQuery("update NSX set ten =:ten where ma = :ma");
@@ -62,6 +64,7 @@ public class NSXRepository {
     }
 
     public boolean delete(NSX nsx) {
+        Transaction transaction = hSession.getTransaction();
         try  {
             transaction.begin();
             hSession.delete(nsx);
@@ -82,7 +85,6 @@ public class NSXRepository {
         } else {
             return null;
         }
-
         }
     }
 

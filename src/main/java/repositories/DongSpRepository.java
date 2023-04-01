@@ -21,7 +21,7 @@ public class DongSpRepository {
 
     Session hSession = HibernateUtil.getFACTORY().openSession();
 
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<DongSp> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -31,6 +31,7 @@ public class DongSpRepository {
     }
 
     public boolean insert(DongSp dongSp) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(dongSp);
@@ -44,6 +45,7 @@ public class DongSpRepository {
     }
 
     public void delete(DongSp dongSp) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             this.hSession.delete(dongSp);
@@ -55,6 +57,7 @@ public class DongSpRepository {
     }
 
     public boolean update(String ma, DongSp dongSp) {
+        Transaction transaction = hSession.getTransaction();
         try {
             Query query = hSession.createQuery("update DongSp set ten = :ten where ma = :ma");
             query.setParameter("ten", dongSp.getTen());

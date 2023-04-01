@@ -11,7 +11,6 @@ import java.util.List;
 
 public class KhachHangRepository {
     Session session = HibernateUtil.getFACTORY().openSession();
-    Transaction transaction = session.getTransaction();
     public List<KhachHang> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
         String hql = "SELECT obj FROM KhachHang obj";
@@ -30,6 +29,7 @@ public class KhachHangRepository {
             }
     }
     public boolean insert(KhachHang khachHang) {
+        Transaction transaction = session.getTransaction();
         try {
             transaction.begin();
             session.save(khachHang);
@@ -43,6 +43,7 @@ public class KhachHangRepository {
     }
 
     public boolean update(KhachHang khachHang) {
+        Transaction transaction = session.getTransaction();
         try {
             transaction.begin();
             session.update(khachHang);
@@ -56,6 +57,7 @@ public class KhachHangRepository {
     }
 
     public boolean delete(KhachHang khachHang) {
+        Transaction transaction = session.getTransaction();
         try {
             transaction.begin();
             session.delete(khachHang);

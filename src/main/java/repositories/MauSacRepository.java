@@ -11,8 +11,6 @@ import org.hibernate.Transaction;
 import utils.HibernateUtil;
 
 import jakarta.persistence.Query;
-
-import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -21,7 +19,7 @@ import java.util.List;
 public class MauSacRepository {
 
     Session hSession = HibernateUtil.getFACTORY().openSession();
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<MauSac> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -31,6 +29,7 @@ public class MauSacRepository {
     }
 
     public boolean insert(MauSac mauSac) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(mauSac);
@@ -43,6 +42,7 @@ public class MauSacRepository {
     }
 
     public boolean update(String ma, MauSac mauSac) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             Query query = hSession.createQuery("update MauSac set  ten =:ten where ma = :ma");
@@ -58,6 +58,7 @@ public class MauSacRepository {
     }
 
     public boolean delete(MauSac mauSac) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.delete(mauSac);

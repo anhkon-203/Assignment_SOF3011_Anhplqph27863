@@ -15,9 +15,8 @@ import java.util.List;
  * @author anhkon
  */
 public class SanPhamRepository {
-    Session hsession = HibernateUtil.getFACTORY().openSession();
+    Session hSession = HibernateUtil.getFACTORY().openSession();
 
-    Transaction transaction = hsession.getTransaction();
 
     public List<SanPham> findAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -28,9 +27,10 @@ public class SanPhamRepository {
     }
 
     public boolean insert(SanPham sanPham) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
-            hsession.save(sanPham);
+            hSession.save(sanPham);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -42,9 +42,10 @@ public class SanPhamRepository {
 
 
     public void delete(SanPham sanPham) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
-            this.hsession.delete(sanPham);
+            this.hSession.delete(sanPham);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,9 +54,10 @@ public class SanPhamRepository {
     }
 
     public boolean update(String ma, SanPham sanPham) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
-            Query query = hsession.createQuery("update SanPham set ten = :ten, srcImage = :src where ma = :ma");
+            Query query = hSession.createQuery("update SanPham set ten = :ten, srcImage = :src where ma = :ma");
             query.setParameter("ten", sanPham.getTen());
             query.setParameter("src", sanPham.getSrcImage());
             query.setParameter("ma", ma);
@@ -72,7 +74,7 @@ public class SanPhamRepository {
 
     public SanPham findByMa(String ma) {
         String hql = "SELECT obj FROM SanPham obj WHERE obj.ma = ?1";
-        TypedQuery<SanPham> query = this.hsession.createQuery(hql, SanPham.class);
+        TypedQuery<SanPham> query = this.hSession.createQuery(hql, SanPham.class);
         query.setParameter(1, ma);
         if (query.getResultList().size() > 0) {
             return query.getSingleResult();

@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class CuaHangRepository {
     Session hSession = HibernateUtil.getFACTORY().openSession();
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<CuaHang> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -30,6 +30,7 @@ public class CuaHangRepository {
     }
 
     public boolean insert(CuaHang cuaHang) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(cuaHang);
@@ -43,6 +44,7 @@ public class CuaHangRepository {
     }
 
     public boolean update(CuaHang cuaHang) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.update(cuaHang);
@@ -56,6 +58,7 @@ public class CuaHangRepository {
     }
 
     public boolean delete(CuaHang cuaHang) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.delete(cuaHang);

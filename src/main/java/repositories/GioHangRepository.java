@@ -16,7 +16,7 @@ import java.util.UUID;
 public class GioHangRepository {
 
     Session hSession = HibernateUtil.getFACTORY().openSession();
-    Transaction transaction = hSession.getTransaction();
+
     public List<GioHangChiTietViewModel> getAllGioHangChiTietByGioHangId(UUID idGioHang) {
         Session session = HibernateUtil.getFACTORY().openSession();
        String hql = "select new viewModel.GioHangChiTietViewModel(g.chiTietSp.Id,g.gioHang.Id ,g.chiTietSp.sanPham.ten,g.soLuongTon,g.donGia,g.chiTietSp.sanPham.srcImage) from GioHangChiTiet g where g.gioHang.Id = :idGioHang";
@@ -26,6 +26,7 @@ public class GioHangRepository {
     }
 
     public boolean insertGioHangChiTiet(GioHangChiTiet gioHangChiTiet) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
@@ -50,6 +51,7 @@ public class GioHangRepository {
         }
     }
     public boolean insertGioHang(GioHang gioHang) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(gioHang);
@@ -64,6 +66,7 @@ public class GioHangRepository {
 
 
     public boolean updateGioHangChiTiet(GioHangChiTiet gioHangChiTiet) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.update(gioHangChiTiet);
@@ -77,6 +80,7 @@ public class GioHangRepository {
     }
 
     public boolean delete(UUID idGioHang, UUID idSanPham) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             GioHangChiTiet gioHangChiTiet = (GioHangChiTiet) hSession.createQuery("FROM GioHangChiTiet WHERE gioHang.id = :idGioHang AND chiTietSp.id = :idSanPham")

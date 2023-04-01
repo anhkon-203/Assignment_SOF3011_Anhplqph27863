@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class ChucVuRepository {
     Session hSession = HibernateUtil.getFACTORY().openSession();
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<ChucVu> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -30,6 +30,7 @@ public class ChucVuRepository {
     }
 
     public boolean insert(ChucVu chucVu) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(chucVu);
@@ -43,6 +44,7 @@ public class ChucVuRepository {
     }
 
     public boolean update(String ma, ChucVu chucVu) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             Query query = hSession.createQuery("UPDATE ChucVu set ten=:ten where ma=:ma");
@@ -59,6 +61,7 @@ public class ChucVuRepository {
     }
 
     public void delete(ChucVu chucVu) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.delete(chucVu);

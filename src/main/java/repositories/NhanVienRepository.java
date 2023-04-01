@@ -15,7 +15,7 @@ import java.util.UUID;
 public class NhanVienRepository {
     Session hSession = HibernateUtil.getFACTORY().openSession();
 
-    Transaction transaction = hSession.getTransaction();
+
 
     public List<NhanVienViewModel> getAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
@@ -26,6 +26,7 @@ public class NhanVienRepository {
 
 
     public boolean insert(NhanVien nhanVien) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             hSession.save(nhanVien);
@@ -39,6 +40,7 @@ public class NhanVienRepository {
     }
 
     public boolean update(String ma, NhanVien nhanVien) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             Query query = hSession.createQuery("update NhanVien set ten =:ten, tenDem =:tenDem, ho =:ho, gioiTinh =:gioiTinh, ngaySinh =:ngaySinh, diaChi =:diaChi, sdt =:sdt, email =:email, cuaHang.id =:idCH, chucVu.id =:idChucVu, trangThai =:trangThai where ma = :ma");
@@ -65,6 +67,7 @@ public class NhanVienRepository {
     }
 
     public boolean delete(NhanVien nhanVien) {
+        Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
             Query query = hSession.createQuery("delete from NhanVien where  ma = :ma");
@@ -114,5 +117,6 @@ public class NhanVienRepository {
         }
 
     }
+
 
 }
