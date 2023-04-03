@@ -9,7 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="test" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/thongTinSP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/TrangCuaToiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/TrangCuaToiServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/HoaDonChiTietViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/HoaDonChiTietViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/Kiem-thu-co-ban-slide-5-6.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/Kiểm thử cơ bản.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/layoutUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/layoutUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/trangCuaToi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/trangCuaToi.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -56,28 +69,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "last_opened_file_path": "C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/toastr",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/toastr&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -410,6 +423,7 @@
       <workItem from="1680342949194" duration="792000" />
       <workItem from="1680516442893" duration="14748000" />
       <workItem from="1680533688779" duration="1850000" />
+      <workItem from="1680535560565" duration="8984000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -586,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680535441969</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="test">
+      <created>1680535584724</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1680535584724</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

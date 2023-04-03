@@ -26,61 +26,61 @@
 </style>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="mt-5">Cảm ơn bạn đã đặt hàng!</h1>
-            <p class="lead">Hoá đơn của bạn đã được ghi nhận và đang được xử lý.</p>
-            <hr>
-            <p class="lead">Thông tin hoá đơn:</p>
-            <c:forEach var="hd" items="${mapHoaDonChiTietViewModel}" varStatus="status">
-                <table class="table">
-                    <tr>
-                        <td>Mã hoá đơn:</td>
-                        <td>${hd.key}</td>
-                    </tr>
-                    <tr>
-                        <td>Tên khách hàng:</td>
-                        <td>${hd.value[0].tenNguoiNhan}</td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td>${hd.value[0].diaChi}</td>
-                    </tr>
-                    <tr>
-                        <td>Số điện thoại:</td>
-                        <td>${hd.value[0].sdt}</td>
-                    </tr>
-                    <tr>
-                        <td>Tình trạng:</td>
-                        <td>${hd.value[0].tinhTrang == 0 ? 'Chờ xác nhận' : 'Đã xác nhận'}</td>
-                    </tr>
-                </table>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Tên sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Đơn giá</th>
-                        <th>Thành tiền</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="ct" items="${hd.value}" varStatus="status">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mt-5">Cảm ơn bạn đã đặt hàng!</h1>
+                <p class="lead">Hoá đơn của bạn đã được ghi nhận và đang được xử lý.</p>
+                <hr>
+                <p class="lead">Thông tin hoá đơn:</p>
+                <c:forEach var="hd" items="${mapHoaDonChiTietViewModel}" varStatus="status">
+                    <table class="table">
                         <tr>
-                            <td>${ct.tenSP}</td>
-                            <td>${ct.soLuong}</td>
-                            <td>${ct.donGia}</td>
-                            <td>${ct.soLuong * ct.donGia}</td>
+                            <td>Mã hoá đơn:</td>
+                            <td>${hd.key}</td>
                         </tr>
-                        <c:set var="sum" value="${sum + ct.soLuong * ct.donGia}" />
-                    </c:forEach>
-                    <tr>
-                        <td colspan="3" align="right"><b>Tổng tiền:</b></td>
-                        <td><b>${sum}</b></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </c:forEach>
+                        <tr>
+                            <td>Tên khách hàng:</td>
+                            <td>${hd.value[0].tenNguoiNhan}</td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td>${hd.value[0].diaChi}</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại:</td>
+                            <td>${hd.value[0].sdt}</td>
+                        </tr>
+                        <tr>
+                            <td>Tình trạng:</td>
+                            <td>${hd.value[0].tinhTrang == 0 ? 'Chờ xác nhận' : 'Đã xác nhận'}</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="ct" items="${hd.value}" varStatus="status">
+                            <tr>
+                                <td>${ct.tenSP}</td>
+                                <td>${ct.soLuong}</td>
+                                <td>${ct.donGia}</td>
+                                <td>${ct.soLuong * ct.donGia}</td>
+                            </tr>
+                            <c:set var="sum" value="${sum + ct.soLuong * ct.donGia}" />
+                        </c:forEach>
+                        <tr>
+                            <td colspan="3" align="right"><b>Tổng tiền:</b></td>
+                            <td><b>${sum}</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </c:forEach>
 
             <p class="lead">Thông tin liên hệ:</p>
             <p class="lead">Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi:</p>

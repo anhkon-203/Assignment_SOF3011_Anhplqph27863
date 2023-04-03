@@ -31,7 +31,8 @@ public class HoaDonUserServlet extends HttpServlet {
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        List<HoaDonChiTietViewModel> listHoaDonChiTietViewModel = hoaDonRepository.getListByIdKH(khachHang.getId(),hoaDonRepository.getHoaDonByIdKH(khachHang.getId()));
+        UUID idHoaDon = hoaDonRepository.getIDHoaDonByIdKH(khachHang.getId());
+        List<HoaDonChiTietViewModel> listHoaDonChiTietViewModel = hoaDonRepository.getListByIdHoaDon(idHoaDon);
 
         // Tạo Map để lưu trữ các hoá đơn theo mã
         Map<String, List<HoaDonChiTietViewModel>> mapHoaDonChiTietViewModel = new HashMap<>();
@@ -48,7 +49,32 @@ public class HoaDonUserServlet extends HttpServlet {
         request.setAttribute("mapHoaDonChiTietViewModel", mapHoaDonChiTietViewModel);
         request.getRequestDispatcher("/views/user/hoaDon/order.jsp").forward(request, response);
     }
-
+    private String maHDCount() {
+        String code = "";
+        List<HoaDon> list = hoaDonRepository.getList();
+        if (list.isEmpty()) {
+            code = "HD00001";
+        } else {
+            int max = 0;
+            for (HoaDon hd : list) {
+                int so = Integer.parseInt(hd.getMa().substring(2));
+                if (so > max) {
+                    max = so;
+                }
+            }
+            max++;
+            if (max < 10) {
+                code = "HD000" + max;
+            } else if (max < 100) {
+                code = "HD00" + max;
+            } else if (max < 1000) {
+                code = "HD0" + max;
+            } else {
+                code = "HD" + max;
+            }
+        }
+        return code;
+    }
     protected void store(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -64,10 +90,8 @@ public class HoaDonUserServlet extends HttpServlet {
         UUID id = UUID.fromString(request.getParameter("idKhachHang"));
 
         // Tạo đối tượng HoaDon và lưu vào cơ sở dữ liệu
-        Random random = new Random();
-        int number = random.nextInt(1000000);
         HoaDon hoaDon = new HoaDon();
-        hoaDon.setMa("HD" + number);
+        hoaDon.setMa(maHDCount());
         khachHang.setId(id);
         hoaDon.setKhachHang(khachHang);
         hoaDon.setTenNguoiNhan(name);

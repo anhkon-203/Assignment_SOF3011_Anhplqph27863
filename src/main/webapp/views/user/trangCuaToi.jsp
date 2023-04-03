@@ -14,22 +14,22 @@
     <link rel="stylesheet" href="/Assignment_Sof3011_war_exploded/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
     <div class="row">
         <div class="col-12">
             <c:forEach var="ghct" items="${listHoaDonChiTietViewModel}" varStatus="status">
                 <div class="card mb-2">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <span id="deal">Deal Sốc</span>
-                        <a href="#" class="text-decoration-none text-danger">Thêm</a>
+                        <input type="hidden" name="maHD" value="${ghct.maHD}">
+                        <a href="/Assignment_Sof3011_war_exploded/TrangCuaToiServlet/detail?maHD=${ghct.maHD}"><i class="fas fa-eye">Xem chi tiết</i></a>
                     </div>
                     <div class="card-body">
                         <div class="row align-items-center">
-                            <span class="fw-bold">${ghct.tenSP}</span>
-                            <div class="col-1">
+                            <div class="col-md-1 col-2">
                                 <img src="${ghct.srcImage}" alt="ảnh sản phẩm" class="img-fluid d-flex">
                             </div>
                             <div class="col-md-3 col-7">
+                                <span class="fw-bold">${ghct.tenSP}</span>
                                 <img src="/Assignment_Sof3011_war_exploded/img/freeShip.png" class="img-fluid"
                                      alt="Miễn phí vận chuyển">
                                 <img src="/Assignment_Sof3011_war_exploded/img/7.png" class="img-fluid "
@@ -49,18 +49,25 @@
                                 <span class="text-center text-truncate text-danger">${ghct.donGia * ghct.soLuong}</span>
                             </div>
                             <div class="col-md-1 col-2">
-                                    <%--                                <form action="/Assignment_Sof3011_war_exploded/GioHangUserServlet/delete" method="GET">--%>
-                                    <%--                                    <--%>
-                                    <%--                                </form>--%>
                                 <label>Tình trạng</label>
-                                <span class="text-center text-truncate text-danger">${ghct.tinhTrang == 1 ? "Đã giao hàng" : "Chưa giao hàng"}</span>
+                                <span class="text-center text-truncate text-danger">${ghct.tinhTrang == 1 ? "Đã giao hàng" : "Chờ giao hàng"}</span>
                             </div>
+                            <c:if test="${ghct.tinhTrang == 0}">
+                                <div class="col-md-1 col-2 ms-4">
+                                    <form action="/Assignment_Sof3011_war_exploded/TrangCuaToiServlet/update?maHD=${ghct.maHD}" method="post">
+                                        <input  type="hidden" name="maHD" value="${ghct.maHD}">
+                                        <button type="submit" class="btn ">
+                                            <i class="fas fa-edit text-primary">Tôi đã nhận được hàng</i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>
             </c:forEach>
         </div>
     </div>
-</div>
+
 </body>
 </html>

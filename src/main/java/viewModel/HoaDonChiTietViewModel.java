@@ -14,7 +14,6 @@ import java.util.UUID;
 @Getter
 @Setter
 public class HoaDonChiTietViewModel {
-    private UUID idHD;
     private String maHD;
     private String tenNguoiNhan;
     private String diaChi;
