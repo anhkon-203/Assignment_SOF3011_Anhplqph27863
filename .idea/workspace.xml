@@ -9,31 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="hiển thị hoá đơn khi mua">
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Kiem-thu-co-ban-slide-5-6.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Kiểm thử cơ bản.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChiTietSp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ChucVu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/GioHangChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDonChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ChucVuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CuaHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DongSpRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MauSacRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NSXRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NhanVienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,28 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/toastr&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "C:/Users/anhkon/Desktop/SOF3011_JAVA4/Assignment_Sof3011/src/main/webapp/toastr",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -226,6 +205,11 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="asm.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/asm.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
     </configuration>
     <configuration name="Tomcat 10.1.6" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.6" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -351,11 +335,13 @@
     <list>
       <item itemvalue="Application.HibernateUtil" />
       <item itemvalue="Application.ConnectDB" />
+      <item itemvalue="Database Script.asm.sql" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.6" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HibernateUtil" />
+        <item itemvalue="Database Script.asm.sql" />
         <item itemvalue="Application.ConnectDB" />
       </list>
     </recent_temporary>
@@ -424,7 +410,10 @@
       <workItem from="1680118396912" duration="371000" />
       <workItem from="1680118787687" duration="1058000" />
       <workItem from="1680152311225" duration="3675000" />
-      <workItem from="1680324736942" duration="3146000" />
+      <workItem from="1680324736942" duration="4586000" />
+      <workItem from="1680342949194" duration="792000" />
+      <workItem from="1680516442893" duration="14748000" />
+      <workItem from="1680533688779" duration="1661000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -559,7 +548,35 @@
       <option name="project" value="LOCAL" />
       <updated>1680106996437</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="mapping entity">
+      <created>1680330826665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680330826665</updated>
+    </task>
+    <task id="LOCAL-00021" summary="sua lai repo">
+      <created>1680330877481</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680330877481</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update">
+      <created>1680534761529</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680534761529</updated>
+    </task>
+    <task id="LOCAL-00023" summary="test">
+      <created>1680535089466</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680535089466</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +600,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test" />
     <MESSAGE value="done 5 bảng" />
     <MESSAGE value="connect Database" />
     <MESSAGE value="thêm,load data chi tiết sp" />
@@ -604,7 +620,11 @@
     <MESSAGE value="code lai repo" />
     <MESSAGE value="code hoa don" />
     <MESSAGE value="hiển thị hoá đơn khi mua" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiển thị hoá đơn khi mua" />
+    <MESSAGE value="mapping entity" />
+    <MESSAGE value="sua lai repo" />
+    <MESSAGE value="update" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
