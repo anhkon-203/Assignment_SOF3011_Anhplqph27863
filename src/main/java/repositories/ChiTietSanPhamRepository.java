@@ -25,6 +25,7 @@ public class ChiTietSanPhamRepository {
     Session hSession = HibernateUtil.getFACTORY().openSession();
 
 
+
     public List<ChiTietSanPhamViewModel> getList() {
         Session session = HibernateUtil.getFACTORY().openSession();
         String hql = "select new viewModel.ChiTietSanPhamViewModel(ctsp.Id,ctsp.namBaoHanh,ctsp.moTa,ctsp.soLuongTon,ctsp.giaNhap,ctsp.giaBan,ctsp.sanPham.ten,ctsp.nsx.ten,ctsp.mauSac.ten,ctsp.dongSp.ten,ctsp.sanPham.srcImage) from ChiTietSp ctsp  ";
@@ -74,7 +75,24 @@ public class ChiTietSanPhamRepository {
             return false;
         }
     }
-
+    public Integer getSoLuong(UUID idChiTietSp) {
+        Query query = hSession.createQuery("select c.soLuongTon from ChiTietSp c where id=:idChiTietSp");
+        query.setParameter("idChiTietSp", idChiTietSp);
+        return (Integer) query.getSingleResult();
+    }
+    public void updateSoLuong(Integer soLuong,UUID idChiTietSp) {
+        Transaction transaction = hSession.getTransaction();
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
+            transaction.begin();
+            Query query = hSession.createQuery("update ChiTietSp set soLuongTon=:soLuong where id=:idChiTietSp");
+            query.setParameter("soLuong", soLuong);
+            query.setParameter("idChiTietSp", idChiTietSp);
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     //
     public boolean delete(ChiTietSp chiTietSp) {
         Transaction transaction = hSession.getTransaction();
@@ -130,12 +148,4 @@ public class ChiTietSanPhamRepository {
         return query.getResultList();
 
     }
-//    public List<String> check(String ma) {
-//        Session session = HibernateUtil.getFACTORY().openSession();
-//        Query query = session.createQuery("select ma from  SanPham  where ma=:ma");
-//        query.setParameter("ma",ma);
-//        List<String> results = query.getResultList();
-//        return results;
-//    }
-
 }

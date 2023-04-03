@@ -7,6 +7,7 @@ import entities.KhachHang;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import repositories.ChiTietSanPhamRepository;
 import repositories.GioHangRepository;
 import viewModel.GioHangChiTietViewModel;
 
@@ -18,6 +19,7 @@ import java.util.UUID;
 @WebServlet({"/GioHangUserServlet/index", "/GioHangUserServlet/store", "/GioHangUserServlet/update", "/GioHangUserServlet/delete"})
 public class GioHangUserServlet extends HttpServlet {
     private GioHangRepository gioHangRepository = new GioHangRepository();
+    private ChiTietSanPhamRepository chiTietSanPhamRepository = new ChiTietSanPhamRepository();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
@@ -63,7 +65,7 @@ public class GioHangUserServlet extends HttpServlet {
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
         GioHang gioHang = gioHangRepository.getGioHang(khachHang.getId());
         UUID idChiTietSp = UUID.fromString(request.getParameter("id"));
-        int soLuong = Integer.parseInt(request.getParameter("soLuong"));
+        Integer soLuong = Integer.parseInt(request.getParameter("soLuong"));
         GioHangChiTiet gioHangChiTiet = new GioHangChiTiet();
         gioHangChiTiet.setGioHang(gioHang);
         ChiTietSp chiTietSp = gioHangRepository.getChiTietSp(idChiTietSp);
@@ -73,6 +75,8 @@ public class GioHangUserServlet extends HttpServlet {
         BigDecimal donGia = giaBan.multiply(soLuongTon);
         gioHangChiTiet.setDonGia(donGia);
         gioHangChiTiet.setSoLuongTon(soLuong);
+        Integer soLuongUpdate = chiTietSanPhamRepository.getSoLuong(idChiTietSp) - soLuong;
+        chiTietSanPhamRepository.updateSoLuong(soLuongUpdate, idChiTietSp);
         boolean result = gioHangRepository.insertGioHangChiTiet(gioHangChiTiet);
         if (result) {
             response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");
@@ -99,8 +103,12 @@ public class GioHangUserServlet extends HttpServlet {
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
         UUID id = UUID.fromString(request.getParameter("id"));
         UUID idGioHang = gioHangRepository.getGioHang(khachHang.getId()).getId();
+        Integer soLuongSanPham = chiTietSanPhamRepository.getSoLuong(id);
+        Integer soLuongSPGioHang = gioHangRepository.getSoLuong(idGioHang, id);
+        Integer soLuongUpdate = soLuongSanPham + soLuongSPGioHang;
         boolean result = gioHangRepository.delete(idGioHang, id);
         if (result) {
+            chiTietSanPhamRepository.updateSoLuong(soLuongUpdate, id);
             response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");
         } else {
             // Xử lý lỗi

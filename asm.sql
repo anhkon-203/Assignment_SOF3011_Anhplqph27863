@@ -3,11 +3,8 @@ GO
 USE FINALASS_FPOLYSHOP_SOF3011
 GO
 
-select * from hoadonchitiet
 	
 
-delete  from hoadon
-delete from hoadonchitiet
 -- ChucVu
 CREATE TABLE ChucVu(
 Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),

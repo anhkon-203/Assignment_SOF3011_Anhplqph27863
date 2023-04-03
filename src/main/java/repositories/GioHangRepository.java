@@ -40,7 +40,7 @@ public class GioHangRepository {
                 hSession.update(existingGioHangChiTiet);
             } else {
                 // Nếu sản phẩm chưa có trong giỏ hàng, thêm bản ghi mới
-                hSession.save(gioHangChiTiet);
+                hSession.persist(gioHangChiTiet);
             }
             transaction.commit();
             return true;
@@ -78,7 +78,20 @@ public class GioHangRepository {
             return false;
         }
     }
-
+    public boolean deleteAll(UUID idGioHang) {
+        Transaction transaction = hSession.getTransaction();
+        try {
+            transaction.begin();
+            Query query = hSession.createQuery("DELETE FROM GioHangChiTiet WHERE gioHang.id = :idGioHang");
+            query.setParameter("idGioHang", idGioHang);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     public boolean delete(UUID idGioHang, UUID idSanPham) {
         Transaction transaction = hSession.getTransaction();
         try {
@@ -104,6 +117,31 @@ public class GioHangRepository {
         return query.getResultList();
     }
 
+
+    public GioHangChiTiet getGHCTObjByIdGioHang(UUID idGioHang) {
+        Session session = HibernateUtil.getFACTORY().openSession();
+        String hql = "select ghct from GioHangChiTiet ghct where ghct.gioHang.Id=:idGioHang";
+        TypedQuery<GioHangChiTiet> query = session.createQuery(hql, GioHangChiTiet.class);
+        query.setParameter("idGioHang", idGioHang);
+        if (query.getResultList().isEmpty()) {
+            return null;
+        } else {
+            return query.getResultList().get(0);
+        }
+    }
+    public Integer getSoLuong(UUID idGioHang, UUID idSanPham) {
+        Session session = HibernateUtil.getFACTORY().openSession();
+        String hql = "select ghct.soLuongTon from GioHangChiTiet ghct where ghct.gioHang.Id=:idGioHang and ghct.chiTietSp.Id=:idSanPham";
+        TypedQuery<Integer> query = session.createQuery(hql, Integer.class);
+        query.setParameter("idGioHang", idGioHang);
+        query.setParameter("idSanPham", idSanPham);
+        if (query.getResultList().isEmpty()) {
+            return null;
+        } else {
+            return query.getResultList().get(0);
+        }
+    }
+
     public GioHangChiTiet getGioHangChiTietById(UUID id) {
         Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("select ghct from GioHangChiTiet ghct where ghct.id=:id");
@@ -126,6 +164,7 @@ public class GioHangRepository {
             return query.getResultList().get(0);
         }
     }
+
 
     public GioHang getGioHang(UUID idKhachHang) {
         String hql = "select gh from GioHang gh where gh.khachHang.Id=:idKhachHang and gh.trangThai=:trangThai";

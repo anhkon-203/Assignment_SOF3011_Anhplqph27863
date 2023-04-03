@@ -61,7 +61,7 @@
                         <th>Tên sản phẩm</th>
                         <th>Số lượng</th>
                         <th>Đơn giá</th>
-                        <th>Tổng tiền</th>
+                        <th>Thành tiền</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -72,7 +72,12 @@
                             <td>${ct.donGia}</td>
                             <td>${ct.soLuong * ct.donGia}</td>
                         </tr>
+                        <c:set var="sum" value="${sum + ct.soLuong * ct.donGia}" />
                     </c:forEach>
+                    <tr>
+                        <td colspan="3" align="right"><b>Tổng tiền:</b></td>
+                        <td><b>${sum}</b></td>
+                    </tr>
                     </tbody>
                 </table>
             </c:forEach>

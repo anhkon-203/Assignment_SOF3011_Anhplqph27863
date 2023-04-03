@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 
 @NoArgsConstructor
@@ -13,13 +14,17 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class HoaDonChiTietViewModel {
+    private UUID idHD;
     private String maHD;
     private String tenNguoiNhan;
     private String diaChi;
     private String sdt;
     private int tinhTrang;
     private String tenSP;
+    private String srcImage;
     private Integer soLuong;
     private BigDecimal donGia;
+
+
 
 }

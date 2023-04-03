@@ -31,8 +31,7 @@ public class HoaDonUserServlet extends HttpServlet {
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         KhachHang khachHang = (KhachHang) session.getAttribute("user");
-        HoaDon hoaDon = hoaDonRepository.getHoaDonByIdKH(khachHang.getId());
-        List<HoaDonChiTietViewModel> listHoaDonChiTietViewModel = hoaDonRepository.getListByIdKH(khachHang.getId(),hoaDon.getId());
+        List<HoaDonChiTietViewModel> listHoaDonChiTietViewModel = hoaDonRepository.getListByIdKH(khachHang.getId(),hoaDonRepository.getHoaDonByIdKH(khachHang.getId()));
 
         // Tạo Map để lưu trữ các hoá đơn theo mã
         Map<String, List<HoaDonChiTietViewModel>> mapHoaDonChiTietViewModel = new HashMap<>();
@@ -79,23 +78,21 @@ public class HoaDonUserServlet extends HttpServlet {
         hoaDon.setTinhTrang(0);
         UUID hoaDonId = hoaDonRepository.insert(hoaDon);
 
+// Lấy lại đối tượng HoaDon từ cơ sở dữ liệu
+        HoaDon hoaDonSaved = hoaDonRepository.findById(hoaDonId);
 
-        // Lấy danh sách sản phẩm trong giỏ hàng từ session
-
-        // Tạo đối tượng HoaDonChiTiet cho mỗi sản phẩm trong giỏ hàng và lưu vào cơ sở dữ liệu
+// Tạo đối tượng HoaDonChiTiet cho mỗi sản phẩm trong giỏ hàng và lưu vào cơ sở dữ liệu
         if (listGioHangChiTiet != null) {
             for (GioHangChiTiet gioHangChiTiet : listGioHangChiTiet) {
-                HoaDon hoaDon1 = new HoaDon();
-                hoaDon1.setId(hoaDonId);
                 HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
-                hoaDonChiTiet.setHoaDon(hoaDon1);
+                hoaDonChiTiet.setHoaDon(hoaDonSaved);
                 hoaDonChiTiet.setChiTietSp(gioHangChiTiet.getChiTietSp());
                 hoaDonChiTiet.setSoLuongTon(gioHangChiTiet.getSoLuongTon());
                 hoaDonChiTiet.setDonGia(gioHangChiTiet.getDonGia());
                 hoaDonRepository.insertHDCT(hoaDonChiTiet);
             }
+            gioHangRepository.deleteAll(gioHang.getId());
         }
-
 
         // Chuyển hướng đến trang cảm ơn
         response.sendRedirect(request.getContextPath() + "/HoaDonUserServlet/index");

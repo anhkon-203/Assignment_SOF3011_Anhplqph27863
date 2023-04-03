@@ -31,7 +31,7 @@
             </a>
         </c:if>
         <c:if test="${user != null}">
-            <a class="nav-link active me-3" aria-current="page" href="#pushProduct">Trang của tôi</a>
+            <a class="nav-link active me-3" aria-current="page" href="/Assignment_Sof3011_war_exploded/TrangCuaToiServlet">Trang của tôi</a>
         </c:if>
         <c:if test="${user != null}">
             <div class="shopping-cart d-flex align-items-center">
