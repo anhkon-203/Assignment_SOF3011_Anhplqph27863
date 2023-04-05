@@ -54,6 +54,9 @@
                href="/Assignment_Sof3011_war_exploded/nsx/index">Nhà sản xuất</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3"
                href="/Assignment_Sof3011_war_exploded/chuc-vu/index">Chức vụ</a>
+            <a
+                class="list-group-item list-group-item-action list-group-item-light p-3"
+                href="/Assignment_Sof3011_war_exploded/hoa-don/index">Quản lí hoá đơn</a>
         </div>
     </div>
     <!-- Page content wrapper-->
@@ -96,6 +99,7 @@
             <jsp:include page="${ view_dongSP }"/>
             <jsp:include page="${ view_cuaHang }"/>
             <jsp:include page="${ view_chucVu }"/>
+            <jsp:include page="${ view_hoaDon }"/>
 
         </div>
 

@@ -5,7 +5,7 @@
   Time: 12:31 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
@@ -41,7 +41,7 @@
           </tr>
           <tr>
             <td>Tình trạng:</td>
-            <td>${hd.value[0].tinhTrang == 1 ? 'Đã Giao Hàng' : 'Chờ giao hàng'}</td>
+            <td>${hd.value[0].tinhTrang}</td>
           </tr>
         </table>
         <table class="table">
@@ -70,7 +70,6 @@
           </tbody>
         </table>
       </c:forEach>
-      <a href="${pageContext.request.contextPath}/SanPhamUserServlet" class="btn btn-primary">Quay lại trang chủ</a>
     </div>
   </div>
 </div>

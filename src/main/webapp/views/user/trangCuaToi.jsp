@@ -5,7 +5,7 @@
   Time: 7:25 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
@@ -50,9 +50,9 @@
                             </div>
                             <div class="col-md-1 col-2">
                                 <label>Tình trạng</label>
-                                <span class="text-center text-truncate text-danger">${ghct.tinhTrang == 1 ? "Đã giao hàng" : "Chờ giao hàng"}</span>
+                                <span class="text-center text-truncate text-danger">${ghct.tinhTrang}</span>
                             </div>
-                            <c:if test="${ghct.tinhTrang == 0}">
+                            <c:if test="${ghct.tinhTrang eq 'Đang giao hàng'}">
                                 <div class="col-md-1 col-2 ms-4">
                                     <form action="/Assignment_Sof3011_war_exploded/TrangCuaToiServlet/update?maHD=${ghct.maHD}" method="post">
                                         <input  type="hidden" name="maHD" value="${ghct.maHD}">

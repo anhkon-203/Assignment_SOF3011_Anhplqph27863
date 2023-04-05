@@ -65,16 +65,40 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String tenDem = request.getParameter("tenDem");
+            String ho = request.getParameter("ho");
+            String sdt = request.getParameter("sdt");
+            String email = request.getParameter("email");
+            String diaChi = request.getParameter("diaChi");
+            String matKhau = request.getParameter("matKhau");
+
+            if (ma.trim().isEmpty() || ten.trim().isEmpty() || tenDem.trim().isEmpty() || ho.trim().isEmpty() || sdt.trim().isEmpty() || email.trim().isEmpty() || diaChi.trim().isEmpty() || matKhau.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/khach-hang/create");
+                return;
+            }
+            if(khachHangRepository.findByMa(ma) != null){
+                request.getSession().setAttribute("mess_error", "Mã khách hàng đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "khach-hang/create");
+                return;
+            }
             DateTimeConverter dtc = new DateConverter(new Date());
             dtc.setPattern("yyyy-MM-dd");
             ConvertUtils.register(dtc, Date.class);
             KhachHang khachHang = new KhachHang();
             BeanUtils.populate(khachHang, request.getParameterMap());
-            khachHangRepository.insert(khachHang);
+            if (khachHangRepository.insert(khachHang)){
+                request.getSession().setAttribute("message", "Thêm thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
+            }else {
+                request.getSession().setAttribute("mess_error", "Thêm thất bại");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
+
 
     }    protected void update(
             HttpServletRequest request,
@@ -82,16 +106,33 @@ public class KhachHangServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String maKH = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String tenDem = request.getParameter("tenDem");
+            String ho = request.getParameter("ho");
+            String sdt = request.getParameter("sdt");
+            String email = request.getParameter("email");
+            String diaChi = request.getParameter("diaChi");
+            String matKhau = request.getParameter("matKhau");
+            if (maKH.trim().isEmpty() || ten.trim().isEmpty() || tenDem.trim().isEmpty() || ho.trim().isEmpty() || sdt.trim().isEmpty() || email.trim().isEmpty() || diaChi.trim().isEmpty() || matKhau.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/khach-hang/edit?ma=" + maKH);
+                return;
+            }
+
             DateTimeConverter dtc = new DateConverter(new Date());
             dtc.setPattern("yyyy-MM-dd");
             ConvertUtils.register(dtc, Date.class);
             KhachHang khachHang = khachHangRepository.findByMa(maKH);
             BeanUtils.populate(khachHang, request.getParameterMap());
-            khachHangRepository.update(khachHang);
+            if (khachHangRepository.update(khachHang)){
+                request.getSession().setAttribute("message", "Cập nhật thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
+            }else {
+                request.getSession().setAttribute("mess_error", "Cập nhật thất bại");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/khach-hang/index");
 
     }
 

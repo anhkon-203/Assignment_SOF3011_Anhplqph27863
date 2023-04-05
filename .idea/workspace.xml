@@ -9,17 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/thongTinSP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="79d361a9-0971-40d3-b26a-17854b32d7f7" name="Changes" comment="code mua hang">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/HoaDonServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filter/UserFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/25 Câu hỏi kiểm thử khi đi thi.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/hoaDon/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/HoaDonUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/CuaHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/CuaHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/KhachHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/admin/NhanVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/GioHangUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlllers/user/TrangCuaToiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controlllers/user/TrangCuaToiServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/GioHangRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/HoaDonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/viewModel/HoaDonChiTietViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewModel/HoaDonChiTietViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/img/Kiem-thu-co-ban-slide-5-6.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/img/Kiểm thử cơ bản.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/chiTietSanPham/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/nhanVien/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/formDangNhap/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/gioHang/gioHang.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/thongTinSP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/hoaDon/thongTinSP.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/layoutUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/layoutUser.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/trangCuaToi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/trangCuaToi.jsp" afterDir="false" />
     </list>
@@ -103,9 +118,9 @@
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\khachHang" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\admin" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\user\sanPham" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\user\FormDangNhap" />
-      <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views\admin" />
       <recent name="C:\Users\anhkon\Desktop\SOF3011_JAVA4\Assignment_Sof3011\src\main\webapp\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -423,7 +438,10 @@
       <workItem from="1680342949194" duration="792000" />
       <workItem from="1680516442893" duration="14748000" />
       <workItem from="1680533688779" duration="1850000" />
-      <workItem from="1680535560565" duration="8984000" />
+      <workItem from="1680535560565" duration="9706000" />
+      <workItem from="1680584885350" duration="5469000" />
+      <workItem from="1680604566903" duration="617000" />
+      <workItem from="1680683690975" duration="18096000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1678563603843</created>
@@ -607,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680535584724</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="code mua hang">
+      <created>1680545454414</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1680545454414</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +680,8 @@
     <MESSAGE value="sua lai repo" />
     <MESSAGE value="update" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="code mua hang" />
+    <option name="LAST_COMMIT_MESSAGE" value="code mua hang" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -664,6 +690,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/controlllers/admin/DongSanPhamServlet.java</url>
           <line>71</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/repositories/KhachHangRepository.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -25,22 +25,50 @@ public class GioHangRepository {
         return query.getResultList();
     }
 
+//    public boolean insertGioHangChiTiet(GioHangChiTiet gioHangChiTiet) {
+//        Transaction transaction = hSession.getTransaction();
+//        try {
+//            transaction.begin();
+//            // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+//            GioHangChiTiet existingGioHangChiTiet = (GioHangChiTiet) hSession.createQuery("FROM GioHangChiTiet WHERE gioHang.id = :idGioHang AND chiTietSp.id = :idChiTietSp")
+//                    .setParameter("idGioHang", gioHangChiTiet.getGioHang().getId())
+//                    .setParameter("idChiTietSp", gioHangChiTiet.getChiTietSp().getId())
+//                    .uniqueResult();
+//            if (existingGioHangChiTiet != null) {
+//                // Nếu sản phẩm đã có trong giỏ hàng, cập nhật số lượng sản phẩm
+//                existingGioHangChiTiet.setSoLuongTon(existingGioHangChiTiet.getSoLuongTon() + gioHangChiTiet.getSoLuongTon());
+//                hSession.merge(existingGioHangChiTiet);
+//            } else {
+//                // Nếu sản phẩm chưa có trong giỏ hàng, thêm bản ghi mới
+//                hSession.save(gioHangChiTiet);
+//            }
+//            transaction.commit();
+//            return true;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            transaction.rollback();
+//            return false;
+//        }
+//    }
+
     public boolean insertGioHangChiTiet(GioHangChiTiet gioHangChiTiet) {
         Transaction transaction = hSession.getTransaction();
         try {
             transaction.begin();
-            // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
-            GioHangChiTiet existingGioHangChiTiet = (GioHangChiTiet) hSession.createQuery("FROM GioHangChiTiet WHERE gioHang.id = :idGioHang AND chiTietSp.id = :idChiTietSp")
-                    .setParameter("idGioHang", gioHangChiTiet.getGioHang().getId())
-                    .setParameter("idChiTietSp", gioHangChiTiet.getChiTietSp().getId())
-                    .uniqueResult();
+            String hql = "FROM GioHangChiTiet WHERE gioHang.id = :idGioHang AND chiTietSp.id = :idChiTietSp";
+            Query query = hSession.createQuery(hql);
+            query.setParameter("idGioHang", gioHangChiTiet.getGioHang().getId());
+            query.setParameter("idChiTietSp", gioHangChiTiet.getChiTietSp().getId());
+            List<GioHangChiTiet> gioHangChiTietList = query.getResultList();
+            GioHangChiTiet existingGioHangChiTiet = null;
+            if (!gioHangChiTietList.isEmpty()) {
+                existingGioHangChiTiet = gioHangChiTietList.get(0);
+            }
             if (existingGioHangChiTiet != null) {
-                // Nếu sản phẩm đã có trong giỏ hàng, cập nhật số lượng sản phẩm
                 existingGioHangChiTiet.setSoLuongTon(existingGioHangChiTiet.getSoLuongTon() + gioHangChiTiet.getSoLuongTon());
-                hSession.update(existingGioHangChiTiet);
+                hSession.merge(existingGioHangChiTiet);
             } else {
-                // Nếu sản phẩm chưa có trong giỏ hàng, thêm bản ghi mới
-                hSession.persist(gioHangChiTiet);
+                hSession.save(gioHangChiTiet);
             }
             transaction.commit();
             return true;

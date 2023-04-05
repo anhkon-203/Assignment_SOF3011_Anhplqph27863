@@ -5,7 +5,7 @@
   Time: 11:45 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>Tình trạng:</td>
-                            <td>${hd.value[0].tinhTrang == 0 ? 'Chờ xác nhận' : 'Đã xác nhận'}</td>
+                            <td>${hd.value[0].tinhTrang}</td>
                         </tr>
                     </table>
                     <table class="table">

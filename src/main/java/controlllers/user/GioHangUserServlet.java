@@ -80,8 +80,6 @@ public class GioHangUserServlet extends HttpServlet {
         boolean result = gioHangRepository.insertGioHangChiTiet(gioHangChiTiet);
         if (result) {
             response.sendRedirect(request.getContextPath() + "/GioHangUserServlet/index");
-        } else {
-            // Xử lý lỗi
         }
     }
 

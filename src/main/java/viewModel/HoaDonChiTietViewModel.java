@@ -24,6 +24,16 @@ public class HoaDonChiTietViewModel {
     private Integer soLuong;
     private BigDecimal donGia;
 
-
+    public String getTinhTrang() {
+        if (tinhTrang == 0){
+            return "Chờ giao hàng";
+        }else if (tinhTrang == 1){
+            return "Đang giao hàng";
+        }   else if (tinhTrang == 2){
+            return "Đã giao hàng";
+        }else {
+            return "Không xác định";
+        }
+    }
 
 }

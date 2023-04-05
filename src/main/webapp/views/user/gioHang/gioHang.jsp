@@ -5,7 +5,7 @@
   Time: 2:06 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
@@ -88,7 +88,7 @@
                             <div class="col-md-2 col-3">
                                 <div class="input-group">
                                     <label>Số lượng</label>
-                                    <input type="text" class="form-control" id="quantity-input" value="${ghct.soLuong}">
+                                    <input type="text" class="form-control" id="quantity-input" readonly value="${ghct.soLuong}">
                                 </div>
                             </div>
                             <div class="col-md-1 col-2">

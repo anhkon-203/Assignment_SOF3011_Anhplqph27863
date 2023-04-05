@@ -63,5 +63,15 @@ public class HoaDon implements Serializable {
     @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)
     private List<HoaDonChiTiet> listHoaDonChiTiet;
 
-
+    public String getTinhTrang() {
+        if (tinhTrang == 0){
+            return "Chờ giao hàng";
+        }else if (tinhTrang == 1){
+            return "Đang giao hàng";
+    }   else if (tinhTrang == 2){
+            return "Đã Nhận hàng";
+        }else {
+            return "Không xác định";
+        }
+    }
 }

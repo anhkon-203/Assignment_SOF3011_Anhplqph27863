@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import utils.HibernateUtil;
 import viewModel.HoaDonChiTietViewModel;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,6 +19,11 @@ public class HoaDonRepository {
         Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("SELECT new viewModel.HoaDonChiTietViewModel(hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.diaChi, hd.hoaDon.sdt, hd.hoaDon.tinhTrang,hd.chiTietSp.sanPham.ten,hd.chiTietSp.sanPham.srcImage,hd.soLuongTon,hd.donGia) FROM HoaDonChiTiet hd WHERE  hd.hoaDon.id =: idHD GROUP BY hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.diaChi, hd.hoaDon.sdt, hd.hoaDon.tinhTrang,hd.chiTietSp.sanPham.ten,hd.chiTietSp.sanPham.srcImage,hd.soLuongTon,hd.donGia");
         query.setParameter("idHD", HoaDonId);
+        return query.getResultList();
+    }
+    public List<HoaDonChiTiet> findAll() {
+        Session session = HibernateUtil.getFACTORY().openSession();
+        Query query = session.createQuery("SELECT hd FROM HoaDonChiTiet hd ");
         return query.getResultList();
     }
     public List<HoaDonChiTietViewModel> getListByIdKH(UUID idKhachHang) {
@@ -64,12 +70,35 @@ public UUID getIDHoaDonByIdKH(UUID idKH) {
             return null;
         }
     }
+    private Date getDateNow() {
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        return date;
+    }
     public boolean updateTrangThaiHoaDon(String maHD, int tinhTrang) {
         try (Session session = HibernateUtil.getFACTORY().openSession()) {
             Transaction transaction = session.beginTransaction();
-            String hql = "UPDATE HoaDon hd SET hd.tinhTrang = :tinhTrang WHERE hd.ma = :maHD";
+            String hql = "UPDATE HoaDon hd SET hd.tinhTrang = :tinhTrang,hd.ngayNhan=:ngayNhan,hd.ngayThanhToan=:ngayTT WHERE hd.ma = :maHD";
             Query query = session.createQuery(hql);
             query.setParameter("tinhTrang", tinhTrang);
+            query.setParameter("ngayNhan", getDateNow());
+            query.setParameter("ngayTT", getDateNow());
+            query.setParameter("maHD", maHD);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean updateHoaDonNgayShip(String maHD, int tinhTrang) {
+        try (Session session = HibernateUtil.getFACTORY().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            String hql = "UPDATE HoaDon hd SET hd.tinhTrang = :tinhTrang,hd.ngayShip=:ngayShip WHERE hd.ma = :maHD";
+            Query query = session.createQuery(hql);
+            query.setParameter("tinhTrang", tinhTrang);
+            query.setParameter("ngayShip", getDateNow());
             query.setParameter("maHD", maHD);
             query.executeUpdate();
             transaction.commit();

@@ -33,12 +33,12 @@
         <div class="row">
             <div class=" col-md-4 ">
                 <label  class="form-label">Năm bảo hành</label>
-                <input type="number" class="form-control"  name="namBaoHanh" required>
+                <input type="number" class="form-control"  name="namBaoHanh"  min="1" required>
             </div>
 
             <div class=" col-md-4 mb-3">
                 <label class="form-label">Số lượng tồn</label>
-                <input type="number" class="form-control"  name="soLuongTon" required>
+                <input type="number" class="form-control"  name="soLuongTon" min="1"  required>
             </div>
             <div class="col-md-4 mb-3">
                 <label  class="form-label">Dòng Sản phẩm</label>
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label class="form-label">Giá nhập</label>
-                <input type="number" class="form-control"  name="giaNhap" required>
+                <input type="number" class="form-control" min="1"  name="giaNhap" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label for="nsx" class="form-label">Nhà sản xuất</label>
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label  class="form-label">Giá bán</label>
-                <input type="number" class="form-control" name="giaBan" required>
+                <input type="number" class="form-control" min="1" name="giaBan" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label  class="form-label">Màu sắc</label>

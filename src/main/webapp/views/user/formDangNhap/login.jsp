@@ -1,5 +1,7 @@
 <%-- This file was created using IntelliJ IDEA. --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
 <head>
     <title>Đăng nhập hoặc đăng ký thành viên</title>
@@ -7,6 +9,7 @@
 </head>
 <body>
 <div class="container">
+
     <h2 class="mt-4">Đăng nhập hoặc đăng ký thành viên</h2>
     <hr>
     <div class="timeline">
@@ -20,6 +23,12 @@
                     <div class="input-group mb-3 pe-5">
                         <input type="password" class="form-control" placeholder="Vui lòng nhập mật khẩu" aria-label="Password" name="matKhau">
                     </div>
+                    <c:if test="${not empty sessionScope.error}">
+                        <div class="alert alert-danger" role="alert">
+                                ${sessionScope.error}
+                        </div>
+                        <% session.removeAttribute("error"); %>
+                    </c:if>
                     <button class="btn btn-success w-75 h-30 mt-3 fs-4">Đăng nhập</button>
                     <p class="fw-semibold mt-2">Đăng nhập nhanh/Đăng ký thành viên bằng tài khoản mạng xã hội:</p>
                     <a class="btn text-white me-2" href="#" role="button" style="background-color: #3B5998;">Facebook</a>

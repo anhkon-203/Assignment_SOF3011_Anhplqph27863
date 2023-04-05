@@ -78,7 +78,7 @@ public class TrangCuaToiServlet extends HttpServlet {
 
     protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String maHD = request.getParameter("maHD");
-       hoaDonRepository.updateTrangThaiHoaDon(maHD,1);
+       hoaDonRepository.updateTrangThaiHoaDon(maHD,2);
         response.sendRedirect(request.getContextPath() + "/TrangCuaToiServlet/index");
     }
 }

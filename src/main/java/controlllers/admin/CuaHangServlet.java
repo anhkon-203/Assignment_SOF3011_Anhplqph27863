@@ -61,14 +61,33 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String diaChi = request.getParameter("diaChi");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty() || diaChi.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/cua-hang/create");
+                return;
+            }
+            if (cuaHangRepository.findByMa(ma) != null) {
+                request.getSession().setAttribute("mess_error", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/cua-hang/create");
+                return;
+            }
+
+
+
             CuaHang cuaHang = new CuaHang();
             BeanUtils.populate(cuaHang, request.getParameterMap());
-            cuaHangRepository.insert(cuaHang);
+            if (cuaHangRepository.insert(cuaHang)){
+                request.getSession().setAttribute("message", "Thêm thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm thất bại");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
-
     }
 
     protected void update(
@@ -77,13 +96,24 @@ public class CuaHangServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String diaChi = request.getParameter("diaChi");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty() || diaChi.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/cua-hang/create");
+                return;
+            }
             CuaHang cuaHang = cuaHangRepository.findByMa(ma);
             BeanUtils.populate(cuaHang, request.getParameterMap());
-            cuaHangRepository.update(cuaHang);
+            if (cuaHangRepository.update(cuaHang)){
+                request.getSession().setAttribute("message", "Cập nhật thành công");
+                response.sendRedirect(request.getContextPath() + "/cua-hang/edit?ma=" + ma);
+            } else {
+                request.getSession().setAttribute("mess_error", "Cập nhật thất bại");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/cua-hang/index");
 
     }
 

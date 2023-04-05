@@ -91,16 +91,23 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String matKhau = request.getParameter("matKhau");
+        if ( email.trim().isEmpty()  || matKhau.trim().isEmpty()) {
+            request.getSession().setAttribute("error", "Email hoặc mật khẩu không được để trống");
+            response.sendRedirect(request.getContextPath() + "/LoginServlet/login");
+            return;
+        }
         KhachHang khachHang = khachHangRepository.checkLogin(email, matKhau);
+        if (khachHangRepository.checkLogin(email, matKhau) == null) {
+           request.getSession().setAttribute("error", "Email hoặc mật khẩu không đúng");
+            response.sendRedirect(request.getContextPath() + "/LoginServlet/login");
+            return;
+        }
         if (khachHang != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", khachHang);
             request.setAttribute("sanPham", chiTietSanPhamRepository.getList());
             request.setAttribute("view", "/views/user/sanPham/sanPham.jsp");
             response.sendRedirect(request.getContextPath() + "/SanPhamUserServlet");
-        } else {
-            request.setAttribute("error", "Email hoặc mật khẩu không đúng!");
-            request.getRequestDispatcher("/views/user/formDangNhap/login.jsp").forward(request, response);
         }
     }
 

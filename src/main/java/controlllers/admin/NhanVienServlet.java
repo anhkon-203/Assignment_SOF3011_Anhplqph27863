@@ -77,6 +77,27 @@ public class NhanVienServlet extends HttpServlet {
             // get idCuaHang and idChucVu
             UUID idChucVu = UUID.fromString(request.getParameter("idChucVu"));
             UUID idCuaHang = UUID.fromString(request.getParameter("idCuaHang"));
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String tenDem = request.getParameter("tenDem");
+            String ho = request.getParameter("ho");
+            String sdt = request.getParameter("sdt");
+            String email = request.getParameter("email");
+            String diaChi = request.getParameter("diaChi");
+            String matKhau = request.getParameter("matKhau");
+
+            if (ma.trim().isEmpty() || ten.trim().isEmpty() || tenDem.trim().isEmpty() || ho.trim().isEmpty() || sdt.trim().isEmpty() || email.trim().isEmpty() || diaChi.trim().isEmpty() || matKhau.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/nhan-vien/create");
+                return;
+            }
+            if(nhanVienRepository.findByMa(ma) != null){
+                request.getSession().setAttribute("mess_error", "Mã nhân viên đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/nhan-vien/create");
+                return;
+            }
+
+
             CuaHang cuaHang = new CuaHang();
             cuaHang.setId(idCuaHang);
             ChucVu chucVu = new  ChucVu();
@@ -90,11 +111,15 @@ public class NhanVienServlet extends HttpServlet {
             nhanVien.setCuaHang(cuaHang);
             nhanVien.setChucVu(chucVu);
             BeanUtils.populate(nhanVien, request.getParameterMap());
-            nhanVienRepository.insert(nhanVien);
+            if (nhanVienRepository.insert(nhanVien)) {
+                request.getSession().setAttribute("message", "Thêm thành công");
+                response.sendRedirect("/Assignment_Sof3011_war_exploded/nhan-vien/index");
+            } else {
+                request.getSession().setAttribute("mess_error", "Thêm thất bại");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/nhan-vien/index");
 
     }
 
@@ -159,6 +184,18 @@ public class NhanVienServlet extends HttpServlet {
             // get idCuaHang and idChucVu
             UUID idChucVu = UUID.fromString(request.getParameter("idChucVu"));
             UUID idCuaHang = UUID.fromString(request.getParameter("idCuaHang"));
+            String ten = request.getParameter("ten");
+            String tenDem = request.getParameter("tenDem");
+            String ho = request.getParameter("ho");
+            String sdt = request.getParameter("sdt");
+            String email = request.getParameter("email");
+            String diaChi = request.getParameter("diaChi");
+            String matKhau = request.getParameter("matKhau");
+            if (ma.trim().isEmpty() || ten.trim().isEmpty() || tenDem.trim().isEmpty() || ho.trim().isEmpty() || sdt.trim().isEmpty() || email.trim().isEmpty() || diaChi.trim().isEmpty() || matKhau.trim().isEmpty()) {
+                request.getSession().setAttribute("mess_error", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/nhan-vien/edit?ma=" + ma);
+                return;
+            }
 
             CuaHang cuaHang = new CuaHang();
             cuaHang.setId(idCuaHang);
@@ -173,7 +210,12 @@ public class NhanVienServlet extends HttpServlet {
             nhanVien.setCuaHang(cuaHang);
             nhanVien.setChucVu(chucVu);
             BeanUtils.populate(nhanVien, request.getParameterMap());
-            nhanVienRepository.update(ma, nhanVien);
+           if ( nhanVienRepository.update(ma, nhanVien)){
+               request.getSession().setAttribute("message", "Cập nhật thành công");
+               response.sendRedirect("/Assignment_Sof3011_war_exploded/nhan-vien/index");
+           } else {
+               request.getSession().setAttribute("mess_error", "Cập nhật thất bại");
+           }
         } catch (Exception e) {
             e.printStackTrace();
         }

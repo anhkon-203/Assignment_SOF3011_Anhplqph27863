@@ -49,7 +49,7 @@
         <div class="row mt-3">
             <div class="col-6">
                 <label>Ngày sinh</label>
-                <input type="date" name="ngaySinh" class="form-control"/>
+                <input type="date" name="ngaySinh" class="form-control" required/>
             </div>
             <div class="col-6">
                 <label>SDT</label>
@@ -88,7 +88,7 @@
                 <label>Trạng thái</label>
                 <div class="d-flex">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="trangThai" value="1">
+                        <input class="form-check-input" type="radio" name="trangThai" value="1" checked>
                         <label class="form-check-label">
                             Đang làm
                         </label>
@@ -105,7 +105,7 @@
                 <label>Giới tính</label>
                 <div class="d-flex">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gioiTinh" value="Nam">
+                        <input class="form-check-input" type="radio" name="gioiTinh" value="Nam" checked>
                         <label class="form-check-label">
                             Nam
                         </label>
