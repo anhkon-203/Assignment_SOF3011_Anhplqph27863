@@ -1,5 +1,6 @@
 package repositories;
 
+import entities.KhachHang;
 import entities.NhanVien;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
@@ -117,6 +118,16 @@ public class NhanVienRepository {
         }
 
     }
-
+    public NhanVien checkLoginNV(String email, String matKhau) {
+        String hql = "select k from NhanVien k where email = :email and matKhau = :matKhau";
+        Query query = hSession.createQuery(hql);
+        query.setParameter("email",email);
+        query.setParameter("matKhau",matKhau);
+        if (query.getResultList().isEmpty()) {
+            return null;
+        } else {
+            return (NhanVien) query.getSingleResult();
+        }
+    }
 
 }

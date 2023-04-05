@@ -186,7 +186,7 @@ public class SanPhamServlet extends HttpServlet {
             SanPham sp = new SanPham();
             sp.setSrcImage(fileName);
             BeanUtils.populate(sp, request.getParameterMap());
-            if (sanPhamRepository.update(ma,sp)) {
+            if (sanPhamRepository.update(ma, sp)) {
                 request.getSession().setAttribute("message", "Update thành công");
                 response.sendRedirect("/Assignment_Sof3011_war_exploded/san-pham/index");
             } else {

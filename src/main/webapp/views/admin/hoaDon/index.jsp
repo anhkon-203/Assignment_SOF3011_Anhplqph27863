@@ -40,24 +40,22 @@
         </tr>
         </thead>
         <tbody>
-
         <c:forEach var="hd" items="${ listHoaDon }" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
-                <td>${ hd.hoaDon.ma }</td>
-                <td>${ hd.hoaDon.tenNguoiNhan }</td>
-                <td>${ hd.hoaDon.sdt }</td>
-                <td>${ hd.hoaDon.diaChi }</td>
-                <td>${ hd.hoaDon.ngayTao }</td>
-                <td>${ hd.hoaDon.ngayShip}</td>
-                <td>${ hd.hoaDon.ngayNhan }</td>
-                <td>${ hd.hoaDon.ngayThanhToan }</td>
-                <td>${ hd.hoaDon.tinhTrang}</td>
-
+                <td>${ hd.ma }</td>
+                <td>${ hd.tenNguoiNhan }</td>
+                <td>${ hd.sdt }</td>
+                <td>${ hd.diaChi }</td>
+                <td>${ hd.ngayTao }</td>
+                <td>${ hd.ngayShip}</td>
+                <td>${ hd.ngayNhan }</td>
+                <td>${ hd.ngayThanhToan }</td>
+                <td>${ hd.tinhTrang}</td>
                 <td>
-                    <c:if test="${hd.hoaDon.tinhTrang eq 'Chờ giao hàng'}">
+                    <c:if test="${hd.tinhTrang eq 'Chờ giao hàng'}">
                         <div class="col-md-1 col-2 ms-4">
-                            <form action="/Assignment_Sof3011_war_exploded/hoa-don/update?maHD=${hd.hoaDon.ma}"
+                            <form action="/Assignment_Sof3011_war_exploded/hoa-don/update?maHD=${hd.ma}"
                                   method="post">
                                 <input type="hidden" name="maHD" value="${ma.maHD}">
                                 <button type="submit" class="btn btn-success ">
@@ -67,8 +65,6 @@
                         </div>
                     </c:if>
                 </td>
-
-
             </tr>
         </c:forEach>
         </tbody>

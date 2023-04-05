@@ -2,10 +2,14 @@ package repositories;
 
 import entities.HoaDon;
 import entities.HoaDonChiTiet;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import utils.HibernateUtil;
+import viewModel.HoaDonChiTietUserViewModel;
 import viewModel.HoaDonChiTietViewModel;
 
 import java.util.Date;
@@ -21,11 +25,12 @@ public class HoaDonRepository {
         query.setParameter("idHD", HoaDonId);
         return query.getResultList();
     }
-    public List<HoaDonChiTiet> findAll() {
+    public List<HoaDonChiTietUserViewModel> findAll() {
         Session session = HibernateUtil.getFACTORY().openSession();
-        Query query = session.createQuery("SELECT hd FROM HoaDonChiTiet hd ");
+        Query query = session.createQuery("SELECT distinct new viewModel.HoaDonChiTietUserViewModel(hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.sdt,hd.hoaDon.diaChi,hd.hoaDon.ngayTao,hd.hoaDon.ngayShip,hd.hoaDon.ngayNhan,hd.hoaDon.ngayThanhToan,hd.hoaDon.tinhTrang) FROM HoaDonChiTiet hd group by hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.sdt,hd.hoaDon.diaChi,hd.hoaDon.ngayTao,hd.hoaDon.ngayShip,hd.hoaDon.ngayNhan,hd.hoaDon.ngayThanhToan,hd.hoaDon.tinhTrang order by hd.hoaDon.ma desc");
         return query.getResultList();
     }
+
     public List<HoaDonChiTietViewModel> getListByIdKH(UUID idKhachHang) {
         Session session = HibernateUtil.getFACTORY().openSession();
         Query query = session.createQuery("SELECT new viewModel.HoaDonChiTietViewModel(hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.diaChi, hd.hoaDon.sdt, hd.hoaDon.tinhTrang,hd.chiTietSp.sanPham.ten,hd.chiTietSp.sanPham.srcImage,hd.soLuongTon,hd.donGia) FROM HoaDonChiTiet hd WHERE  hd.hoaDon.khachHang.id =: idKhachHang GROUP BY hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.diaChi, hd.hoaDon.sdt, hd.hoaDon.tinhTrang,hd.chiTietSp.sanPham.ten,hd.chiTietSp.sanPham.srcImage,hd.soLuongTon,hd.donGia");
@@ -43,12 +48,7 @@ public class HoaDonRepository {
         Query query = session.createQuery("FROM HoaDon");
         return query.getResultList();
     }
-//    public List<HoaDonChiTietViewModel> getListHoaDon(UUID idKH) {
-//        Session session = HibernateUtil.getFACTORY().openSession();
-//        Query query = session.createQuery("SELECT new viewModel.HoaDonChiTietViewModel(hd.hoaDon.id,hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.diaChi, hd.hoaDon.sdt, hd.hoaDon.tinhTrang,hd.chiTietSp.sanPham.ten,hd.chiTietSp.sanPham.srcImage,hd.soLuongTon,hd.donGia) FROM HoaDonChiTiet hd WHERE hd.hoaDon.khachHang.id = :idKH GROUP BY hd.hoaDon.id, hd.hoaDon.ma, hd.hoaDon.tenNguoiNhan, hd.hoaDon.diaChi, hd.hoaDon.sdt, hd.hoaDon.tinhTrang,hd.chiTietSp.sanPham.ten,hd.chiTietSp.sanPham.srcImage,hd.soLuongTon,hd.donGia");
-//        query.setParameter("idKH", idKH);
-//        return query.getResultList();
-//    }
+
 public UUID getIDHoaDonByIdKH(UUID idKH) {
     Session session = HibernateUtil.getFACTORY().openSession();
     Query query = session.createQuery("SELECT hd.id FROM HoaDon hd WHERE hd.khachHang.id = :idKH order by hd.ma desc");

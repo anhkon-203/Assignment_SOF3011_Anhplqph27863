@@ -212,14 +212,13 @@ public class NhanVienServlet extends HttpServlet {
             BeanUtils.populate(nhanVien, request.getParameterMap());
            if ( nhanVienRepository.update(ma, nhanVien)){
                request.getSession().setAttribute("message", "Cập nhật thành công");
-               response.sendRedirect("/Assignment_Sof3011_war_exploded/nhan-vien/index");
+               response.sendRedirect(request.getContextPath() + "/nhan-vien/index");
            } else {
                request.getSession().setAttribute("mess_error", "Cập nhật thất bại");
            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/Assignment_Sof3011_war_exploded/nhan-vien/index");
 
     }
 }

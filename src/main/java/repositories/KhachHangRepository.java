@@ -18,9 +18,9 @@ public class KhachHangRepository {
         return query.getResultList();
     }
     public KhachHang checkLogin(String email, String matKhau) {
-            String hql = "select k from KhachHang k where email = :sdt and matKhau = :matKhau";
+            String hql = "select k from KhachHang k where email = :email and matKhau = :matKhau";
             Query query = session.createQuery(hql);
-            query.setParameter("sdt",email);
+            query.setParameter("email",email);
             query.setParameter("matKhau",matKhau);
             if (query.getResultList().isEmpty()) {
                 return null;

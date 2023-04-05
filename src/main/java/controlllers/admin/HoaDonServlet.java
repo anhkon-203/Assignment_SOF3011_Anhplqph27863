@@ -1,11 +1,16 @@
 package controlllers.admin;
 
+import entities.HoaDon;
+import entities.HoaDonChiTiet;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import repositories.HoaDonRepository;
+import viewModel.HoaDonChiTietUserViewModel;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(value ={"/hoa-don/index","/hoa-don/update","/hoa-don/detail"})
 public class HoaDonServlet extends HttpServlet {
@@ -27,7 +32,8 @@ public class HoaDonServlet extends HttpServlet {
     }
 
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("listHoaDon", hoaDonRepository.findAll());
+           List<HoaDonChiTietUserViewModel> listHoaDon = hoaDonRepository.findAll();
+        request.setAttribute("listHoaDon", listHoaDon);
         request.setAttribute("view_hoaDon", "/views/admin/hoaDon/index.jsp");
         request.getRequestDispatcher("/views/admin/layout.jsp").forward(request, response);
     }

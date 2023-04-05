@@ -10,7 +10,7 @@
 </h1>
 <br/>
 <div class="container">
-    <a href="/Assignment_Sof3011_war_exploded/views/admin/layout.jsp"><button class="btn btn-primary col-8 offset-2">Layout Admin</button></a>
+    <a href="/Assignment_Sof3011_war_exploded/san-pham/index"><button class="btn btn-primary col-8 offset-2">Layout Admin</button></a>
     <form action="/Assignment_Sof3011_war_exploded/SanPhamUserServlet" method="get">
        <button class="btn btn-primary col-8 offset-2 mt-3">Layout User </button>
     </form>
